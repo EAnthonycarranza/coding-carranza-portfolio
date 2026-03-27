@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -19,9 +20,18 @@ export default function Navbar() {
     <nav className="bg-foreground text-background sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            <span className="text-accent">&lt;</span>Coding Carranza
-            <span className="text-accent"> /&gt;</span>
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/images/logo.png"
+              alt="Coding Carranza Logo"
+              width={40}
+              height={40}
+              className="rounded"
+            />
+            <span className="text-xl font-bold tracking-tight">
+              <span className="text-accent">&lt;</span>Coding Carranza
+              <span className="text-accent"> /&gt;</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}

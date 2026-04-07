@@ -1,27 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import getDb from "@/lib/db";
 import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/lib/projects-data";
 
-interface Project {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  image_url: string | null;
-  technologies: string | null;
-  project_url: string | null;
-}
-
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export default function Home() {
-  const db = getDb();
-  const featuredProjects = db
-    .prepare(
-      "SELECT id, title, slug, description, image_url, technologies, project_url FROM projects WHERE featured = 1 ORDER BY created_at DESC LIMIT 6"
-    )
-    .all() as Project[];
+  const featuredProjects = projects
+    .filter((p) => p.featured)
+    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+    .slice(0, 6);
 
   return (
     <>

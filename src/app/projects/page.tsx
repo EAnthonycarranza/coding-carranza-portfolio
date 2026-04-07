@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import getDb from "@/lib/db";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
+import { projects as allProjects } from "@/lib/projects-data";
 
 export const metadata: Metadata = {
   title: "Projects | Coding Carranza",
   description: "Browse web development projects by Anthony Carranza.",
 };
 
-export const dynamic = "force-dynamic";
-
-interface Project {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  image_url: string | null;
-  technologies: string | null;
-  project_url: string | null;
-}
+export const dynamic = "force-static";
 
 export default async function ProjectsPage({
   searchParams,
@@ -30,15 +20,8 @@ export default async function ProjectsPage({
   const limit = 6;
   const offset = (currentPage - 1) * limit;
 
-  const db = getDb();
-  const projects = db
-    .prepare(
-      "SELECT id, title, slug, description, image_url, technologies, project_url FROM projects ORDER BY created_at DESC LIMIT ? OFFSET ?"
-    )
-    .all(limit, offset) as Project[];
-
-  const totalResult = db.prepare("SELECT COUNT(*) as count FROM projects").get() as { count: number };
-  const totalProjects = totalResult.count;
+  const projects = allProjects.slice(offset, offset + limit);
+  const totalProjects = allProjects.length;
   const totalPages = Math.ceil(totalProjects / limit);
 
   const getGridClasses = (count: number) => {

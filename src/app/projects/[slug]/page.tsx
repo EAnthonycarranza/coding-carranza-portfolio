@@ -1,25 +1,13 @@
 import { notFound } from "next/navigation";
-import getDb from "@/lib/db";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import React from "react";
+import AccessibilityMenu from "@/components/AccessibilityMenu";
+import { projects } from "@/lib/projects-data";
 
-interface Project {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  long_description: string | null;
-  client_name: string | null;
-  project_url: string | null;
-  image_url: string | null;
-  technologies: string | null;
-  created_at: string;
-}
-
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export async function generateMetadata({
   params,
@@ -27,10 +15,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const db = getDb();
-  const project = db
-    .prepare("SELECT title, description FROM projects WHERE slug = ?")
-    .get(slug) as { title: string; description: string } | undefined;
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) return { title: "Project Not Found" };
   return {
@@ -45,10 +30,7 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const db = getDb();
-  const project = db
-    .prepare("SELECT * FROM projects WHERE slug = ?")
-    .get(slug) as Project | undefined;
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) notFound();
 
@@ -247,6 +229,8 @@ export default async function ProjectDetailPage({
           </Link>
         </div>
       </section>
+
+      <AccessibilityMenu audioText={longDesc} />
     </>
   );
 }

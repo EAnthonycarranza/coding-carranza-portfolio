@@ -18,9 +18,25 @@ export async function generateMetadata({
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) return { title: "Project Not Found" };
+  
+  const ogImage = project.image_url || "/images/anthony.png";
+
   return {
     title: `${project.title} | Case Study`,
     description: project.description,
+    openGraph: {
+      title: `${project.title} | Coding Carranza Case Study`,
+      description: project.description,
+      url: `https://www.codingcarranza.com/projects/${slug}`,
+      type: "article",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Case Study`,
+      description: project.description,
+      images: [ogImage],
+    },
   };
 }
 
@@ -34,6 +50,21 @@ export default async function ProjectDetailPage({
 
   if (!project) notFound();
 
+  // JSON-LD structured data for project
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.title,
+    "description": project.description,
+    "url": `https://www.codingcarranza.com/projects/${slug}`,
+    "image": project.image_url,
+    "creator": {
+      "@type": "Person",
+      "name": "Anthony Carranza"
+    },
+    "keywords": project.technologies
+  };
+
   const techs = project.technologies
     ? project.technologies.split(",").map((t) => t.trim())
     : [];
@@ -42,6 +73,10 @@ export default async function ProjectDetailPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 bg-hero-bg text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />

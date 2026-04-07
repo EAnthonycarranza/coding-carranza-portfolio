@@ -16,9 +16,48 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Coding Carranza | Web Development for Small Businesses",
-  description:
-    "Anthony Carranza builds professional websites and web applications for small businesses and organizations.",
+  metadataBase: new URL("https://www.codingcarranza.com"),
+  title: {
+    default: "Coding Carranza | Premium Web Development for Small Businesses",
+    template: "%s | Coding Carranza"
+  },
+  description: "Anthony Carranza builds high-performance Next.js websites and MERN applications for small businesses. Specializing in SEO-optimized, conversion-focused web experiences.",
+  keywords: ["Web Development", "Next.js", "Small Business Website", "Anthony Carranza", "Full Stack Developer", "MERN Stack", "SEO Optimization"],
+  authors: [{ name: "Anthony Carranza" }],
+  creator: "Anthony Carranza",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.codingcarranza.com",
+    title: "Coding Carranza | Premium Web Development",
+    description: "Custom web solutions that drive growth for small businesses. High-performance, SEO-optimized, and built to convert.",
+    siteName: "Coding Carranza",
+    images: [
+      {
+        url: "/images/anthony.png",
+        width: 1200,
+        height: 630,
+        alt: "Coding Carranza Portfolio"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Coding Carranza | Premium Web Development",
+    description: "Anthony Carranza builds high-performance Next.js websites for small businesses.",
+    images: ["/images/anthony.png"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({

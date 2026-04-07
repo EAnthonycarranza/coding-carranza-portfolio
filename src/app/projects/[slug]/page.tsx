@@ -127,9 +127,9 @@ export default async function ProjectDetailPage({
                           textContent = firstChild;
                         } else if (
                           React.isValidElement(firstChild) && 
-                          typeof firstChild.props.children === "string"
+                          typeof (firstChild.props as any).children === "string"
                         ) {
-                          textContent = firstChild.props.children;
+                          textContent = (firstChild.props as any).children;
                         }
 
                         if (textContent.startsWith("Challenge:")) {

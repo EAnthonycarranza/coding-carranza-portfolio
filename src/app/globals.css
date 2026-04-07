@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a; /* Slate 900 */
+  --accent: #10b981; /* Emerald 500 */
+  --accent-dark: #059669; /* Emerald 600 */
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(226, 232, 240, 0.8); /* Slate 200 */
+  --muted: #64748b; /* Slate 500 */
+  --hero-bg: #020617; /* Slate 950 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-hero-bg: var(--hero-bg);
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Section titles with subtle underline */
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Smooth transitions for links and buttons */
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hero text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+a {
+  text-decoration: none;
+}

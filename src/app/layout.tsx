@@ -1,0 +1,42 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import AccessibilityMenu from "@/components/AccessibilityMenu";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Coding Carranza | Web Development for Small Businesses",
+  description:
+    "Anthony Carranza builds professional websites and web applications for small businesses and organizations.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <AccessibilityMenu />
+      </body>
+    </html>
+  );
+}

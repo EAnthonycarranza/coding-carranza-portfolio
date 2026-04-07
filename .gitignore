@@ -41,7 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # database
-*.db
+# *.db (uncommenting to allow deployment of seed data)
 *.db-wal
 *.db-shm
 

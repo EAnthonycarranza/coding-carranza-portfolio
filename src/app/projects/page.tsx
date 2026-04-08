@@ -141,7 +141,7 @@ export default async function ProjectsPage({
                   className="object-cover"
                 />
               </div>
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-white overflow-hidden">
                 <Image 
                   src="https://storage.googleapis.com/carranzarestorationllc/Carranza%20Restoration.d619e97f6f8dee49a662.png"
                   alt="Carranza Restoration Logo"

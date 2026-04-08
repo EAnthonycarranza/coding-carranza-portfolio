@@ -70,7 +70,7 @@ Manually managing consultation requests and project updates was becoming a bottl
 I built a backend with Node.js and Express that uses Nodemailer with Juice for professional, CSS-inlined email templates. This system automatically notifies both the client and the admin team when a new inquiry is submitted, ensuring no lead is missed and maintaining a high level of professional communication.`,
     client_name: "Carranza Restoration LLC",
     project_url: "https://www.carranzarestoration.com/",
-    image_url: "https://storage.googleapis.com/carranzarestorationllc/Carranza%20Restoration.d619e97f6f8dee49a662.png",
+    image_url: "https://storage.googleapis.com/carranzarestorationllc/Carranza.png",
     technologies: "React, Node.js, Express, Bootstrap, Sass, Square SDK, Nodemailer, Google APIs",
     featured: true,
     created_at: "2026-04-08 10:00:00"

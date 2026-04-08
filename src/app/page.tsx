@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center bg-hero-bg text-white overflow-hidden pt-20">
+      <section className="relative min-h-[90vh] flex items-center bg-hero-bg text-white overflow-hidden pt-32 lg:pt-20">
         {/* Ambient Glows */}
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />

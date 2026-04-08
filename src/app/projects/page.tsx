@@ -143,7 +143,7 @@ export default async function ProjectsPage({
               </div>
               <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
                 <Image 
-                  src="https://lh3.googleusercontent.com/a-/ALV-UjUz45V8tmU6Ujkn_nPy5Ac16du4Bo7XJRvLYbpXU4jSG1io5ic=s80-p"
+                  src="https://storage.googleapis.com/carranzarestorationllc/Carranza%20Restoration.d619e97f6f8dee49a662.png"
                   alt="Carranza Restoration Logo"
                   fill
                   sizes="48px"

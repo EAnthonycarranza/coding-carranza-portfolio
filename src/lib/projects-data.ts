@@ -82,7 +82,7 @@ Several sections used dark, high-contrast background images (e.g., the Appointme
 I applied utility classes and targeted CSS overrides to ensure text elements automatically switch to light colors when placed over dark hero sections, maintaining high accessibility and readability standards.`,
     client_name: "Carranza Restoration LLC",
     project_url: "https://www.carranzarestoration.com",
-    image_url: "https://storage.googleapis.com/carranzarestorationllc/Carranza.png",
+    image_url: "https://storage.googleapis.com/carranzarestorationllc/Untitled%20design%20(90).png",
     technologies: "React 18, Node.js, Express, MongoDB, Passport.js, Google Cloud Storage, JobNimbus API, Recharts, Bootstrap 5",
     featured: true,
     created_at: "2026-04-08 10:00:00"

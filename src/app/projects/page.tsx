@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
+import Image from "next/image";
 import { projects as allProjects } from "@/lib/projects-data";
 
 export const metadata: Metadata = {
@@ -122,6 +123,51 @@ export default async function ProjectsPage({
             business. The attention to detail and performance optimization was 
             beyond what we expected from a solo developer.&rdquo;
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-32 relative overflow-hidden bg-slate-50/50">
+        <div className="absolute inset-0 bg-accent/5 -z-10" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block p-4 bg-white rounded-3xl shadow-xl mb-8">
+            <div className="flex -space-x-3 overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+                <Image 
+                  src="https://themilkandhoney.co/static/media/Logo.c6eabcf5c49deefa02f7.png"
+                  alt="Milk & Honey Logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+                <Image 
+                  src="https://lh3.googleusercontent.com/a-/ALV-UjUz45V8tmU6Ujkn_nPy5Ac16du4Bo7XJRvLYbpXU4jSG1io5ic=s80-p"
+                  alt="Carranza Restoration Logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              {[1, 2].map((i) => (
+                <div key={i} className="inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200" />
+              ))}
+            </div>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-slate-500 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+            Whether you have a fully-formed idea or just the beginnings of a vision, 
+            I&apos;m here to help you bring it to life.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/30 transition-all hover:-translate-y-1 hover:shadow-accent/40"
+          >
+            Let&apos;s Build Something Great
+          </Link>
         </div>
       </section>
     </>

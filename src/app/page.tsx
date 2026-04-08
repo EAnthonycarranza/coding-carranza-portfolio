@@ -201,7 +201,16 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              {[1, 2, 3].map((i) => (
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+                <Image 
+                  src="https://lh3.googleusercontent.com/a-/ALV-UjUz45V8tmU6Ujkn_nPy5Ac16du4Bo7XJRvLYbpXU4jSG1io5ic=s80-p"
+                  alt="Carranza Restoration Logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              {[1, 2].map((i) => (
                 <div key={i} className="inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200" />
               ))}
             </div>

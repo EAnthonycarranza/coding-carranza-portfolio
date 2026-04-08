@@ -43,5 +43,36 @@ I integrated a dedicated quote request system with real-time email notifications
     technologies: "React 18, Node.js, Express, MongoDB, Google Cloud Storage, Tailwind CSS, JWT",
     featured: true,
     created_at: "2026-04-07 17:50:35"
+  },
+  {
+    id: 2,
+    title: "Carranza Restoration LLC",
+    slug: "carranza-restoration",
+    description: "A professional home restoration and improvement platform that provides expert estimates, renovations, and project management services through a modern, full-stack web application.",
+    long_description: `Carranza Restoration LLC serves as a comprehensive digital gateway for homeowners seeking high-quality restoration and renovation services. The platform is designed to transform client visions into reality by offering a detailed exploration of services and an interactive portfolio showcasing completed projects.
+
+**Challenge: Modernizing Client Engagement**
+Homeowners needed a more interactive way to explore restoration options and receive accurate estimates without the traditional friction of back-and-forth calls.
+
+**Solution: Integrated Estimation & Portfolio System**
+I developed a custom estimation tool paired with a dynamic project portfolio. By utilizing React and Bootstrap, I ensured a responsive, high-impact visual experience that works seamlessly across all devices, including PWA support for offline accessibility.
+
+**Challenge: Secure Payment Processing**
+The business required a reliable and secure method to handle deposits and final payments directly through the platform.
+
+**Solution: Square SDK Integration**
+I implemented the React Square Web Payments SDK to handle secure, PCI-compliant transactions. This integration provides a professional and trustworthy checkout experience for clients while streamlining the company’s financial workflow.
+
+**Challenge: Automated Consultation Management**
+Manually managing consultation requests and project updates was becoming a bottleneck for the small team.
+
+**Solution: Automated Communication Pipeline**
+I built a backend with Node.js and Express that uses Nodemailer with Juice for professional, CSS-inlined email templates. This system automatically notifies both the client and the admin team when a new inquiry is submitted, ensuring no lead is missed and maintaining a high level of professional communication.`,
+    client_name: "Carranza Restoration LLC",
+    project_url: "https://www.carranzarestoration.com/",
+    image_url: "https://lh3.googleusercontent.com/a-/ALV-UjUz45V8tmU6Ujkn_nPy5Ac16du4Bo7XJRvLYbpXU4jSG1io5ic=s80-p",
+    technologies: "React, Node.js, Express, Bootstrap, Sass, Square SDK, Nodemailer, Google APIs",
+    featured: true,
+    created_at: "2026-04-08 10:00:00"
   }
 ];

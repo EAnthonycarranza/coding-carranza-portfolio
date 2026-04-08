@@ -49,7 +49,7 @@ I integrated a dedicated quote request system with real-time email notifications
     title: "Carranza Restoration LLC",
     slug: "carranza-restoration",
     description: "A leading platform dedicated to home restoration and improvement services, specializing in expert estimates and meticulous renovations.",
-    **Carranza Restoration LLC** is a leading platform dedicated to home restoration and improvement services. We specialize in transforming visions into reality with our expert estimates, meticulous renovations, and detailed project management. Visit us at [carranzarestoration.com](https://www.carranzarestoration.com).
+    long_description: `**Carranza Restoration LLC** is a leading platform dedicated to home restoration and improvement services. We specialize in transforming visions into reality with our expert estimates, meticulous renovations, and detailed project management. Visit us at [carranzarestoration.com](https://www.carranzarestoration.com).
 
 **Challenge: Mobile UI Responsiveness & Navigation**
 The initial mobile navigation suffered from alignment issues, particularly with nested "Pages" dropdowns, and lacked visual feedback for the menu state.

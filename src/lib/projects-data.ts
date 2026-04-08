@@ -49,7 +49,7 @@ I integrated a dedicated quote request system with real-time email notifications
     title: "Carranza Restoration LLC",
     slug: "carranza-restoration",
     description: "A leading platform dedicated to home restoration and improvement services, specializing in expert estimates and meticulous renovations.",
-    long_description: `Carranza Restoration LLC is a leading platform dedicated to home restoration and improvement services. We specialize in transforming visions into reality with our expert estimates, meticulous renovations, and detailed project management.
+    **Carranza Restoration LLC** is a leading platform dedicated to home restoration and improvement services. We specialize in transforming visions into reality with our expert estimates, meticulous renovations, and detailed project management. Visit us at [carranzarestoration.com](https://www.carranzarestoration.com).
 
 **Challenge: Mobile UI Responsiveness & Navigation**
 The initial mobile navigation suffered from alignment issues, particularly with nested "Pages" dropdowns, and lacked visual feedback for the menu state.
@@ -81,7 +81,7 @@ Several sections used dark, high-contrast background images (e.g., the Appointme
 **Solution: Intelligent CSS Overrides**
 I applied utility classes and targeted CSS overrides to ensure text elements automatically switch to light colors when placed over dark hero sections, maintaining high accessibility and readability standards.`,
     client_name: "Carranza Restoration LLC",
-    project_url: "https://carranzarestoration.org",
+    project_url: "https://www.carranzarestoration.com",
     image_url: "https://storage.googleapis.com/carranzarestorationllc/Carranza.png",
     technologies: "React 18, Node.js, Express, MongoDB, Passport.js, Google Cloud Storage, JobNimbus API, Recharts, Bootstrap 5",
     featured: true,

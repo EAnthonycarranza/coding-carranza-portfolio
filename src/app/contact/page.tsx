@@ -105,14 +105,16 @@ export default function ContactPage() {
 
             {/* Right Column: Contact Form */}
             <div className="lg:col-span-7">
-              <div className="text-center lg:text-left mb-8 px-4">
-                <h2 className="text-3xl font-bold text-slate-900 lg:text-white mb-4">Send a Message</h2>
-                <p className="text-slate-500 lg:text-slate-300 max-w-lg">
-                  Fill out the form below and I&apos;ll get back to you as soon as 
-                  possible to discuss your project.
-                </p>
+              <div className="glass p-8 sm:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl">
+                <div className="text-center mb-8 px-4">
+                  <h2 className="text-3xl font-bold text-slate-900 mb-4">Send a Message</h2>
+                  <p className="text-slate-500 max-w-lg mx-auto">
+                    Fill out the form below and I&apos;ll get back to you as soon as 
+                    possible to discuss your project.
+                  </p>
+                </div>
+                <ContactForm />
               </div>
-              <ContactForm />
             </div>
 
           </div>

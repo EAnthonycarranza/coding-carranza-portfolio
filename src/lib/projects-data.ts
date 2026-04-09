@@ -86,5 +86,38 @@ I applied utility classes and targeted CSS overrides to ensure text elements aut
     technologies: "React 18, Node.js, Express, MongoDB, Passport.js, Google Cloud Storage, JobNimbus API, Recharts, Bootstrap 5",
     featured: true,
     created_at: "2026-04-08 10:00:00"
+  },
+  {
+    id: 3,
+    title: "Carranza Wedding 2025",
+    slug: "carranza-wedding-2025",
+    description: "A comprehensive, guest-centric wedding platform featuring a secure RSVP system, interactive travel guides, and a high-performance photo gallery.",
+    long_description: `A comprehensive, guest-centric wedding platform built to provide a seamless experience for attendees. The application features a secure RSVP system, interactive travel guides for San Antonio, integrated lodging recommendations, and a high-performance photo gallery with bulk download capabilities.
+
+**Demo Note:** To view the live site, click on **"Explore Guest Demo"** to bypass the password requirement. Please note that some features (like live Airbnb/Hotel APIs) now use high-fidelity visual placeholders to emulate functionality without external subscription costs.
+
+**Challenge: CORS Restrictions on Bulk Downloads**
+When trying to fetch images from Google Cloud Storage to create a .zip file, the browser blocked requests due to missing CORS headers.
+
+**Solution: Server-Side Image Proxying**
+I built a backend proxy endpoint that uses axios to stream binary data directly from GCS to the client. This secure bridge satisfies browser security policies while allowing users to download high-resolution galleries in bulk.
+
+**Challenge: Visual Fidelity Without Assets**
+Transitioning to a demo version required removing many specific listing images to keep the application lightweight without sacrificing the "premium" feel.
+
+**Solution: Typography-Centric Design**
+I refactored the UI from an image-centric layout to a typography-centric one. Using Material UI (MUI) Cards with distinct border-left accents and modern CSS gradients, I ensured the pages looked polished and functional even without external photos.
+
+**Challenge: Managing Asynchronous Progress**
+Downloading 20+ high-resolution photos (~200MB) is a time-consuming process that often left users wondering if the action had failed.
+
+**Solution: Real-Time State Machine**
+I implemented a Backdrop state machine that provides immediate visual confirmation and a real-time progress counter (e.g., "Downloading 5 of 21..."), ensuring a transparent and user-friendly experience during large data operations.`,
+    client_name: "Personal Project",
+    project_url: "https://wedding2025-af469056c3d2.herokuapp.com/",
+    image_url: "https://storage.googleapis.com/carranzawedding/logo192%202.png",
+    technologies: "React 18, Material UI (MUI), Node.js, Express, MongoDB, Google Cloud Storage, JWT, React-Leaflet",
+    featured: true,
+    created_at: "2026-04-08 14:00:00"
   }
 ];

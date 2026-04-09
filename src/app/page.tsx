@@ -210,10 +210,20 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              {[1, 2].map((i) => (
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+                <Image 
+                  src="https://storage.googleapis.com/carranzawedding/logo192%202.png"
+                  alt="Carranza Wedding Logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              {[1].map((i) => (
                 <div key={i} className="inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200" />
               ))}
-            </div>
+              </div>
+
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">
             Ready to Build Your Digital Future?

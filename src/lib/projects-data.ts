@@ -115,7 +115,7 @@ Downloading 20+ high-resolution photos (~200MB) is a time-consuming process that
 I implemented a Backdrop state machine that provides immediate visual confirmation and a real-time progress counter (e.g., "Downloading 5 of 21..."), ensuring a transparent and user-friendly experience during large data operations.`,
     client_name: "Personal Project",
     project_url: "https://wedding2025-af469056c3d2.herokuapp.com/",
-    image_url: "https://storage.googleapis.com/carranzawedding/logo192%202.png",
+    image_url: "https://storage.googleapis.com/carranzawedding/Gemini_Generated_Image_5impgv5impgv5imp.png",
     technologies: "React 18, Material UI (MUI), Node.js, Express, MongoDB, Google Cloud Storage, JWT, React-Leaflet",
     featured: true,
     created_at: "2026-04-08 14:00:00"

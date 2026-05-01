@@ -1,0 +1,173 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  /* Surfaces */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --surface-deep: #0a0c10;
+  --surface-dark: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(226, 232, 240, 0.8);
+  --hero-bg: #020617;
+  --muted: #64748b;
+
+  /* Brand accent (emerald) — identity, primary CTAs */
+  --accent: #10b981;
+  --accent-dark: #059669;
+  --accent-soft: rgba(16, 185, 129, 0.08);
+
+  /* Secondary accent (indigo) — fintech / demo surfaces */
+  --accent-secondary: #6366f1;
+  --accent-secondary-dark: #4f46e5;
+  --accent-secondary-soft: rgba(99, 102, 241, 0.08);
+
+  /* Semantic */
+  --danger: #ef4444;
+  --danger-soft: rgba(239, 68, 68, 0.08);
+  --warn: #f59e0b;
+  --positive: #10b981;
+
+  /* Radii */
+  --radius-control: 0.75rem;
+  --radius-card: 1.5rem;
+  --radius-card-lg: 2rem;
+  --radius-pill: 2.5rem;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --ease-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface-deep: var(--surface-deep);
+  --color-surface-dark: var(--surface-dark);
+  --color-hero-bg: var(--hero-bg);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-secondary-dark: var(--accent-secondary-dark);
+  --color-accent-secondary-soft: var(--accent-secondary-soft);
+
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warn: var(--warn);
+  --color-positive: var(--positive);
+
+  --radius-control: var(--radius-control);
+  --radius-card: var(--radius-card);
+  --radius-card-lg: var(--radius-card-lg);
+  --radius-pill: var(--radius-pill);
+
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: 1;
+
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+a, button {
+  transition: color var(--duration-base) var(--ease-emphasized),
+              background-color var(--duration-base) var(--ease-emphasized),
+              border-color var(--duration-base) var(--ease-emphasized),
+              transform var(--duration-base) var(--ease-emphasized),
+              box-shadow var(--duration-base) var(--ease-emphasized),
+              filter var(--duration-base) var(--ease-emphasized);
+}
+
+button:not(:disabled),
+a[href],
+[role="button"]:not([aria-disabled="true"]),
+[role="switch"]:not([aria-disabled="true"]),
+[role="tab"]:not([aria-disabled="true"]),
+[role="radio"]:not([aria-disabled="true"]),
+summary,
+label[for] {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+input:not([disabled]):hover,
+textarea:not([disabled]):hover,
+select:not([disabled]):hover {
+  border-color: rgb(148 163 184);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+a {
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+#card-container {
+  min-height: 80px;
+}
+.sq-card-wrapper {
+  border: none !important;
+}

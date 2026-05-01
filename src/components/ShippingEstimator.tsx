@@ -111,39 +111,39 @@ export default function ShippingEstimator() {
 
   if (transaction) {
     return (
-      <div className="bg-slate-900/80 backdrop-blur-sm p-12 rounded-card-lg border border-white/10 text-center space-y-8 animate-in zoom-in-95 duration-500 shadow-2xl max-w-2xl mx-auto">
-        <div className="w-24 h-24 bg-accent/15 rounded-pill flex items-center justify-center mx-auto ring-1 ring-accent/30 shadow-inner shadow-accent/20" aria-hidden="true">
-          <svg className="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-slate-900/80 backdrop-blur-sm p-6 sm:p-12 rounded-card-lg border border-white/10 text-center space-y-6 sm:space-y-8 animate-in zoom-in-95 duration-500 shadow-2xl max-w-2xl mx-auto">
+        <div className="w-16 h-16 sm:w-24 sm:h-24 bg-accent/15 rounded-pill flex items-center justify-center mx-auto ring-1 ring-accent/30 shadow-inner shadow-accent/20" aria-hidden="true">
+          <svg className="w-8 h-8 sm:w-12 sm:h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
           </svg>
         </div>
         <div>
-          <h2 className="text-4xl font-black mb-3 text-white">Fulfillment Ready!</h2>
-          <p className="text-slate-400 text-lg">Label has been generated for your order.</p>
+          <h2 className="text-2xl sm:text-4xl font-black mb-2 sm:mb-3 text-white">Fulfillment Ready!</h2>
+          <p className="text-slate-400 text-base sm:text-lg">Label has been generated for your order.</p>
         </div>
 
-        <div className="bg-black/40 p-8 rounded-card border border-white/10 text-left space-y-6">
+        <div className="bg-black/40 p-5 sm:p-8 rounded-card border border-white/10 text-left space-y-4 sm:space-y-6">
           <div>
             <div className="text-xxs uppercase tracking-[0.2em] text-slate-400 font-black">Tracking Number</div>
-            <div className="text-2xl font-mono text-white mt-1">{transaction.trackingNumber}</div>
+            <div className="text-lg sm:text-2xl font-mono text-white mt-1 break-all sm:break-normal">{transaction.trackingNumber}</div>
           </div>
           <div>
             <div className="text-xxs uppercase tracking-[0.2em] text-slate-400 font-black">Status</div>
-            <div className="text-base text-slate-200 flex items-center gap-2 mt-1 font-bold" role="status">
-              <span aria-hidden="true" className="w-3 h-3 rounded-pill bg-accent animate-pulse"></span>
+            <div className="text-sm sm:text-base text-slate-200 flex items-center gap-2 mt-1 font-bold" role="status">
+              <span aria-hidden="true" className="w-2 h-2 sm:w-3 sm:h-3 rounded-pill bg-accent animate-pulse"></span>
               {transaction.status}
             </div>
           </div>
         </div>
 
-        <div className="grid gap-4">
+        <div className="grid gap-3 sm:gap-4">
           <a
             href={transaction.labelUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-5 bg-accent hover:bg-accent-dark text-white rounded-card transition-colors font-bold shadow-xl shadow-accent/20 flex items-center justify-center gap-3 text-lg"
+            className="w-full py-4 sm:py-5 bg-accent hover:bg-accent-dark text-white rounded-card transition-colors font-bold shadow-xl shadow-accent/20 flex items-center justify-center gap-3 text-base sm:text-lg"
           >
-            <svg aria-hidden="true" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
             View Shipping Label
@@ -151,7 +151,7 @@ export default function ShippingEstimator() {
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="text-slate-400 hover:text-white font-bold text-sm transition-colors"
+            className="text-slate-400 hover:text-white font-bold text-xs sm:text-sm transition-colors py-2"
           >
             Start New Shipment
           </button>

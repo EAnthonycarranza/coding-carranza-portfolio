@@ -44,7 +44,7 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
         const cardInstance = await instance.card({
           style: {
             input: {
-              color: '#f1f5f9',
+              color: '#000000',
               fontSize: '16px',
             },
             '.input-container': {

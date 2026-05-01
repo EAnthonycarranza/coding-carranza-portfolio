@@ -221,31 +221,31 @@ function PaymentDemoContent() {
           {/* Right: Payment Interface */}
           <div className="lg:col-span-7 animate-in slide-in-from-right duration-1000">
             {paymentStatus === 'success' ? (
-              <div className="bg-white p-6 sm:p-12 lg:p-16 rounded-2xl sm:rounded-card-lg border border-slate-200 text-center space-y-5 sm:space-y-6 shadow-2xl relative overflow-hidden">
-                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-emerald-50 rounded-full flex items-center justify-center mx-auto border border-emerald-100 shadow-inner">
+              <div className="bg-slate-950 p-6 sm:p-12 lg:p-16 rounded-2xl sm:rounded-card-lg border border-white/10 text-center space-y-5 sm:space-y-6 shadow-2xl relative overflow-hidden">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto border border-emerald-500/20 shadow-inner">
                   <i className="fas fa-check text-2xl sm:text-4xl text-emerald-500"></i>
                 </div>
                 <div>
-                  <h2 className="text-2xl sm:text-4xl font-black mb-2 text-slate-900 tracking-tight">Payment Complete!</h2>
-                  <p className="text-slate-500 font-medium text-sm sm:text-base">Transaction recorded in the sandbox.</p>
+                  <h2 className="text-2xl sm:text-4xl font-black mb-2 text-white tracking-tight">Payment Complete!</h2>
+                  <p className="text-slate-400 font-medium text-sm sm:text-base">Transaction recorded in the sandbox.</p>
                 </div>
                 
-                <div className="bg-slate-50 p-6 rounded-card border border-slate-100 text-left space-y-3 max-w-md mx-auto w-full">
-                  <div className="flex justify-between items-center text-slate-600">
+                <div className="bg-white/5 p-6 rounded-card border border-white/5 text-left space-y-3 max-w-md mx-auto w-full">
+                  <div className="flex justify-between items-center text-slate-400">
                     <span className="font-bold uppercase tracking-widest text-xxs opacity-60">Authorized</span>
-                    <span className="text-slate-900 font-bold text-xs">{new Date().toLocaleString()}</span>
+                    <span className="text-slate-200 font-bold text-xs">{new Date().toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between items-center pt-3 border-t border-slate-200">
+                  <div className="flex justify-between items-center pt-3 border-t border-white/5">
                     <span className="font-bold uppercase tracking-widest text-xxs opacity-60">Status</span>
                     <span className="bg-emerald-500 text-white px-3 py-1 rounded-full text-xxs font-black uppercase tracking-widest">PAID</span>
                   </div>
                 </div>
 
                 {/* Email Receipt Section */}
-                <div className="max-w-md mx-auto w-full bg-indigo-50 border border-indigo-100 rounded-2xl p-6 text-left">
-                  <p className="text-xxs font-black text-indigo-900 uppercase tracking-widest mb-3"><i className="fas fa-envelope mr-2"></i>Send Paid Receipt</p>
+                <div className="max-w-md mx-auto w-full bg-indigo-500/10 border border-indigo-500/20 rounded-2xl p-6 text-left">
+                  <p className="text-xxs font-black text-indigo-300 uppercase tracking-widest mb-3"><i className="fas fa-envelope mr-2"></i>Send Paid Receipt</p>
                   {receiptSent ? (
-                    <div className="flex items-center gap-3 text-emerald-600 font-bold text-sm">
+                    <div className="flex items-center gap-3 text-emerald-400 font-bold text-sm">
                       <i className="fas fa-circle-check text-lg"></i>
                       <span>Receipt sent to <strong>{receiptEmail}</strong>!</span>
                     </div>
@@ -259,7 +259,7 @@ function PaymentDemoContent() {
                         value={receiptEmail}
                         onChange={(e) => setReceiptEmail(e.target.value)}
                         autoComplete="email"
-                        className="flex-1 px-4 py-3 rounded-control border border-accent-secondary/30 bg-white text-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-accent-secondary/30 placeholder:text-slate-400 transition-[border-color,box-shadow]"
+                        className="flex-1 px-4 py-3 rounded-control border border-white/10 bg-black/40 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-accent-secondary/30 placeholder:text-slate-500 transition-[border-color,box-shadow]"
                       />
                       <button
                         onClick={sendReceiptEmail}
@@ -271,12 +271,12 @@ function PaymentDemoContent() {
                       </button>
                     </div>
                   )}
-                  <p className="text-indigo-400 text-xxs mt-2 font-medium">Optional — receive a professional PAID invoice receipt via email.</p>
+                  <p className="text-indigo-400/80 text-xxs mt-2 font-medium">Optional — receive a professional PAID invoice receipt via email.</p>
                 </div>
 
                 <button 
                   onClick={resetPayment}
-                  className="max-w-md mx-auto w-full py-5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl transition-all font-black shadow-2xl shadow-slate-200 text-lg flex items-center justify-center gap-3"
+                  className="max-w-md mx-auto w-full py-5 bg-white/10 hover:bg-white/20 text-white rounded-2xl transition-all font-black border border-white/10 text-lg flex items-center justify-center gap-3"
                 >
                   <i className="fas fa-rotate-left"></i>
                   Reset Demo

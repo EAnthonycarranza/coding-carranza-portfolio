@@ -108,6 +108,15 @@ export default async function ProjectDetailPage({
               <span className="text-xs font-bold uppercase tracking-widest text-accent">Role</span>
               <span className="font-bold text-white">Full Stack Dev</span>
             </div>
+            {project.service_package ? (
+              <>
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-700 hidden sm:block" />
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-accent">Package</span>
+                  <span className="font-bold text-white">{project.service_package}</span>
+                </div>
+              </>
+            ) : null}
           </div>
         </div>
       </section>
@@ -115,13 +124,13 @@ export default async function ProjectDetailPage({
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {project.image_url && (
-            <div className="mb-24 rounded-pill overflow-hidden border border-slate-100 shadow-2xl aspect-[16/9] relative">
+            <div className={`mb-24 rounded-pill overflow-hidden border border-slate-100 shadow-2xl aspect-[16/9] relative ${project.image_fit === "contain" ? "bg-white" : ""}`}>
               <Image
                 src={project.image_url}
                 alt={project.title}
                 fill
                 sizes="(max-width: 1200px) 100vw, 1152px"
-                className="object-cover"
+                className={project.image_fit === "contain" ? "object-contain p-4 sm:p-8" : "object-cover"}
                 priority
               />
             </div>
@@ -143,10 +152,10 @@ export default async function ProjectDetailPage({
                         if (typeof firstChild === "string") {
                           textContent = firstChild;
                         } else if (
-                          React.isValidElement(firstChild) && 
-                          typeof (firstChild.props as any).children === "string"
+                          React.isValidElement<{ children?: React.ReactNode }>(firstChild) &&
+                          typeof firstChild.props.children === "string"
                         ) {
-                          textContent = (firstChild.props as any).children;
+                          textContent = firstChild.props.children;
                         }
 
                         if (textContent.startsWith("Challenge:")) {

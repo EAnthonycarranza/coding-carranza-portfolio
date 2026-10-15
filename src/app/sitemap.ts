@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.codingcarranza.com';
 
   // Base routes
-  const routes = ['', '/projects', '/about', '/contact'].map((route) => ({
+  const routes = ['', '/services', '/projects', '/about', '/contact'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,

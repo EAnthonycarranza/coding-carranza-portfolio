@@ -159,9 +159,15 @@ export default async function ProjectsPage({
                   className="object-cover"
                 />
               </div>
-              {[1].map((i) => (
-                <div key={i} className="inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200" />
-              ))}
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-white overflow-hidden">
+                <Image
+                  src="/images/bon-bons-sweets-logo.png"
+                  alt="Bon Bon's Sweets & More logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-0.5"
+                />
+              </div>
             </div>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">

@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export default function ContactForm() {
+export default function ContactForm({ initialMessage = "" }: { initialMessage?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
@@ -122,6 +122,7 @@ export default function ContactForm() {
           rows={6}
           required
           placeholder="Tell me about your project or vision..."
+          defaultValue={initialMessage}
         />
 
         <div ref={captchaRef} className="flex justify-center" />

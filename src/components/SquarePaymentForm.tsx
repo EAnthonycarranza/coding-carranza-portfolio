@@ -6,41 +6,74 @@ import Button from './ui/Button';
 
 interface SquarePaymentFormProps {
   amount: string;
-  onSuccess: (result: any) => void;
+  onSuccess: (result: unknown) => void;
   onError: (error: string) => void;
+}
+
+interface SquareCard {
+  attach: (container: HTMLElement) => Promise<void>;
+  destroy: () => Promise<void>;
+  tokenize: () => Promise<{
+    status: string;
+    token?: string;
+    errors?: { message: string }[];
+  }>;
+}
+
+interface SquarePayments {
+  card: (options: { style: Record<string, Record<string, string>> }) => Promise<SquareCard>;
 }
 
 declare global {
   interface Window {
-    Square: any;
+    Square?: {
+      payments: (appId: string, locationId: string) => SquarePayments;
+    };
   }
 }
 
 export default function SquarePaymentForm({ amount, onSuccess, onError }: SquarePaymentFormProps) {
-  const [payments, setPayments] = useState<any>(null);
-  const [card, setCard] = useState<any>(null);
+  const [card, setCard] = useState<SquareCard | null>(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [initializationError, setInitializationError] = useState('');
+  const [localCheckoutUrl, setLocalCheckoutUrl] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
-  const appId = process.env.NEXT_PUBLIC_SQUARE_APP_ID || 'sandbox-sq0idb-4wzY4PPEzWYoPk_iThnMqw';
+  const appId = process.env.NEXT_PUBLIC_SQUARE_APP_ID;
+  const locationId = process.env.NEXT_PUBLIC_SQUARE_LOCATION_ID;
 
   useEffect(() => {
-    if (!scriptLoaded || !window.Square || !cardContainerRef.current || payments) return;
+    const container = cardContainerRef.current;
+    if (!scriptLoaded || !container) return;
+
+    let disposed = false;
+    let initializedCard: SquareCard | undefined;
 
     async function initializeSquare() {
-      console.log('Initializing Square with App ID:', appId);
-      if (!window.Square) {
-        console.error('Square script not loaded yet');
-        return;
-      }
-
       try {
-        const instance = window.Square.payments(appId);
-        console.log('Square instance created');
-        setPayments(instance);
+        const { protocol, hostname } = window.location;
+        const isLocalhost = hostname === 'localhost' || hostname.endsWith('.localhost');
+        if (protocol !== 'https:' && !isLocalhost) {
+          if (hostname === '127.0.0.1' || hostname === '[::1]') {
+            const url = new URL(window.location.href);
+            url.hostname = 'localhost';
+            setLocalCheckoutUrl(url.href);
+          }
+          throw new Error('Square card payments require HTTPS or localhost.');
+        }
+        if (!window.isSecureContext) {
+          throw new Error('Square card payments require a secure browser context. Open this page using HTTPS.');
+        }
+        if (!window.Square) {
+          throw new Error('Square could not load. Please reload the payment form.');
+        }
+        if (!appId || !locationId) {
+          throw new Error('Square checkout is not configured. Please choose another payment provider.');
+        }
 
+        const instance = window.Square.payments(appId, locationId);
         const cardInstance = await instance.card({
           style: {
             input: {
@@ -71,50 +104,57 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
             },
           },
         });
-        console.log('Card instance created');
-        await cardInstance.attach('#card-container');
-        console.log('Card instance attached');
+        if (disposed) {
+          await cardInstance.destroy();
+          return;
+        }
+        initializedCard = cardInstance;
+        await cardInstance.attach(container!);
+        if (disposed) return;
         setCard(cardInstance);
         setLoading(false);
-      } catch (e: any) {
-        console.error('Failed to initialize Square:', e);
+      } catch (error) {
+        if (disposed) return;
         setLoading(false);
-        onError(`Square Error: ${e.message || 'Unknown initialization error'}`);
+        setInitializationError(error instanceof Error ? error.message : 'Square could not initialize. Please reload the payment form.');
       }
     }
 
-    initializeSquare();
-  }, [appId, onError, payments, scriptLoaded]);
+    void initializeSquare();
+    return () => {
+      disposed = true;
+      void initializedCard?.destroy().catch(() => {});
+    };
+  }, [appId, locationId, scriptLoaded]);
 
   const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!card || submitting) return;
+    if (!card || initializationError || submitting) return;
 
     setSubmitting(true);
     try {
       const result = await card.tokenize();
-      if (result.status === 'OK') {
+      if (result.status === 'OK' && result.token) {
         const response = await fetch('/api/pay', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             sourceId: result.token,
             amount: amount,
-            locationId: process.env.NEXT_PUBLIC_SQUARE_LOCATION_ID,
+            locationId,
           }),
         });
 
         const data = await response.json();
-        if (data.success) {
+        if (response.ok && data.success) {
           onSuccess(data.result);
         } else {
           onError(data.error || 'Payment failed');
         }
       } else {
-        onError(result.errors[0].message);
+        onError(result.errors?.[0]?.message || 'Card verification failed. Please check your card details.');
       }
-    } catch (e) {
-      console.error('Payment Error:', e);
+    } catch {
       onError('An unexpected error occurred.');
     } finally {
       setSubmitting(false);
@@ -124,10 +164,12 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
   return (
     <div className="w-full">
       <Script
+        id="square-web-payments"
         src="https://sandbox.web.squarecdn.com/v1/square.js"
-        onLoad={() => {
-          console.log('Square script loaded via next/script');
-          setScriptLoaded(true);
+        onReady={() => setScriptLoaded(true)}
+        onError={() => {
+          setLoading(false);
+          setInitializationError('Square could not load. Check your connection and reload the payment form.');
         }}
       />
       
@@ -158,12 +200,24 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
               </div>
             </div>
 
+            {initializationError && (
+              <div role="alert" className="rounded-control border border-warn/30 bg-warn/10 p-4 text-sm text-slate-200 space-y-3">
+                <p>{initializationError}</p>
+                {localCheckoutUrl && (
+                  <a href={localCheckoutUrl} className="inline-block font-semibold text-accent underline underline-offset-4">
+                    Open local checkout
+                  </a>
+                )}
+                <p>Hosted checkout is also available from the tabs above.</p>
+              </div>
+            )}
+
             <Button
               type="submit"
               variant="primary"
               size="lg"
               fullWidth
-              disabled={loading}
+              disabled={loading || !card || !!initializationError}
               loading={submitting}
               loadingLabel="Processing..."
             >

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
+import ServicesPreview from "@/components/ServicesPreview";
 import { projects } from "@/lib/projects-data";
 
 export const dynamic = "force-static";
@@ -154,6 +155,8 @@ export default function Home() {
         </div>
       </section>
 
+      <ServicesPreview />
+
       {/* Featured Projects */}
       {featuredProjects.length > 0 && (
         <section className="py-32 bg-slate-50">
@@ -219,9 +222,15 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              {[1].map((i) => (
-                <div key={i} className="inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200" />
-              ))}
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-white overflow-hidden">
+                <Image
+                  src="/images/bon-bons-sweets-logo.png"
+                  alt="Bon Bon's Sweets & More logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-0.5"
+                />
+              </div>
               </div>
 
           </div>

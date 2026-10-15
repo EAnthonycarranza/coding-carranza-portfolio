@@ -7,6 +7,8 @@ export interface Project {
   client_name: string | null;
   project_url: string | null;
   image_url: string | null;
+  image_fit?: "cover" | "contain";
+  service_package?: string;
   technologies: string | null;
   featured: boolean;
   created_at: string;
@@ -119,5 +121,44 @@ I implemented a Backdrop state machine that provides immediate visual confirmati
     technologies: "React 18, Material UI (MUI), Node.js, Express, MongoDB, Google Cloud Storage, JWT, React-Leaflet",
     featured: true,
     created_at: "2026-04-08 14:00:00"
+  },
+  {
+    id: 4,
+    title: "Bon Bon's Sweets",
+    slug: "bon-bons-sweets",
+    description: "A Growth Package website for a San Antonio treat business, with a flexible menu, custom boxes, pickup requests, and an owner-managed Shop Desk.",
+    long_description: `**Bon Bon's Sweets & More** brings handmade treats and celebration services to customers in San Antonio, Texas. Built through the **Growth Package**, the website pairs a branded, mobile-friendly storefront with the tools the owner needs to manage the business. Its promise, **Making Every Celebration Sweeter**, carries through the menu, custom boxes, and event cart-rental experience.
+
+**Challenge: A Menu That Changes With the Business**
+Handmade treats come in different flavors, pack sizes, and quantities. The site needed to support made-to-order products, mixed treat boxes, and limited weekly offerings while keeping prices and availability consistent throughout the customer journey.
+
+**Solution: Flexible Catalog and Custom Box Builder**
+I built a database-backed catalog with individual product pages, mix-and-match box selection, and a Box of the Week. Shared shop settings keep displayed prices consistent, while the server recalculates each request from the current menu and checks product availability before saving it.
+
+**Challenge: Turning Browsing Into Organized Pickup Requests**
+Customers needed a clear way to choose treats, share pickup preferences, and request a cake-pop cart for an event. The workflow also needed to reflect how the business operates: the owner confirms arrangements, and payment is settled directly rather than collected through an online payment gateway.
+
+**Solution: Guided Requests and Pickup Scheduling**
+I created a cart-to-request flow with customer notes, pickup dates and time slots, payment preferences, and email confirmations. A dedicated cart-rental form collects event details and party size. Requested pickup times stay separate from the owner's confirmed schedule, and a cash-at-pickup preference is recorded separately from a payment actually received.
+
+**Challenge: Keeping the Owner in Control**
+Updating flavors, product photos, prices, promotions, and incoming requests needed to be manageable without editing code or relying on a developer for each change.
+
+**Solution: The Shop Desk Dashboard**
+I developed a protected administrative workspace for managing the menu, weekly boxes, stock, coupons, events, and customer requests. Order stages, pickup schedules, and spreadsheet import and export bring day-to-day operations into one place. Public catalog access is separated from private customer and order records.
+
+**Challenge: Clear Communication From Request to Collection**
+The business needed to acknowledge requests, notify the owner, and send customers consistent pickup information and documents as an order moved through its stages.
+
+**Solution: Email Notifications and Branded Documents**
+I integrated Nodemailer with Gmail SMTP for customer confirmations and owner notifications, along with PDF pickup confirmations and paid invoices generated using pdf-lib. Google reCAPTCHA helps protect public request forms, while recorded payment states keep a customer's payment preference distinct from a completed payment.`,
+    client_name: "Bon Bon's Sweets & More",
+    project_url: "https://www.bonbonssweets.com",
+    image_url: "/images/bon-bons-sweets-logo.png",
+    image_fit: "contain",
+    service_package: "Growth Package",
+    technologies: "Next.js 15, React 19, JavaScript, CSS, Supabase PostgreSQL, Supabase Storage, Nodemailer, pdf-lib, Google reCAPTCHA, Heroku",
+    featured: true,
+    created_at: "2026-10-15T00:00:00-05:00"
   }
 ];

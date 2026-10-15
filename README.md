@@ -16,6 +16,8 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+For embedded Square payments, use [http://localhost:3000/demo/payment](http://localhost:3000/demo/payment) or HTTPS. Square's SDK rejects plain HTTP on `127.0.0.1`; the payment form provides an "Open local checkout" link if you arrive at that address. The local setup uses the Square Sandbox credentials from your ignored `.env` file.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

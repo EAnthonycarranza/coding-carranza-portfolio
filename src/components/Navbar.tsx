@@ -36,6 +36,16 @@ const links: NavLink[] = [
     ),
   },
   {
+    href: "/services",
+    label: "Services",
+    icon: (
+      <svg {...ICON_PROPS}>
+        <rect x="3" y="6" width="18" height="15" rx="2" />
+        <path d="M8 6V3h8v3M3 12h18M10 12v3h4v-3" />
+      </svg>
+    ),
+  },
+  {
     href: "/projects",
     label: "Projects",
     icon: (
@@ -83,6 +93,10 @@ const links: NavLink[] = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  return <Navigation key={pathname} pathname={pathname} />;
+}
+
+function Navigation({ pathname }: { pathname: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -102,11 +116,6 @@ export default function Navbar() {
       };
     }
   }, [menuOpen]);
-
-  // Close menu on route change
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   const desktopLinkClass = (href: string) => {
     if (pathname === href) return "text-accent bg-accent-soft";
@@ -138,7 +147,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <div className="hidden md:flex space-x-1" role="navigation" aria-label="Primary">
+            <div className="hidden lg:flex space-x-1" role="navigation" aria-label="Primary">
               {links.map((link) => {
                 const active = pathname === link.href;
                 return (
@@ -156,7 +165,7 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-control text-foreground hover:bg-accent-soft transition-colors"
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-control text-foreground hover:bg-accent-soft transition-colors"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
@@ -187,7 +196,7 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         aria-hidden={!menuOpen}

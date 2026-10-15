@@ -27,13 +27,14 @@ export default function Footer() {
               Bridging the gap between complex technology and business growth 
               for small businesses and non-profits.
             </p>
+            <p className="text-sm text-slate-500">Coding Carranza LLC<br />San Antonio, Texas</p>
           </div>
           
           <div className="grid grid-cols-2 gap-12 w-full md:w-auto">
             <div className="space-y-4">
               <h4 className="font-bold text-slate-900 uppercase tracking-widest text-xs">Navigation</h4>
               <ul className="space-y-2">
-                {["Home", "Projects", "About", "Contact"].map((item) => (
+                {["Home", "Services", "Projects", "About", "Contact"].map((item) => (
                   <li key={item}>
                     <Link 
                       href={item === "Home" ? "/" : `/${item.toLowerCase()}`}

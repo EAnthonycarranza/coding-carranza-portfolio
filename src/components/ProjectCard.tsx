@@ -1,16 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Badge from "./ui/Badge";
-
-interface Project {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  image_url: string | null;
-  technologies: string | null;
-  project_url: string | null;
-}
+import type { Project } from "@/lib/projects-data";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const techs = project.technologies
@@ -19,14 +10,14 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <article className="group bg-white border border-slate-100 rounded-card-lg overflow-hidden hover:shadow-2xl hover:shadow-accent/5 transition-[transform,box-shadow] duration-500 hover:-translate-y-2">
-      <Link href={`/projects/${project.slug}`} className="block relative aspect-[16/10] overflow-hidden">
+      <Link href={`/projects/${project.slug}`} className={`block relative aspect-[16/10] overflow-hidden ${project.image_fit === "contain" ? "bg-white" : ""}`}>
         {project.image_url ? (
           <Image
             src={project.image_url}
             alt={project.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className={`${project.image_fit === "contain" ? "object-contain p-4" : "object-cover"} transition-transform duration-700 group-hover:scale-110`}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300" aria-hidden="true">
@@ -57,6 +48,11 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="p-8">
         <div className="flex flex-wrap gap-2 mb-4">
+          {project.service_package ? (
+            <Badge tone="fintech" size="xs">
+              {project.service_package}
+            </Badge>
+          ) : null}
           {techs.slice(0, 3).map((tech) => (
             <Badge key={tech} tone="accent" size="xs">
               {tech}

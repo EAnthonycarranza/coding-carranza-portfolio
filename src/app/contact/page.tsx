@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import DonationButton from "@/components/DonationButton";
+import { getPackageFirstYearFeatures, maintenancePlans, servicePackages } from "@/lib/services-data";
 
 export const metadata: Metadata = {
   title: "Contact | Coding Carranza",
@@ -8,7 +9,24 @@ export const metadata: Metadata = {
     "Get in touch with Anthony Carranza for your web development needs.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: {
+  searchParams: Promise<{ package?: string | string[]; maintenance?: string | string[] }>;
+}) {
+  const query = await searchParams;
+  const selectedPackage = servicePackages.find((service) => service.slug === query.package);
+  const selectedPlan = maintenancePlans.find((plan) => plan.slug === query.maintenance);
+  const planIncludedWithPackage = Boolean(selectedPlan && selectedPackage?.includedMaintenanceSlug === selectedPlan.slug);
+  const selections = [
+    selectedPackage ? `${selectedPackage.name} package (${selectedPackage.price})` : null,
+    selectedPlan ? `${selectedPlan.name} maintenance plan (${planIncludedWithPackage ? `free for 1 year, then $${selectedPlan.monthlyPrice}/month if continued` : `$${selectedPlan.monthlyPrice}/month`})` : null,
+  ].filter(Boolean);
+  const firstYearDetails = selectedPackage
+    ? `\n\nIncluded for the first year:\n${getPackageFirstYearFeatures(selectedPackage).map((feature) => `- ${feature}`).join("\n")}\n\nPlease confirm annual domain renewal, monthly email costs, optional maintenance, and any email upgrade charges in my quote.`
+    : "";
+  const initialMessage = selections.length
+    ? `I'm interested in the ${selections.join(" and the ")}.${firstYearDetails}\n\nHere's what I have in mind for my project:\n`
+    : "";
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero & Background Elements */}
@@ -80,8 +98,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-sm font-bold text-slate-600 uppercase tracking-wider mb-1">Location</p>
-                      <p className="text-lg font-bold text-slate-900">Remote & Nationwide</p>
-                      <p className="text-sm text-slate-500 mt-1">Based in the USA, working globally.</p>
+                      <p className="text-lg font-bold text-slate-900">San Antonio, Texas</p>
+                      <p className="text-sm text-slate-500 mt-1">Working with businesses nationwide.</p>
                     </div>
                   </div>
                 </div>
@@ -108,7 +126,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Contact Form */}
-            <div className="lg:col-span-7">
+            <div id="project-inquiry" className="lg:col-span-7 scroll-mt-28">
               <div className="glass p-8 sm:p-12 rounded-pill border border-white/10 shadow-2xl">
                 <div className="text-center mb-8 px-4">
                   <h2 className="text-3xl font-bold text-slate-900 mb-4">Send a Message</h2>
@@ -117,7 +135,7 @@ export default function ContactPage() {
                     possible to discuss your project.
                   </p>
                 </div>
-                <ContactForm />
+                <ContactForm initialMessage={initialMessage} />
               </div>
             </div>
 

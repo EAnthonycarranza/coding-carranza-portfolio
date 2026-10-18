@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import DarkLogo from "@/assets/Dark-Mode-Logo.png";
 import Badge from "./ui/Badge";
+import ThemeToggle from "./ThemeToggle";
 
 type NavLink = {
   href: string;
@@ -119,7 +120,7 @@ function Navigation({ pathname }: { pathname: string }) {
 
   const desktopLinkClass = (href: string) => {
     if (pathname === href) return "text-accent bg-accent-soft";
-    return "text-slate-600";
+    return "text-slate-600 dark:text-slate-300";
   };
 
   return (
@@ -132,7 +133,7 @@ function Navigation({ pathname }: { pathname: string }) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2 group" aria-label="Coding Carranza home">
-              <div className="relative w-10 h-10 overflow-hidden rounded-control transition-transform group-hover:scale-110">
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 overflow-hidden rounded-control bg-white transition-transform group-hover:scale-110">
                 <Image
                   src={DarkLogo}
                   alt=""
@@ -141,55 +142,59 @@ function Navigation({ pathname }: { pathname: string }) {
                   className="object-cover"
                 />
               </div>
-              <span className="text-xl font-bold tracking-tight transition-colors text-foreground">
+              <span className="text-base sm:text-xl font-bold tracking-tight transition-colors text-foreground">
                 <span className="text-accent" aria-hidden="true">&lt;</span>Coding Carranza
                 <span className="text-accent" aria-hidden="true"> /&gt;</span>
               </span>
             </Link>
 
-            <div className="hidden lg:flex space-x-1" role="navigation" aria-label="Primary">
-              {links.map((link) => {
-                const active = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    aria-current={active ? "page" : undefined}
-                    className={`px-4 py-2 text-sm font-medium rounded-pill transition-[background-color,color,transform] duration-300 hover:bg-accent-soft hover:text-accent hover:-translate-y-0.5 ${desktopLinkClass(link.href)}`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
+            <div className="flex items-center gap-2">
+              <div className="hidden lg:flex space-x-1" role="navigation" aria-label="Primary">
+                {links.map((link) => {
+                  const active = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`px-4 py-2 text-sm font-medium rounded-pill transition-[background-color,color,transform] duration-300 hover:bg-accent-soft hover:text-accent hover:-translate-y-0.5 ${desktopLinkClass(link.href)}`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </div>
 
-            <button
-              type="button"
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-control text-foreground hover:bg-accent-soft transition-colors"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={menuOpen}
-              aria-controls="mobile-menu"
-            >
-              <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
-              <span className="relative w-5 h-5 block">
-                <span
-                  className={`absolute left-0 top-1 h-0.5 w-5 bg-current rounded-full transition-transform duration-300 ${
-                    menuOpen ? "translate-y-1.5 rotate-45" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-2.5 h-0.5 w-5 bg-current rounded-full transition-opacity duration-200 ${
-                    menuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-4 h-0.5 w-5 bg-current rounded-full transition-transform duration-300 ${
-                    menuOpen ? "-translate-y-1.5 -rotate-45" : ""
-                  }`}
-                />
-              </span>
-            </button>
+              <ThemeToggle />
+
+              <button
+                type="button"
+                className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-control text-foreground hover:bg-accent-soft transition-colors"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
+              >
+                <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
+                <span className="relative w-5 h-5 block">
+                  <span
+                    className={`absolute left-0 top-1 h-0.5 w-5 bg-current rounded-full transition-transform duration-300 ${
+                      menuOpen ? "translate-y-1.5 rotate-45" : ""
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 top-2.5 h-0.5 w-5 bg-current rounded-full transition-opacity duration-200 ${
+                      menuOpen ? "opacity-0" : "opacity-100"
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 top-4 h-0.5 w-5 bg-current rounded-full transition-transform duration-300 ${
+                      menuOpen ? "-translate-y-1.5 -rotate-45" : ""
+                    }`}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -221,10 +226,10 @@ function Navigation({ pathname }: { pathname: string }) {
                 "group relative flex items-center gap-3 px-4 py-3.5 rounded-card transition-[background-color,color,transform] duration-200";
 
               const stateClass = isActive
-                ? "bg-accent text-white shadow-md shadow-accent/30"
+                ? "bg-accent text-white dark:text-emerald-950 shadow-md shadow-accent/30"
                 : isFeatured
                   ? "bg-accent-soft text-foreground hover:bg-accent/10 ring-1 ring-accent/20"
-                  : "text-slate-700 hover:bg-slate-100/80 hover:text-foreground";
+                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 hover:text-foreground";
 
               return (
                 <Link
@@ -241,10 +246,10 @@ function Navigation({ pathname }: { pathname: string }) {
                     aria-hidden="true"
                     className={`flex items-center justify-center w-9 h-9 rounded-control transition-colors ${
                       isActive
-                        ? "bg-white/20 text-white"
+                        ? "bg-white/20 text-white dark:text-emerald-950"
                         : isFeatured
                           ? "bg-accent/15 text-accent"
-                          : "bg-slate-100 text-slate-500 group-hover:bg-accent-soft group-hover:text-accent"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-accent-soft group-hover:text-accent"
                     }`}
                   >
                     {link.icon}
@@ -255,7 +260,7 @@ function Navigation({ pathname }: { pathname: string }) {
                   </span>
 
                   {isFeatured && !isActive && (
-                    <Badge tone="accent" size="xs" className="bg-accent text-white">
+                    <Badge tone="accent" size="xs" className="bg-accent text-white dark:text-emerald-950">
                       New
                     </Badge>
                   )}
@@ -263,7 +268,7 @@ function Navigation({ pathname }: { pathname: string }) {
                   <svg
                     aria-hidden="true"
                     className={`w-4 h-4 transition-transform ${
-                      isActive ? "text-white" : "text-slate-400 group-hover:text-accent group-hover:translate-x-0.5"
+                      isActive ? "text-white dark:text-emerald-950" : "text-slate-400 group-hover:text-accent group-hover:translate-x-0.5"
                     }`}
                     fill="none"
                     stroke="currentColor"
@@ -279,7 +284,7 @@ function Navigation({ pathname }: { pathname: string }) {
             })}
           </nav>
 
-          <div className="px-5 py-4 border-t border-card-border bg-slate-50/50">
+          <div className="px-5 py-4 border-t border-card-border bg-slate-50/50 dark:bg-slate-950/50">
             <p className="text-xs text-muted text-center">
               <span className="text-accent" aria-hidden="true">&lt;</span>
               <span className="font-semibold"> Coding Carranza </span>

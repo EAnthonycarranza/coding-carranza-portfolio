@@ -11,9 +11,9 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const VARIANT: Record<Variant, string> = {
-  solid: "bg-white border border-slate-100 shadow-sm",
+  solid: "bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm",
   glass: "bg-card-bg border border-card-border backdrop-blur-xl shadow-xl",
-  outline: "bg-transparent border border-slate-200",
+  outline: "bg-transparent border border-slate-200 dark:border-slate-700",
   deep: "bg-surface-deep text-white border border-white/10 shadow-2xl",
 };
 

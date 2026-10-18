@@ -19,11 +19,11 @@ const TONE: Record<Tone, { wrap: string; live: "polite" | "assertive" }> = {
     live: "assertive",
   },
   info: {
-    wrap: "bg-slate-50 border border-slate-200 text-slate-700",
+    wrap: "bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200",
     live: "polite",
   },
   warn: {
-    wrap: "bg-amber-50 border border-amber-200 text-amber-700",
+    wrap: "bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-300",
     live: "polite",
   },
 };

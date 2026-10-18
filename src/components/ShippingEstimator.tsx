@@ -141,7 +141,7 @@ export default function ShippingEstimator() {
             href={transaction.labelUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4 sm:py-5 bg-accent hover:bg-accent-dark text-white rounded-card transition-colors font-bold shadow-xl shadow-accent/20 flex items-center justify-center gap-3 text-base sm:text-lg"
+            className="w-full py-4 sm:py-5 bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 rounded-card transition-colors font-bold shadow-xl shadow-accent/20 flex items-center justify-center gap-3 text-base sm:text-lg"
           >
             <svg aria-hidden="true" className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -183,7 +183,7 @@ export default function ShippingEstimator() {
               onChange={(e) => setZip(e.target.value)}
               placeholder="90210"
               autoComplete="postal-code"
-              className="w-full bg-black/30 border border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-white placeholder:text-slate-500"
+              className="w-full bg-black/30 border border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
               required
             />
           </div>
@@ -196,7 +196,7 @@ export default function ShippingEstimator() {
               onChange={(e) => setCity(e.target.value)}
               placeholder="Beverly Hills"
               autoComplete="address-level2"
-              className="w-full bg-black/30 border border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-white placeholder:text-slate-500"
+              className="w-full bg-black/30 border border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
             />
           </div>
           <div className="flex items-end">
@@ -245,7 +245,7 @@ export default function ShippingEstimator() {
                           <img
                             src={rate.providerImage75}
                             alt={rate.provider}
-                            className="w-12 h-12 object-contain bg-white p-1 rounded-control border border-white/20 shadow-sm"
+                            className="w-12 h-12 object-contain bg-white dark:bg-slate-900 p-1 rounded-control border border-white/20 shadow-sm"
                           />
                         )}
                         <div className="text-left">
@@ -292,7 +292,7 @@ export default function ShippingEstimator() {
             </>
           ) : !loading && !error && (
             <div className="text-center py-12 text-slate-400 bg-black/30 rounded-card border-2 border-dashed border-white/10">
-              <svg aria-hidden="true" className="w-12 h-12 text-slate-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" className="w-12 h-12 text-slate-600 dark:text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
               </svg>
               <p className="text-sm font-medium">Enter a destination ZIP code to calculate fulfillment options.</p>

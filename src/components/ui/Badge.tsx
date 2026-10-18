@@ -10,9 +10,9 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 
 const TONE: Record<Tone, string> = {
   accent: "bg-accent-soft text-accent",
-  neutral: "bg-slate-50 text-slate-500",
+  neutral: "bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400",
   success: "bg-accent-soft text-accent",
-  warn: "bg-amber-50 text-amber-700",
+  warn: "bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300",
   danger: "bg-danger-soft text-danger",
   fintech: "bg-accent-secondary-soft text-accent-secondary",
 };

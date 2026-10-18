@@ -28,7 +28,7 @@ export default function Switch({ checked, onChange, label, description, icon, cl
         "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]",
         checked
           ? "bg-slate-900 text-white shadow-xl hover:bg-slate-800 hover:shadow-2xl"
-          : "bg-slate-50 text-slate-700 hover:bg-white hover:shadow-lg",
+          : "bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg",
         className,
       ]
         .filter(Boolean)
@@ -40,7 +40,7 @@ export default function Switch({ checked, onChange, label, description, icon, cl
             aria-hidden="true"
             className={[
               "w-8 h-8 rounded-control flex items-center justify-center",
-              checked ? "bg-white/10" : "bg-white",
+              checked ? "bg-white/10" : "bg-white dark:bg-slate-900",
             ].join(" ")}
           >
             {icon}
@@ -59,7 +59,7 @@ export default function Switch({ checked, onChange, label, description, icon, cl
         aria-hidden="true"
         className={[
           "w-10 h-5 rounded-pill relative transition-colors duration-300",
-          checked ? "bg-accent" : "bg-slate-300",
+          checked ? "bg-accent" : "bg-slate-300 dark:bg-slate-600",
         ].join(" ")}
       >
         <span

@@ -140,7 +140,7 @@ function PaymentDemoContent() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 lg:pt-32 pb-10 sm:pb-20 lg:pb-32">
         <div className="mb-8 sm:mb-12 flex items-center justify-between animate-in fade-in slide-in-from-top-4 duration-700">
           <div>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-1 sm:mb-2 text-white">Checkout <span className="text-slate-500">Center</span></h1>
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-1 sm:mb-2 text-white">Checkout <span className="text-slate-500 dark:text-slate-400">Center</span></h1>
             <p className="text-slate-400 font-medium text-xs sm:text-base">Enterprise-grade payment infrastructures.</p>
           </div>
           <Link href="/demo" className="bg-white/5 hover:bg-white/10 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/10 transition-all flex items-center gap-2 font-bold text-xs sm:text-sm">
@@ -176,7 +176,7 @@ function PaymentDemoContent() {
                     <div key={idx} className="flex justify-between items-center group">
                       <div>
                         <div className="text-white font-bold text-sm group-hover:text-accent-secondary transition-colors">{item.name}</div>
-                        <div className="text-xs text-slate-500">Qty: {item.qty}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">Qty: {item.qty}</div>
                       </div>
                       <div className="text-white font-mono font-bold">${item.price.toFixed(2)}</div>
                     </div>
@@ -201,7 +201,7 @@ function PaymentDemoContent() {
                       <div className="text-xxs text-accent font-black flex items-center gap-1 justify-end">
                         <i aria-hidden="true" className="fas fa-shield-halved"></i> SECURE
                       </div>
-                      <div className="text-xxs text-slate-500 font-bold uppercase tracking-widest">USD Currency</div>
+                      <div className="text-xxs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">USD Currency</div>
                     </div>
                   </div>
                 </div>
@@ -259,7 +259,7 @@ function PaymentDemoContent() {
                         value={receiptEmail}
                         onChange={(e) => setReceiptEmail(e.target.value)}
                         autoComplete="email"
-                        className="flex-1 px-4 py-3 rounded-control border border-white/10 bg-black/40 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-accent-secondary/30 placeholder:text-slate-500 transition-[border-color,box-shadow]"
+                        className="flex-1 px-4 py-3 rounded-control border border-white/10 bg-black/40 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-accent-secondary/30 placeholder:text-slate-500 dark:placeholder:text-slate-400 transition-[border-color,box-shadow]"
                       />
                       <button
                         onClick={sendReceiptEmail}
@@ -297,7 +297,7 @@ function PaymentDemoContent() {
                         className={`flex-1 py-3 rounded-control font-bold text-xs uppercase tracking-widest cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 ${
                           experience === exp
                             ? 'bg-accent-secondary-dark text-white shadow-lg'
-                            : 'text-slate-500 hover:text-slate-200 hover:bg-white/5'
+                            : 'text-slate-500 dark:text-slate-400 hover:text-slate-200 hover:bg-white/5'
                         }`}
                       >
                         <i aria-hidden="true" className={exp === 'embedded' ? 'fas fa-window-maximize mr-2' : 'fas fa-external-link-alt mr-2'}></i>
@@ -314,11 +314,11 @@ function PaymentDemoContent() {
                       onClick={() => { setActiveProvider('square'); setPaymentStatus('idle'); }}
                       className={`flex items-center justify-center gap-2 sm:gap-3 py-4 sm:py-6 rounded-control sm:rounded-card font-black cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 group ${
                         activeProvider === 'square'
-                        ? 'bg-accent text-white shadow-2xl shadow-accent/30'
-                        : 'text-slate-500 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'
+                        ? 'bg-accent text-white dark:text-emerald-950 shadow-2xl shadow-accent/30'
+                        : 'text-slate-500 dark:text-slate-400 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'
                       }`}
                     >
-                      <i aria-hidden="true" className={`fas fa-square text-lg sm:text-2xl transition-transform group-hover:scale-110 ${activeProvider === 'square' ? 'text-white' : 'text-slate-600'}`}></i>
+                      <i aria-hidden="true" className={`fas fa-square text-lg sm:text-2xl transition-transform group-hover:scale-110 ${activeProvider === 'square' ? 'text-white' : 'text-slate-600 dark:text-slate-300'}`}></i>
                       <div className="text-left">
                         <div className="text-xxs sm:text-xs uppercase tracking-widest leading-none mb-1 opacity-60">Pay with</div>
                         <div className="text-base sm:text-xl tracking-tighter leading-none">Square</div>
@@ -331,8 +331,8 @@ function PaymentDemoContent() {
                       onClick={() => { setActiveProvider('stripe'); setPaymentStatus('idle'); }}
                       className={`flex items-center justify-center gap-2 sm:gap-3 py-4 sm:py-6 rounded-control sm:rounded-card font-black cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 group ${
                         activeProvider === 'stripe'
-                        ? 'bg-accent-secondary text-white shadow-2xl shadow-accent-secondary/30'
-                        : 'text-slate-500 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'
+                        ? 'bg-accent-secondary text-white dark:text-indigo-950 shadow-2xl shadow-accent-secondary/30'
+                        : 'text-slate-500 dark:text-slate-400 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'
                       }`}
                     >
                       <i aria-hidden="true" className="fab fa-stripe text-2xl sm:text-3xl transition-transform group-hover:scale-110"></i>
@@ -388,7 +388,7 @@ function PaymentDemoContent() {
 
                           <div className="mt-6 flex items-center justify-between bg-black/30 border border-white/10 rounded-control px-5 py-3">
                             <p className="text-slate-400 text-xxs font-medium leading-snug">
-                              <i aria-hidden="true" className="fas fa-circle-info mr-1.5 text-slate-500"></i>
+                              <i aria-hidden="true" className="fas fa-circle-info mr-1.5 text-slate-500 dark:text-slate-400"></i>
                               {activeProvider === 'square'
                                 ? 'Square SDK may take a moment to load. If the card form stays loading, click Reload.'
                                 : 'If the payment form does not appear, try reloading.'}
@@ -445,8 +445,8 @@ function PaymentDemoContent() {
                             onClick={handleHostedCheckout}
                             className={`w-full py-6 rounded-card font-black text-xl shadow-2xl cursor-pointer transition-[background-color,transform,box-shadow] duration-300 flex items-center justify-center gap-4 hover:-translate-y-0.5 active:translate-y-0 ${
                               activeProvider === 'square'
-                                ? 'bg-white text-slate-900 hover:bg-slate-100'
-                                : 'bg-accent-secondary text-white hover:bg-accent-secondary-dark'
+                                ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                : 'bg-accent-secondary text-white dark:text-indigo-950 hover:bg-accent-secondary-dark'
                             } disabled:opacity-50 disabled:cursor-not-allowed`}
                            >
                             {paymentStatus === 'redirecting' ? (

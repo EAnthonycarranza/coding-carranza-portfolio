@@ -62,7 +62,7 @@ export default async function ProjectsPage({
       <section className="py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {projects.length === 0 ? (
-            <div className="text-center py-20 glass rounded-pill border border-slate-100">
+            <div className="text-center py-20 glass rounded-pill border border-slate-100 dark:border-slate-800">
               <p className="text-slate-400 text-xl font-medium">
                 Projects are currently being curated. Check back very soon!
               </p>
@@ -80,7 +80,7 @@ export default async function ProjectsPage({
                   {currentPage > 1 && (
                     <Link
                       href={`/projects?page=${currentPage - 1}`}
-                      className="px-6 py-3 rounded-xl glass border border-slate-200 text-sm font-bold hover:border-accent transition-all"
+                      className="px-6 py-3 rounded-xl glass border border-slate-200 dark:border-slate-700 text-sm font-bold hover:border-accent transition-all"
                     >
                       Previous
                     </Link>
@@ -92,8 +92,8 @@ export default async function ProjectsPage({
                         href={`/projects?page=${i + 1}`}
                         className={`w-12 h-12 flex items-center justify-center rounded-xl font-bold text-sm transition-all ${
                           currentPage === i + 1
-                            ? "bg-accent text-white shadow-lg shadow-accent/20"
-                            : "glass border border-slate-100 hover:border-accent"
+                            ? "bg-accent text-white dark:text-emerald-950 shadow-lg shadow-accent/20"
+                            : "glass border border-slate-100 dark:border-slate-800 hover:border-accent"
                         }`}
                       >
                         {i + 1}
@@ -103,7 +103,7 @@ export default async function ProjectsPage({
                   {currentPage < totalPages && (
                     <Link
                       href={`/projects?page=${currentPage + 1}`}
-                      className="px-6 py-3 rounded-xl glass border border-slate-200 text-sm font-bold hover:border-accent transition-all"
+                      className="px-6 py-3 rounded-xl glass border border-slate-200 dark:border-slate-700 text-sm font-bold hover:border-accent transition-all"
                     >
                       Next
                     </Link>
@@ -118,7 +118,7 @@ export default async function ProjectsPage({
       {/* Trust Quote */}
       <section className="pb-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="glass p-12 rounded-pill border border-slate-100 text-center italic text-slate-500 text-xl leading-relaxed">
+          <div className="glass p-12 rounded-pill border border-slate-100 dark:border-slate-800 text-center italic text-slate-500 dark:text-slate-400 text-xl leading-relaxed">
             &ldquo;Anthony didn&apos;t just build a website; he built a growth engine for our 
             business. The attention to detail and performance optimization was 
             beyond what we expected from a solo developer.&rdquo;
@@ -127,10 +127,10 @@ export default async function ProjectsPage({
       </section>
 
       {/* CTA */}
-      <section className="py-32 relative overflow-hidden bg-slate-50/50">
+      <section className="py-32 relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/50">
         <div className="absolute inset-0 bg-accent/5 -z-10" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block p-4 bg-white rounded-3xl shadow-xl mb-8">
+          <div className="inline-block p-4 bg-white dark:bg-slate-900 rounded-3xl shadow-xl mb-8">
             <div className="flex -space-x-3 overflow-hidden">
               <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
                 <Image 
@@ -173,13 +173,13 @@ export default async function ProjectsPage({
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">
             Ready to Start Your Project?
           </h2>
-          <p className="text-slate-500 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-500 dark:text-slate-400 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
             Whether you have a fully-formed idea or just the beginnings of a vision, 
             I&apos;m here to help you bring it to life.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/30 transition-all hover:-translate-y-1 hover:shadow-accent/40"
+            className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/30 transition-all hover:-translate-y-1 hover:shadow-accent/40"
           >
             Let&apos;s Build Something Great
           </Link>

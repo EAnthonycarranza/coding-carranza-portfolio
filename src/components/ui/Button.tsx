@@ -15,15 +15,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const VARIANT: Record<Variant, string> = {
   primary:
-    "bg-accent text-white shadow-xl shadow-accent/20 hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-accent/30 active:translate-y-0 active:scale-[0.98]",
+    "bg-accent text-white dark:text-emerald-950 shadow-xl shadow-accent/20 hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-accent/30 active:translate-y-0 active:scale-[0.98]",
   secondary:
-    "bg-white text-slate-900 border border-slate-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-lg active:translate-y-0 active:scale-[0.98]",
+    "bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-lg active:translate-y-0 active:scale-[0.98]",
   ghost:
-    "bg-transparent text-slate-700 hover:bg-accent-soft hover:text-accent active:scale-[0.98]",
+    "bg-transparent text-slate-700 dark:text-slate-200 hover:bg-accent-soft hover:text-accent active:scale-[0.98]",
   destructive:
     "bg-danger text-white shadow-lg shadow-danger/20 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-danger/30 active:translate-y-0 active:scale-[0.98]",
   fintech:
-    "bg-accent-secondary text-white shadow-xl shadow-accent-secondary/20 hover:bg-accent-secondary-dark hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-accent-secondary/30 active:translate-y-0 active:scale-[0.98]",
+    "bg-accent-secondary text-white dark:text-indigo-950 shadow-xl shadow-accent-secondary/20 hover:bg-accent-secondary-dark hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-accent-secondary/30 active:translate-y-0 active:scale-[0.98]",
 };
 
 const SIZE: Record<Size, string> = {

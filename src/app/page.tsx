@@ -42,7 +42,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-accent/20 transition-all hover:-translate-y-1"
+                  className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 font-bold px-8 py-4 rounded-2xl shadow-lg shadow-accent/20 transition-all hover:-translate-y-1"
                 >
                   Explore My Work
                 </Link>
@@ -101,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-white dark:bg-slate-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="section-title text-4xl font-bold">Expert Solutions</h2>
@@ -134,7 +134,7 @@ export default function Home() {
             ].map((service) => (
               <div
                 key={service.title}
-                className="group p-10 rounded-3xl border border-slate-100 hover:border-accent/20 bg-slate-50/50 hover:bg-white transition-all hover:shadow-2xl hover:shadow-accent/5"
+                className="group p-10 rounded-3xl border border-slate-100 dark:border-slate-800 hover:border-accent/20 bg-slate-50/50 dark:bg-slate-950/50 hover:bg-white dark:hover:bg-slate-800 transition-all hover:shadow-2xl hover:shadow-accent/5"
               >
                 <div className={`w-14 h-14 bg-${service.color}/10 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110 group-hover:rotate-3`}>
                   <svg
@@ -159,7 +159,7 @@ export default function Home() {
 
       {/* Featured Projects */}
       {featuredProjects.length > 0 && (
-        <section className="py-32 bg-slate-50">
+        <section className="py-32 bg-slate-50 dark:bg-slate-950">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
               <div className="max-w-2xl">
@@ -193,7 +193,7 @@ export default function Home() {
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-accent/5 -z-10" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block p-4 bg-white rounded-3xl shadow-xl mb-8">
+          <div className="inline-block p-4 bg-white dark:bg-slate-900 rounded-3xl shadow-xl mb-8">
             <div className="flex -space-x-3 overflow-hidden">
               <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
                 <Image 
@@ -237,13 +237,13 @@ export default function Home() {
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">
             Ready to Build Your Digital Future?
           </h2>
-          <p className="text-slate-500 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-500 dark:text-slate-400 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
             Every great project starts with a simple conversation. Let&apos;s 
             discuss your vision and how we can make it a reality.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/30 transition-all hover:-translate-y-1 hover:shadow-accent/40"
+            className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/30 transition-all hover:-translate-y-1 hover:shadow-accent/40"
           >
             Schedule a Free Consultation
           </Link>

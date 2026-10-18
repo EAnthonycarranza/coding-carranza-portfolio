@@ -27,7 +27,7 @@ function FieldShell({ id, label, hint, error, required, hideLabel, trailing, chi
       <label
         htmlFor={id}
         className={[
-          "block text-sm font-bold text-slate-900 ml-1",
+          "block text-sm font-bold text-slate-900 dark:text-slate-100 ml-1",
           hideLabel ? "sr-only" : "",
         ].join(" ")}
       >
@@ -57,12 +57,12 @@ function FieldShell({ id, label, hint, error, required, hideLabel, trailing, chi
 }
 
 const baseControl =
-  "w-full px-6 py-4 bg-slate-50 border rounded-card focus:outline-none focus:ring-4 focus:bg-white transition-[background-color,border-color,box-shadow] duration-300 placeholder:text-slate-400";
+  "w-full px-6 py-4 bg-slate-50 dark:bg-slate-950 border rounded-card focus:outline-none focus:ring-4 focus:bg-white dark:focus:bg-slate-900 transition-[background-color,border-color,box-shadow] duration-300 placeholder:text-slate-400";
 
 const stateControl = (hasError: boolean) =>
   hasError
     ? "border-danger focus:ring-danger/10 focus:border-danger"
-    : "border-slate-200 focus:ring-accent/10 focus:border-accent";
+    : "border-slate-200 dark:border-slate-700 focus:ring-accent/10 focus:border-accent";
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "id"> {
   label: string;

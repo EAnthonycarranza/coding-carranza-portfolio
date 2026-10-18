@@ -11,7 +11,7 @@ export default function ServicesPreview() {
             <h2 id="packages-preview-title" className="scroll-mt-28 text-3xl font-bold tracking-tight sm:text-4xl">A clear starting point for your next chapter.</h2>
             <p className="mt-5 leading-relaxed text-slate-400">Choose a package, add the features you need, and keep growing with optional monthly support.</p>
           </div>
-          <Link href="/services" className="inline-flex shrink-0 items-center gap-2 self-start rounded-control bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:bg-emerald-50 lg:self-auto">
+          <Link href="/services" className="inline-flex shrink-0 items-center gap-2 self-start rounded-control bg-white dark:bg-slate-900 px-5 py-3 text-sm font-bold text-slate-900 dark:text-slate-100 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 lg:self-auto">
             Explore services &amp; pricing <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>

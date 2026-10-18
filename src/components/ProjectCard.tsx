@@ -9,7 +9,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     : [];
 
   return (
-    <article className="group bg-white border border-slate-100 rounded-card-lg overflow-hidden hover:shadow-2xl hover:shadow-accent/5 transition-[transform,box-shadow] duration-500 hover:-translate-y-2">
+    <article className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-card-lg overflow-hidden hover:shadow-2xl hover:shadow-accent/5 transition-[transform,box-shadow] duration-500 hover:-translate-y-2">
       <Link href={`/projects/${project.slug}`} className={`block relative aspect-[16/10] overflow-hidden ${project.image_fit === "contain" ? "bg-white" : ""}`}>
         {project.image_url ? (
           <Image
@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             className={`${project.image_fit === "contain" ? "object-contain p-4" : "object-cover"} transition-transform duration-700 group-hover:scale-110`}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300" aria-hidden="true">
+          <div className="w-full h-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-300" aria-hidden="true">
             <svg
               className="w-16 h-16"
               fill="none"
@@ -73,10 +73,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
 
-        <div className="flex items-center justify-between pt-6 border-t border-slate-50">
+        <div className="flex items-center justify-between pt-6 border-t border-slate-50 dark:border-slate-800">
           <Link
             href={`/projects/${project.slug}`}
-            className="text-sm font-bold text-slate-900 hover:text-accent transition-colors flex items-center gap-1"
+            className="text-sm font-bold text-slate-900 dark:text-slate-100 hover:text-accent transition-colors flex items-center gap-1"
           >
             Details
           </Link>

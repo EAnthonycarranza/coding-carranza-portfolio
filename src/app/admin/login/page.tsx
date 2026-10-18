@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-accent hover:bg-accent-dark text-white font-semibold py-2.5 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 font-semibold py-2.5 rounded-lg transition-colors disabled:opacity-50"
             >
               {loading ? "Logging in..." : "Log In"}
             </button>

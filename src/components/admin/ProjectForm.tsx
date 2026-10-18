@@ -220,7 +220,7 @@ export default function ProjectForm({ project, onSaved }: Props) {
       <button
         type="submit"
         disabled={saving || uploading}
-        className="bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-2.5 rounded-lg transition-colors disabled:opacity-50"
+        className="bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 font-semibold px-6 py-2.5 rounded-lg transition-colors disabled:opacity-50"
       >
         {saving ? "Saving..." : project ? "Update Project" : "Create Project"}
       </button>

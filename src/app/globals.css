@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
+  color-scheme: light;
   /* Surfaces */
   --background: #ffffff;
   --foreground: #0f172a;
@@ -11,6 +13,8 @@
   --card-border: rgba(226, 232, 240, 0.8);
   --hero-bg: #020617;
   --muted: #64748b;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
 
   /* Brand accent (emerald) — identity, primary CTAs */
   --accent: #10b981;
@@ -39,6 +43,23 @@
   --duration-base: 300ms;
   --duration-slow: 500ms;
   --ease-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #080f1c;
+  --foreground: #e2e8f0;
+  --card-bg: rgba(15, 23, 42, 0.94);
+  --card-border: rgba(71, 85, 105, 0.6);
+  --muted: #94a3b8;
+  --glass-bg: rgba(15, 23, 42, 0.86);
+  --glass-border: rgba(71, 85, 105, 0.45);
+  --accent: #34d399;
+  --accent-dark: #10b981;
+  --accent-soft: rgba(52, 211, 153, 0.1);
+  --accent-secondary: #a5b4fc;
+  --accent-secondary-dark: #818cf8;
+  --accent-secondary-soft: rgba(165, 180, 252, 0.1);
 }
 
 @theme inline {
@@ -85,10 +106,10 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--glass-border);
 }
 
 .section-title {

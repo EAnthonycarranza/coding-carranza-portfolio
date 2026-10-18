@@ -49,7 +49,7 @@ export default function SpeechButton({ text }: SpeechButtonProps) {
       className={`inline-flex items-center gap-2 px-4 py-2 rounded-control font-bold transition-[background-color,color,box-shadow] shadow-sm ${
         isSpeaking
           ? "bg-danger-soft text-danger border border-danger/10 ring-2 ring-danger/10"
-          : "bg-slate-50 text-slate-600 border border-slate-100 hover:bg-white hover:shadow-md"
+          : "bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md"
       }`}
     >
       {isSpeaking ? (

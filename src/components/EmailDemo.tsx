@@ -91,7 +91,7 @@ export default function EmailDemo() {
     <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-8 items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 pb-20">
       
       <div className="lg:col-span-3 space-y-4" role="tablist" aria-label="Automation scenarios">
-        <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest px-4 mb-4">Automation Suite</h3>
+        <h3 className="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest px-4 mb-4">Automation Suite</h3>
         {scenarios.map(s => (
           <button
             type="button"
@@ -106,7 +106,7 @@ export default function EmailDemo() {
             }`}
           >
             <div aria-hidden="true" className={`w-10 h-10 rounded-control flex items-center justify-center text-lg transition-colors ${
-              activeScenario === s.id ? 'bg-accent-secondary text-white shadow-lg shadow-accent-secondary/30' : 'bg-white/10 text-slate-300'
+              activeScenario === s.id ? 'bg-accent-secondary text-white dark:text-indigo-950 shadow-lg shadow-accent-secondary/30' : 'bg-white/10 text-slate-300'
             }`}>
               <i className={`fas ${s.icon}`}></i>
             </div>
@@ -119,7 +119,7 @@ export default function EmailDemo() {
 
         {/* Logs in sidebar on large screens, or below on small */}
         <div className="hidden lg:flex flex-col h-[300px] mt-8 bg-slate-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-          <div className="px-4 py-2 bg-white/5 border-b border-white/5 text-xxs font-bold text-slate-500 tracking-widest uppercase">SMTP RELAY LOGS</div>
+          <div className="px-4 py-2 bg-white/5 border-b border-white/5 text-xxs font-bold text-slate-500 dark:text-slate-400 tracking-widest uppercase">SMTP RELAY LOGS</div>
           <div ref={logScrollRef} className="p-4 overflow-y-auto font-mono text-xxs space-y-2" role="log" aria-live="polite" aria-label="SMTP relay logs">
             {logs.map(log => (
               <div key={log.id} className="text-slate-400">
@@ -157,7 +157,7 @@ export default function EmailDemo() {
                     <input
                       id="email-demo-recipient"
                       required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-black/30 border border-white/10 text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500"
+                      className="w-full bg-black/30 border border-white/10 text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
                       placeholder="your-email@example.com"
                       autoComplete="email"
                     />
@@ -172,7 +172,7 @@ export default function EmailDemo() {
                       <input
                         id="email-demo-name"
                         required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})}
-                        className="w-full bg-black/30 border border-white/10 text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500"
+                        className="w-full bg-black/30 border border-white/10 text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
                         placeholder="John Doe"
                         autoComplete="name"
                       />
@@ -201,7 +201,7 @@ export default function EmailDemo() {
                   type="submit"
                   disabled={status === 'submitting'}
                   aria-busy={status === 'submitting' || undefined}
-                  className="w-full bg-accent-secondary hover:bg-accent-secondary-dark text-white font-bold rounded-control py-4 transition-[background-color,box-shadow] shadow-lg shadow-accent-secondary/20 disabled:opacity-50 mt-4"
+                  className="w-full bg-accent-secondary hover:bg-accent-secondary-dark text-white dark:text-indigo-950 font-bold rounded-control py-4 transition-[background-color,box-shadow] shadow-lg shadow-accent-secondary/20 disabled:opacity-50 mt-4"
                 >
                   {status === 'submitting' ? 'Dispatched via SMTP...' : `Send ${scenarios.find(s => s.id === activeScenario)?.label} Email`}
                 </button>
@@ -255,13 +255,13 @@ export default function EmailDemo() {
                       ].map((s, i) => (
                         <div key={i} className="flex items-center gap-6 relative z-10">
                           <div aria-hidden="true" className={`w-12 h-12 rounded-card flex items-center justify-center text-lg shadow-sm border ${
-                            i === 0 ? 'bg-accent-secondary text-white border-accent-secondary scale-110' : 'bg-black/30 text-slate-400 border-white/10'
+                            i === 0 ? 'bg-accent-secondary text-white dark:text-indigo-950 border-accent-secondary scale-110' : 'bg-black/30 text-slate-400 border-white/10'
                           }`}>
                             <i className={`fas ${s.icon}`}></i>
                           </div>
                           <div className="text-left">
                              <div className={`font-bold text-sm ${i === 0 ? 'text-white' : 'text-slate-400'}`}>{s.status}</div>
-                             <div className="text-xxs text-slate-500">{s.time}</div>
+                             <div className="text-xxs text-slate-500 dark:text-slate-400">{s.time}</div>
                           </div>
                         </div>
                       ))}
@@ -275,11 +275,11 @@ export default function EmailDemo() {
                   <h3 className="text-xl font-bold text-white">Update Password</h3>
                   <div className="space-y-3">
                     <label htmlFor="email-demo-pw-1" className="sr-only">New password</label>
-                    <input id="email-demo-pw-1" type="password" placeholder="New Password" autoComplete="new-password" className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500" />
+                    <input id="email-demo-pw-1" type="password" placeholder="New Password" autoComplete="new-password" className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                     <label htmlFor="email-demo-pw-2" className="sr-only">Confirm password</label>
-                    <input id="email-demo-pw-2" type="password" placeholder="Confirm Password" autoComplete="new-password" className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500" />
+                    <input id="email-demo-pw-2" type="password" placeholder="Confirm Password" autoComplete="new-password" className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                   </div>
-                  <button type="button" onClick={() => setStatus('verified')} className="w-full bg-accent-secondary hover:bg-accent-secondary-dark text-white font-bold py-4 rounded-control shadow-lg transition-colors">Save New Password</button>
+                  <button type="button" onClick={() => setStatus('verified')} className="w-full bg-accent-secondary hover:bg-accent-secondary-dark text-white dark:text-indigo-950 font-bold py-4 rounded-control shadow-lg transition-colors">Save New Password</button>
                 </div>
               )}
 
@@ -299,7 +299,7 @@ export default function EmailDemo() {
         {/* Step 2: Live HTML Preview */}
         <div className="flex flex-col space-y-4 h-full">
            <div className="flex items-center justify-between px-2">
-            <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+            <h3 className="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
               <i aria-hidden="true" className="fas fa-laptop-code text-accent-secondary"></i>
               Live HTML Preview
             </h3>
@@ -308,7 +308,7 @@ export default function EmailDemo() {
 
           <div className="bg-slate-900/80 backdrop-blur-sm rounded-card-lg border border-white/10 overflow-hidden shadow-2xl flex-grow min-h-[500px] flex flex-col relative">
             {!htmlPreview ? (
-              <div className="flex-grow flex flex-col items-center justify-center text-slate-500 p-8 text-center">
+              <div className="flex-grow flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-8 text-center">
                 <div aria-hidden="true" className="w-20 h-20 rounded-pill bg-accent-secondary/10 ring-1 ring-accent-secondary/20 flex items-center justify-center mb-4">
                   <i className="fas fa-envelope-open-text text-3xl text-accent-secondary/60"></i>
                 </div>
@@ -328,7 +328,7 @@ export default function EmailDemo() {
                 </div>
 
                 <div className="flex-grow relative overflow-auto bg-black/30 p-4">
-                   <div className="bg-white shadow-2xl rounded-control overflow-hidden transform scale-90 origin-top">
+                   <div className="bg-white dark:bg-slate-900 shadow-2xl rounded-control overflow-hidden transform scale-90 origin-top">
                       {/* We use an iframe or dangerouslySetInnerHTML. For demo purposes, we'll use a div and intercept clicks. */}
                       <div 
                         onClick={(e) => {

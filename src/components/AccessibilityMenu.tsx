@@ -69,7 +69,7 @@ export default function AccessibilityMenu({ audioText }: AccessibilityMenuProps)
     <div className="fixed bottom-8 right-8 z-[100]" ref={menuRef}>
       {isOpen && (
         <div
-          className="absolute bottom-20 right-0 w-80 bg-white rounded-card-lg shadow-2xl border border-slate-100 p-8 animate-in fade-in zoom-in-95 slide-in-from-bottom-8 duration-500"
+          className="absolute bottom-20 right-0 w-80 bg-white dark:bg-slate-900 rounded-card-lg shadow-2xl border border-slate-100 dark:border-slate-800 p-8 animate-in fade-in zoom-in-95 slide-in-from-bottom-8 duration-500"
           role="dialog"
           aria-label="Accessibility settings"
         >
@@ -80,7 +80,7 @@ export default function AccessibilityMenu({ audioText }: AccessibilityMenuProps)
               </svg>
             </div>
             <div>
-              <h3 className="text-slate-900 font-black uppercase tracking-[0.15em] text-xxs">
+              <h3 className="text-slate-900 dark:text-slate-100 font-black uppercase tracking-[0.15em] text-xxs">
                 Access Tools
               </h3>
               <p className="text-slate-400 text-xs font-bold">Personalize your view</p>
@@ -90,14 +90,14 @@ export default function AccessibilityMenu({ audioText }: AccessibilityMenuProps)
           <div className="space-y-8">
             <div>
               <div className="flex justify-between items-center mb-4 px-1">
-                <span className="text-sm font-bold text-slate-700" id="font-size-label">Text Size</span>
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-200" id="font-size-label">Text Size</span>
                 <span className="text-xs font-black text-accent" aria-live="polite">{fontSize}%</span>
               </div>
-              <div className="flex gap-2 p-1 bg-slate-50 rounded-card" role="group" aria-labelledby="font-size-label">
+              <div className="flex gap-2 p-1 bg-slate-50 dark:bg-slate-950 rounded-card" role="group" aria-labelledby="font-size-label">
                 <button
                   type="button"
                   onClick={() => setFontSize(Math.max(80, fontSize - 10))}
-                  className="flex-1 bg-white hover:bg-slate-50 text-slate-900 font-bold py-3 rounded-control shadow-sm transition-[background-color,transform] active:scale-95"
+                  className="flex-1 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-950 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-control shadow-sm transition-[background-color,transform] active:scale-95"
                   aria-label="Decrease font size"
                 >
                   A-
@@ -105,7 +105,7 @@ export default function AccessibilityMenu({ audioText }: AccessibilityMenuProps)
                 <button
                   type="button"
                   onClick={() => setFontSize(100)}
-                  className="flex-1 bg-white hover:bg-slate-50 text-slate-900 font-bold py-3 rounded-control shadow-sm transition-[background-color,transform] active:scale-95"
+                  className="flex-1 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-950 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-control shadow-sm transition-[background-color,transform] active:scale-95"
                   aria-label="Reset font size to 100%"
                 >
                   100%
@@ -113,7 +113,7 @@ export default function AccessibilityMenu({ audioText }: AccessibilityMenuProps)
                 <button
                   type="button"
                   onClick={() => setFontSize(Math.min(150, fontSize + 10))}
-                  className="flex-1 bg-white hover:bg-slate-50 text-slate-900 font-bold py-3 rounded-control shadow-sm transition-[background-color,transform] active:scale-95"
+                  className="flex-1 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-950 text-slate-900 dark:text-slate-100 font-bold py-3 rounded-control shadow-sm transition-[background-color,transform] active:scale-95"
                   aria-label="Increase font size"
                 >
                   A+
@@ -139,7 +139,7 @@ export default function AccessibilityMenu({ audioText }: AccessibilityMenuProps)
               className={`w-full flex items-center gap-4 p-5 rounded-card font-bold transition-[background-color,color,box-shadow] duration-300 ${
                 isSpeaking
                   ? "bg-danger-soft text-danger ring-4 ring-danger/10"
-                  : "bg-accent-soft text-accent hover:bg-white hover:shadow-lg hover:shadow-accent/5"
+                  : "bg-accent-soft text-accent hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg hover:shadow-accent/5"
               }`}
             >
               <span
@@ -170,7 +170,7 @@ export default function AccessibilityMenu({ audioText }: AccessibilityMenuProps)
         aria-label={isOpen ? "Close accessibility menu" : "Open accessibility menu"}
         aria-expanded={isOpen}
         className={`w-16 h-16 rounded-card-lg flex items-center justify-center shadow-2xl transition-[background-color,color,transform] duration-500 hover:scale-110 active:scale-90 group ${
-          isOpen ? "bg-slate-900 text-white rotate-90" : "bg-white text-accent hover:bg-accent hover:text-white"
+          isOpen ? "bg-slate-900 text-white rotate-90" : "bg-white dark:bg-slate-900 text-accent hover:bg-accent hover:text-white"
         }`}
       >
         {isOpen ? (

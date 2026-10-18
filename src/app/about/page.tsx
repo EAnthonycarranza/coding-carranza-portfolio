@@ -35,7 +35,7 @@ export default function AboutPage() {
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-accent/10 rounded-full blur-2xl" />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
               
-              <div className="aspect-[4/5] relative rounded-3xl overflow-hidden border border-slate-100 shadow-2xl">
+              <div className="aspect-[4/5] relative rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-2xl">
                 <Image
                   src="/images/anthony.png"
                   alt="Anthony Carranza"
@@ -55,7 +55,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-accent">Commitment</p>
-                    <p className="font-bold text-slate-900">Quality over Quantity</p>
+                    <p className="font-bold text-slate-900 dark:text-slate-100">Quality over Quantity</p>
                   </div>
                 </div>
               </div>
@@ -68,13 +68,13 @@ export default function AboutPage() {
                 <div className="h-1.5 w-20 bg-accent rounded-full" />
               </div>
               
-              <p className="text-slate-600 text-xl leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-300 text-xl leading-relaxed font-medium">
                 I&apos;m a web developer specializing in Next.js and MERN web app development, 
                 passionate about helping small businesses and organizations establish 
                 a strong online presence.
               </p>
               
-              <div className="space-y-6 text-slate-500 leading-relaxed text-lg">
+              <div className="space-y-6 text-slate-500 dark:text-slate-400 leading-relaxed text-lg">
                 <p>
                   At Coding Carranza, I specialize in building custom websites and
                   web applications that are fast, responsive, and tailored to each
@@ -96,12 +96,12 @@ export default function AboutPage() {
               <div className="pt-6">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <p className="text-3xl font-bold text-slate-900">100%</p>
-                    <p className="text-sm text-slate-500">Client Satisfaction</p>
+                    <p className="text-3xl font-bold text-slate-900 dark:text-slate-100">100%</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">Client Satisfaction</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-slate-900">Modern</p>
-                    <p className="text-sm text-slate-500">Tech Stack</p>
+                    <p className="text-3xl font-bold text-slate-900 dark:text-slate-100">Modern</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">Tech Stack</p>
                   </div>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function AboutPage() {
               ].map((value) => (
                 <div
                   key={value.title}
-                  className="p-8 rounded-3xl border border-slate-100 bg-white hover:shadow-xl transition-all"
+                  className="p-8 rounded-3xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-xl transition-all"
                 >
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
                     <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +147,7 @@ export default function AboutPage() {
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{value.desc}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{value.desc}</p>
                 </div>
               ))}
             </div>

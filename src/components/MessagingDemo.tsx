@@ -268,7 +268,7 @@ export default function MessagingDemo() {
             role="tab"
             aria-selected={mode === 'sms'}
             onClick={() => setMode('sms')}
-            className={`px-8 py-2.5 rounded-control text-sm font-bold cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 ${mode === 'sms' ? 'bg-white text-slate-900 shadow-xl' : 'text-slate-400 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'}`}
+            className={`px-8 py-2.5 rounded-control text-sm font-bold cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 ${mode === 'sms' ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-xl' : 'text-slate-400 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'}`}
           >
             SMS
           </button>
@@ -347,7 +347,7 @@ export default function MessagingDemo() {
                     style={msg.sender === 'user' && mode === 'whatsapp' ? { backgroundColor: '#056162' } : undefined}
                     className={`max-w-[85%] p-4 rounded-card text-sm leading-relaxed shadow-xl ${
                       msg.sender === 'user'
-                        ? (mode === 'whatsapp' ? 'text-white rounded-tr-none' : 'bg-accent text-white rounded-tr-none')
+                        ? (mode === 'whatsapp' ? 'text-white rounded-tr-none' : 'bg-accent text-white dark:text-emerald-950 rounded-tr-none')
                         : 'bg-slate-800 text-slate-200 rounded-tl-none border border-white/5'
                     }`}>
                     {msg.mediaUrl && (
@@ -370,7 +370,7 @@ export default function MessagingDemo() {
                     )}
                   </div>
                 )}
-                <div className="mt-1.5 flex items-center gap-1.5 text-xxs text-slate-500 font-bold uppercase tracking-tighter px-1">
+                <div className="mt-1.5 flex items-center gap-1.5 text-xxs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-tighter px-1">
                   {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   {msg.sender === 'user' && msg.status && (
                     <span aria-label={`Status: ${msg.status}`} className={msg.status === 'read' ? 'text-accent-secondary' : 'text-slate-400'}>
@@ -381,7 +381,7 @@ export default function MessagingDemo() {
               </div>
             ))}
             {isTyping && (
-              <div className="flex items-center gap-2 text-slate-500 text-xxs font-bold animate-pulse px-2 uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xxs font-bold animate-pulse px-2 uppercase tracking-widest">
                 Assistant typing...
               </div>
             )}
@@ -430,7 +430,7 @@ export default function MessagingDemo() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Message..."
-                className="flex-grow bg-slate-800 border border-white/5 text-white rounded-card px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 transition-[border-color,box-shadow] placeholder:text-slate-500"
+                className="flex-grow bg-slate-800 border border-white/5 text-white rounded-card px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400"
               />
               <button
                 type="submit"
@@ -452,7 +452,7 @@ export default function MessagingDemo() {
 
       <div className="w-full max-w-4xl flex flex-col space-y-4">
         <div className="flex items-center justify-between px-6">
-          <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+          <h3 className="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
             <span aria-hidden="true" className="w-2 h-2 rounded-pill bg-accent animate-pulse"></span>
             Twilio API Live Console
           </h3>
@@ -478,7 +478,7 @@ export default function MessagingDemo() {
               <div className="w-3 h-3 rounded-pill bg-warn/50"></div>
               <div className="w-3 h-3 rounded-pill bg-positive/50"></div>
             </div>
-            <div className="text-xxs font-bold text-slate-500 uppercase tracking-[0.2em]">twilio-logs --verbose</div>
+            <div className="text-xxs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em]">twilio-logs --verbose</div>
             <div className="w-12"></div>
           </div>
 
@@ -490,7 +490,7 @@ export default function MessagingDemo() {
             className="p-8 h-[350px] overflow-y-auto font-mono text-[12px] scrollbar-hide"
           >
             {logs.length === 0 ? (
-              <div className="h-full flex items-center justify-center text-slate-600 italic">
+              <div className="h-full flex items-center justify-center text-slate-600 dark:text-slate-300 italic">
                 Awaiting first API interaction...
               </div>
             ) : (
@@ -509,7 +509,7 @@ export default function MessagingDemo() {
                         {renderHighlightedJson(log.response)}
                       </pre>
                     </div>
-                    <div className="mt-3 text-xxs text-slate-600 font-bold px-2">
+                    <div className="mt-3 text-xxs text-slate-600 dark:text-slate-300 font-bold px-2">
                       TRANSFERRED AT: {log.timestamp.toLocaleTimeString()}
                     </div>
                   </div>

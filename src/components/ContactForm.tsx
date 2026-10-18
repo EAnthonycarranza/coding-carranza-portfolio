@@ -26,7 +26,7 @@ export default function ContactForm({ initialMessage = "" }: { initialMessage?: 
     if (!siteKey) return;
 
     function renderCaptcha() {
-      if (captchaRef.current && window.grecaptcha && widgetIdRef.current === null) {
+      if (captchaRef.current && typeof window.grecaptcha?.render === "function" && widgetIdRef.current === null) {
         widgetIdRef.current = window.grecaptcha.render(captchaRef.current, {
           sitekey: siteKey!,
           callback: (token: string) => setCaptchaToken(token),
@@ -35,7 +35,7 @@ export default function ContactForm({ initialMessage = "" }: { initialMessage?: 
       }
     }
 
-    if (window.grecaptcha) {
+    if (typeof window.grecaptcha?.render === "function") {
       renderCaptcha();
     } else {
       (window as unknown as Record<string, () => void>).onRecaptchaLoad = renderCaptcha;

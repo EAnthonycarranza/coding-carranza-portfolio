@@ -28,7 +28,7 @@ export default async function ContactPage({ searchParams }: {
     : "";
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero & Background Elements */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-hero-bg text-white overflow-hidden">
         {/* Ambient Glows */}
@@ -58,38 +58,38 @@ export default async function ContactPage({ searchParams }: {
             {/* Left Column: Contact Info & Cards */}
             <div className="lg:col-span-5 space-y-8">
               <div className="glass p-8 rounded-pill border border-white/10 shadow-2xl">
-                <h2 className="text-2xl font-bold mb-8 text-slate-900">Contact Information</h2>
+                <h2 className="text-2xl font-bold mb-8 text-slate-900 dark:text-slate-100">Contact Information</h2>
                 
                 <div className="space-y-6">
-                  <div className="group flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                  <div className="group flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors">
                     <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-slate-600 uppercase tracking-wider mb-1">Email Me Directly</p>
-                      <a href="mailto:anthony@codingcarranza.com" className="text-lg font-bold text-slate-900 hover:text-accent transition-colors break-all">
+                      <p className="text-sm font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1">Email Me Directly</p>
+                      <a href="mailto:anthony@codingcarranza.com" className="text-lg font-bold text-slate-900 dark:text-slate-100 hover:text-accent transition-colors break-all">
                         anthony@codingcarranza.com
                       </a>
-                      <p className="text-sm text-slate-500 mt-1">Average response: 4-6 hours</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Average response: 4-6 hours</p>
                     </div>
                   </div>
 
-                  <div className="group flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                  <div className="group flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors">
                     <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-slate-600 uppercase tracking-wider mb-1">Strategy Call</p>
-                      <p className="text-lg font-bold text-slate-900">Free 30-min Consultation</p>
-                      <p className="text-sm text-slate-500 mt-1">Discuss goals, tech stack & timeline.</p>
+                      <p className="text-sm font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1">Strategy Call</p>
+                      <p className="text-lg font-bold text-slate-900 dark:text-slate-100">Free 30-min Consultation</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Discuss goals, tech stack & timeline.</p>
                     </div>
                   </div>
 
-                  <div className="group flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                  <div className="group flex items-start gap-5 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors">
                     <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -97,9 +97,9 @@ export default async function ContactPage({ searchParams }: {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-slate-600 uppercase tracking-wider mb-1">Location</p>
-                      <p className="text-lg font-bold text-slate-900">San Antonio, Texas</p>
-                      <p className="text-sm text-slate-500 mt-1">Working with businesses nationwide.</p>
+                      <p className="text-sm font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1">Location</p>
+                      <p className="text-lg font-bold text-slate-900 dark:text-slate-100">San Antonio, Texas</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Working with businesses nationwide.</p>
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export default async function ContactPage({ searchParams }: {
                     </div>
                     <div>
                       <p className="font-bold text-sm leading-none">Anthony Carranza</p>
-                      <p className="text-xs text-slate-500 mt-1">Founder & Developer</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Founder & Developer</p>
                     </div>
                   </div>
                 </div>
@@ -129,8 +129,8 @@ export default async function ContactPage({ searchParams }: {
             <div id="project-inquiry" className="lg:col-span-7 scroll-mt-28">
               <div className="glass p-8 sm:p-12 rounded-pill border border-white/10 shadow-2xl">
                 <div className="text-center mb-8 px-4">
-                  <h2 className="text-3xl font-bold text-slate-900 mb-4">Send a Message</h2>
-                  <p className="text-slate-500 max-w-lg mx-auto">
+                  <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Send a Message</h2>
+                  <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
                     Fill out the form below and I&apos;ll get back to you as soon as 
                     possible to discuss your project.
                   </p>
@@ -144,7 +144,7 @@ export default async function ContactPage({ searchParams }: {
       </section>
 
       {/* Trust & FAQ Preview */}
-      <section className="py-20 bg-slate-50/50">
+      <section className="py-20 bg-slate-50/50 dark:bg-slate-950/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -161,9 +161,9 @@ export default async function ContactPage({ searchParams }: {
                 desc: "Receive professional advice on tech stack and scalability."
               }
             ].map((item, idx) => (
-              <div key={idx} className="p-8 rounded-3xl border border-slate-100 bg-white">
-                <h3 className="text-lg font-bold mb-3 text-slate-900">{item.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+              <div key={idx} className="p-8 rounded-3xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
+                <h3 className="text-lg font-bold mb-3 text-slate-900 dark:text-slate-100">{item.title}</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

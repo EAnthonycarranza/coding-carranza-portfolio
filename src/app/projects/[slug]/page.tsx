@@ -124,7 +124,7 @@ export default async function ProjectDetailPage({
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {project.image_url && (
-            <div className={`mb-24 rounded-pill overflow-hidden border border-slate-100 shadow-2xl aspect-[16/9] relative ${project.image_fit === "contain" ? "bg-white" : ""}`}>
+            <div className={`mb-24 rounded-pill overflow-hidden border border-slate-100 dark:border-slate-800 shadow-2xl aspect-[16/9] relative ${project.image_fit === "contain" ? "bg-white" : ""}`}>
               <Image
                 src={project.image_url}
                 alt={project.title}
@@ -160,15 +160,15 @@ export default async function ProjectDetailPage({
 
                         if (textContent.startsWith("Challenge:")) {
                           return (
-                            <div className="group relative pl-8 py-8 bg-white rounded-3xl border border-slate-100 shadow-sm transition-all hover:border-red-200 hover:shadow-xl hover:shadow-red-500/5 overflow-hidden">
+                            <div className="group relative pl-8 py-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all hover:border-red-200 dark:hover:border-red-800 hover:shadow-xl hover:shadow-red-500/5 overflow-hidden">
                               <div className="absolute top-0 left-0 w-1.5 h-full bg-red-400" />
-                              <div className="absolute -right-4 -top-4 w-24 h-24 bg-red-50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <div className="absolute -right-4 -top-4 w-24 h-24 bg-red-50 dark:bg-red-950/40 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                               <div className="relative z-10">
                                 <div className="flex items-center gap-3 mb-3">
-                                  <span className="w-6 h-6 bg-red-100 text-red-600 rounded-lg flex items-center justify-center text-xs font-black shadow-sm">!</span>
+                                  <span className="w-6 h-6 bg-red-100 dark:bg-red-950/40 text-red-600 rounded-lg flex items-center justify-center text-xs font-black shadow-sm">!</span>
                                   <h4 className="text-xs font-black uppercase tracking-[0.2em] text-red-500">The Challenge</h4>
                                 </div>
-                                <div className="text-slate-700 text-xl leading-relaxed font-medium">
+                                <div className="text-slate-700 dark:text-slate-200 text-xl leading-relaxed font-medium">
                                   {children}
                                 </div>
                               </div>
@@ -178,7 +178,7 @@ export default async function ProjectDetailPage({
 
                         if (textContent.startsWith("Solution:")) {
                           return (
-                            <div className="group relative pl-8 py-8 bg-white rounded-3xl border border-slate-100 shadow-sm transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 overflow-hidden">
+                            <div className="group relative pl-8 py-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 overflow-hidden">
                               <div className="absolute top-0 left-0 w-1.5 h-full bg-accent" />
                               <div className="absolute -right-4 -top-4 w-24 h-24 bg-accent/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                               <div className="relative z-10">
@@ -186,7 +186,7 @@ export default async function ProjectDetailPage({
                                   <span className="w-6 h-6 bg-accent/10 text-accent rounded-lg flex items-center justify-center text-xs font-black shadow-sm">✓</span>
                                   <h4 className="text-xs font-black uppercase tracking-[0.2em] text-accent">The Solution</h4>
                                 </div>
-                                <div className="text-slate-700 text-xl leading-relaxed">
+                                <div className="text-slate-700 dark:text-slate-200 text-xl leading-relaxed">
                                   {children}
                                 </div>
                               </div>
@@ -194,19 +194,19 @@ export default async function ProjectDetailPage({
                           );
                         }
 
-                        return <p className="text-slate-600 text-lg sm:text-xl leading-relaxed mb-8">{children}</p>;
+                        return <p className="text-slate-600 dark:text-slate-300 text-lg sm:text-xl leading-relaxed mb-8">{children}</p>;
                       },
                       strong: ({ children }) => {
                         const content = children?.toString() || "";
                         if (content.startsWith("Challenge:") || content.startsWith("Solution:")) {
                           return null; // Hide the marker as we use the custom headers
                         }
-                        return <strong className="font-bold text-slate-900">{children}</strong>;
+                        return <strong className="font-bold text-slate-900 dark:text-slate-100">{children}</strong>;
                       },
-                      h3: ({ children }) => <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6 tracking-tight">{children}</h3>,
+                      h3: ({ children }) => <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-12 mb-6 tracking-tight">{children}</h3>,
                       ul: ({ children }) => <ul className="space-y-4 mb-8 ml-4">{children}</ul>,
                       li: ({ children }) => (
-                        <li className="flex items-start gap-3 text-slate-600 text-lg">
+                        <li className="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-lg">
                           <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                           <span>{children}</span>
                         </li>
@@ -221,13 +221,13 @@ export default async function ProjectDetailPage({
 
             <div className="space-y-12">
               {techs.length > 0 && (
-                <div className="glass p-8 rounded-3xl border border-slate-100">
+                <div className="glass p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
                   <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">Tech Stack</h3>
                   <div className="flex flex-wrap gap-3">
                     {techs.map((tech) => (
                       <span
                         key={tech}
-                        className="text-sm font-bold bg-white border border-slate-100 text-slate-900 px-4 py-2 rounded-xl shadow-sm"
+                        className="text-sm font-bold bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-900 dark:text-slate-100 px-4 py-2 rounded-xl shadow-sm"
                       >
                         {tech}
                       </span>
@@ -247,7 +247,7 @@ export default async function ProjectDetailPage({
                     href={project.project_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full bg-accent hover:bg-accent-dark text-white font-bold px-6 py-4 rounded-2xl transition-all hover:-translate-y-1"
+                    className="flex items-center justify-center gap-2 w-full bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 font-bold px-6 py-4 rounded-2xl transition-all hover:-translate-y-1"
                   >
                     Visit Website
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -262,12 +262,12 @@ export default async function ProjectDetailPage({
       </section>
 
       {/* Next Project CTA */}
-      <section className="py-32 bg-slate-50 border-t border-slate-100">
+      <section className="py-32 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-8 tracking-tight">Interested in similar results?</h2>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-white border border-slate-200 hover:border-accent text-slate-900 font-bold px-10 py-5 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-xl"
+            className="inline-flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-accent text-slate-900 dark:text-slate-100 font-bold px-10 py-5 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-xl"
           >
             Start Your Project Discovery
           </Link>

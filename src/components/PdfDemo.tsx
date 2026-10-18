@@ -120,7 +120,7 @@ export default function PdfDemo() {
                 type="button"
                 onClick={() => addToCart(item)}
                 aria-label={`Add ${item.name} to cart`}
-                className="bg-white/10 text-white w-10 h-10 rounded-control flex items-center justify-center hover:bg-accent-secondary transition-colors shadow-md"
+                className="bg-white/10 text-white dark:text-indigo-950 w-10 h-10 rounded-control flex items-center justify-center hover:bg-accent-secondary transition-colors shadow-md"
               >
                 <i aria-hidden="true" className="fas fa-plus"></i>
               </button>
@@ -143,7 +143,7 @@ export default function PdfDemo() {
                 onChange={e => setCustomerName(e.target.value)}
                 placeholder="Customer Name"
                 autoComplete="name"
-                className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500"
+                className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -155,7 +155,7 @@ export default function PdfDemo() {
                 onChange={e => setCustomerEmail(e.target.value)}
                 placeholder="Email Address"
                 autoComplete="email"
-                className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500"
+                className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
               />
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function PdfDemo() {
 
           <div className="flex-grow space-y-4 mb-8">
             {cart.length === 0 ? (
-              <div className="h-full flex flex-col items-center justify-center text-slate-500 italic p-12 text-center border-2 border-dashed border-white/5 rounded-card-lg">
+              <div className="h-full flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 italic p-12 text-center border-2 border-dashed border-white/5 rounded-card-lg">
                 <i aria-hidden="true" className="fas fa-cart-shopping text-4xl mb-4 opacity-20"></i>
                 <p>Add items from the menu to build your professional invoice</p>
               </div>
@@ -210,14 +210,14 @@ export default function PdfDemo() {
           <div className="mt-auto space-y-6 pt-6 border-t border-white/10">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-1">Total Amount Due</p>
+                <p className="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Total Amount Due</p>
                 <p className="text-4xl font-black text-white">${total.toFixed(2)}</p>
               </div>
               <div className="text-right">
                 <p className="text-xxs text-accent font-bold mb-1 flex items-center justify-end gap-1">
                   <i aria-hidden="true" className="fas fa-circle text-[6px]"></i> Dynamic Generation Ready
                 </p>
-                <p className="text-slate-500 text-xxs">Tax & Fees calculated in PDF</p>
+                <p className="text-slate-500 dark:text-slate-400 text-xxs">Tax & Fees calculated in PDF</p>
               </div>
             </div>
 

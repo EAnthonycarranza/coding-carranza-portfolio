@@ -18,11 +18,11 @@ function Switch({ on, accent = 'emerald' }: { on: boolean; accent?: 'emerald' | 
   const onColor = accent === 'indigo' ? 'bg-indigo-600' : accent === 'amber' ? 'bg-amber-500' : 'bg-emerald-500';
   return (
     <span
-      className={`relative inline-flex flex-shrink-0 w-12 h-7 rounded-full transition-colors duration-200 shadow-inner ${on ? onColor : 'bg-slate-300'}`}
+      className={`relative inline-flex flex-shrink-0 w-12 h-7 rounded-full transition-colors duration-200 shadow-inner ${on ? onColor : 'bg-slate-300 dark:bg-slate-600'}`}
       aria-hidden="true"
     >
       <span
-        className="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-200"
+        className="absolute top-0.5 left-0.5 w-6 h-6 bg-white dark:bg-slate-900 rounded-full shadow-md transition-transform duration-200"
         style={{ transform: on ? 'translateX(20px)' : 'translateX(0)' }}
       />
     </span>
@@ -301,7 +301,7 @@ export default function AuthDemoPage() {
         {/* Header */}
         <div className="mb-8 sm:mb-12 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-1">Auth <span className="text-slate-500">Security</span></h1>
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-1">Auth <span className="text-slate-500 dark:text-slate-400">Security</span></h1>
             <p className="text-slate-400 font-medium text-xs sm:text-base">Multi-role login, 2FA, and password reset flows.</p>
           </div>
           <Link href="/demo" className="bg-white/5 hover:bg-white/10 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/10 transition-all flex items-center gap-2 font-bold text-xs sm:text-sm">
@@ -363,8 +363,8 @@ export default function AuthDemoPage() {
                           <div className="w-7 h-7 rounded-control bg-white/10 text-white flex items-center justify-center" aria-hidden="true"><i className="fas fa-shield-halved text-xxs"></i></div>
                           <p className="text-xxs font-black text-slate-200 uppercase tracking-widest">2FA Settings</p>
                         </div>
-                        <span className={`text-xxs font-black uppercase tracking-widest px-2.5 py-1 rounded-pill inline-flex items-center gap-1.5 ${(twoFA[loggedInRole].email || twoFA[loggedInRole].totp) ? 'bg-accent text-white' : 'bg-white/10 text-slate-400'}`}>
-                          <span aria-hidden="true" className={`w-1.5 h-1.5 rounded-pill ${(twoFA[loggedInRole].email || twoFA[loggedInRole].totp) ? 'bg-white' : 'bg-slate-400'}`}></span>
+                        <span className={`text-xxs font-black uppercase tracking-widest px-2.5 py-1 rounded-pill inline-flex items-center gap-1.5 ${(twoFA[loggedInRole].email || twoFA[loggedInRole].totp) ? 'bg-accent text-white dark:text-emerald-950' : 'bg-white/10 text-slate-400'}`}>
+                          <span aria-hidden="true" className={`w-1.5 h-1.5 rounded-pill ${(twoFA[loggedInRole].email || twoFA[loggedInRole].totp) ? 'bg-white dark:bg-slate-900' : 'bg-slate-400'}`}></span>
                           {(twoFA[loggedInRole].email || twoFA[loggedInRole].totp) ? 'Protected' : 'Unprotected'}
                         </span>
                       </div>
@@ -397,7 +397,7 @@ export default function AuthDemoPage() {
                         className={`w-full bg-black/40 rounded-control p-3 border transition-[border-color,background-color,box-shadow] cursor-pointer flex items-center justify-between text-left hover:bg-black/50 disabled:opacity-60 ${twoFA[loggedInRole].totp ? 'border-accent-secondary/50 ring-1 ring-accent-secondary/20' : 'border-white/10'}`}
                       >
                         <div className="flex items-center gap-3">
-                          <div aria-hidden="true" className={`w-10 h-10 rounded-control flex items-center justify-center transition-colors ${twoFA[loggedInRole].totp ? 'bg-accent-secondary text-white' : 'bg-accent-secondary/10 text-accent-secondary'}`}>
+                          <div aria-hidden="true" className={`w-10 h-10 rounded-control flex items-center justify-center transition-colors ${twoFA[loggedInRole].totp ? 'bg-accent-secondary text-white dark:text-indigo-950' : 'bg-accent-secondary/10 text-accent-secondary'}`}>
                             <i className="fas fa-mobile-screen-button text-sm"></i>
                           </div>
                           <div>
@@ -421,7 +421,7 @@ export default function AuthDemoPage() {
                           </div>
                           <div className="flex flex-col items-center gap-3">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={totpEnroll.qr} alt="TOTP QR code" className="w-44 h-44 rounded-control bg-white p-2 border border-white/20" />
+                            <img src={totpEnroll.qr} alt="TOTP QR code" className="w-44 h-44 rounded-control bg-white dark:bg-slate-900 p-2 border border-white/20" />
                             <div className="w-full bg-black/40 rounded-control p-2 border border-white/10">
                               <p className="text-xxs font-black text-slate-300 uppercase tracking-widest mb-1 text-center">Or enter manually</p>
                               <code className="block text-center text-xxs text-slate-200 font-mono break-all select-all">{totpEnroll.secret}</code>
@@ -431,7 +431,7 @@ export default function AuthDemoPage() {
                               value={totpEnrollCode}
                               onChange={e => { setTotpEnrollCode(e.target.value.replace(/\D/g, '')); setTotpEnrollError(''); }}
                               placeholder="000000"
-                              className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white placeholder:text-slate-500 text-center text-xl font-black tracking-[0.5em] focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                              className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 text-center text-xl font-black tracking-[0.5em] focus:outline-none focus:ring-2 focus:ring-indigo-300"
                             />
                             {totpEnrollError && <p className="text-red-500 text-xxs font-bold text-center"><i className="fas fa-exclamation-circle mr-1"></i>{totpEnrollError}</p>}
                             <button
@@ -462,10 +462,10 @@ export default function AuthDemoPage() {
                 <div className="p-5 sm:p-8 space-y-5">
                   {role !== 'guest' && twoFA[role].totp && twoFA[role].email && (
                     <div className="grid grid-cols-2 gap-2">
-                      <button type="button" onClick={() => { setTwoFAMethod('totp'); setTwoFACode(''); setError(''); }} className={`py-2.5 rounded-control text-xxs font-black uppercase tracking-widest cursor-pointer transition-[background-color,color,border-color] border ${twoFAMethod === 'totp' ? 'bg-white text-slate-900 border-transparent' : 'bg-black/30 text-slate-300 border-white/10 hover:bg-black/50'}`}>
+                      <button type="button" onClick={() => { setTwoFAMethod('totp'); setTwoFACode(''); setError(''); }} className={`py-2.5 rounded-control text-xxs font-black uppercase tracking-widest cursor-pointer transition-[background-color,color,border-color] border ${twoFAMethod === 'totp' ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border-transparent' : 'bg-black/30 text-slate-300 border-white/10 hover:bg-black/50'}`}>
                         <i aria-hidden="true" className="fas fa-mobile-screen-button mr-1"></i> Authenticator
                       </button>
-                      <button type="button" onClick={() => { setTwoFAMethod('email'); setTwoFACode(''); setError(''); }} className={`py-2.5 rounded-control text-xxs font-black uppercase tracking-widest cursor-pointer transition-[background-color,color,border-color] border ${twoFAMethod === 'email' ? 'bg-white text-slate-900 border-transparent' : 'bg-black/30 text-slate-300 border-white/10 hover:bg-black/50'}`}>
+                      <button type="button" onClick={() => { setTwoFAMethod('email'); setTwoFACode(''); setError(''); }} className={`py-2.5 rounded-control text-xxs font-black uppercase tracking-widest cursor-pointer transition-[background-color,color,border-color] border ${twoFAMethod === 'email' ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border-transparent' : 'bg-black/30 text-slate-300 border-white/10 hover:bg-black/50'}`}>
                         <i aria-hidden="true" className="fas fa-envelope mr-1"></i> Email
                       </button>
                     </div>
@@ -477,7 +477,7 @@ export default function AuthDemoPage() {
                       <div>
                         <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Email for Code</label>
                         <div className="flex gap-2">
-                          <input type="email" value={twoFAEmail} onChange={e => setTwoFAEmail(e.target.value)} placeholder="admin@sweetbytes.com" className="flex-1 px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-300" />
+                          <input type="email" value={twoFAEmail} onChange={e => setTwoFAEmail(e.target.value)} placeholder="admin@sweetbytes.com" className="flex-1 px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300" />
                           <button onClick={send2FACode} disabled={sending2FA || !twoFAEmail} className="px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-bold text-sm disabled:opacity-40 transition-all whitespace-nowrap">
                             {sending2FA ? <i className="fas fa-spinner animate-spin"></i> : <><i className="fas fa-paper-plane mr-1"></i>Send</>}
                           </button>
@@ -486,7 +486,7 @@ export default function AuthDemoPage() {
                       {expectedCode && (
                         <div>
                           <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Enter 6-Digit Code</label>
-                          <input type="text" inputMode="numeric" maxLength={6} value={twoFACode} onChange={e => { setTwoFACode(e.target.value); setError(''); }} placeholder="000000" className="w-full px-4 py-4 rounded-control border border-white/10 bg-black/30 text-white placeholder:text-slate-500 text-center text-2xl font-black tracking-[0.5em] focus:outline-none focus:ring-2 focus:ring-warn/50" />
+                          <input type="text" inputMode="numeric" maxLength={6} value={twoFACode} onChange={e => { setTwoFACode(e.target.value); setError(''); }} placeholder="000000" className="w-full px-4 py-4 rounded-control border border-white/10 bg-black/30 text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 text-center text-2xl font-black tracking-[0.5em] focus:outline-none focus:ring-2 focus:ring-warn/50" />
                         </div>
                       )}
                     </>
@@ -495,7 +495,7 @@ export default function AuthDemoPage() {
                       <p className="text-slate-400 text-sm font-medium text-center">Open Google Authenticator (or any TOTP app) and enter the current 6-digit code for <strong className="text-white">{users[role as 'admin' | 'user']?.name}</strong>.</p>
                       <div>
                         <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Authenticator Code</label>
-                        <input autoFocus type="text" inputMode="numeric" maxLength={6} value={twoFACode} onChange={e => { setTwoFACode(e.target.value.replace(/\D/g, '')); setError(''); }} placeholder="000000" className="w-full px-4 py-4 rounded-control border border-white/10 bg-black/30 text-white placeholder:text-slate-500 text-center text-2xl font-black tracking-[0.5em] focus:outline-none focus:ring-2 focus:ring-warn/50" />
+                        <input autoFocus type="text" inputMode="numeric" maxLength={6} value={twoFACode} onChange={e => { setTwoFACode(e.target.value.replace(/\D/g, '')); setError(''); }} placeholder="000000" className="w-full px-4 py-4 rounded-control border border-white/10 bg-black/30 text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 text-center text-2xl font-black tracking-[0.5em] focus:outline-none focus:ring-2 focus:ring-warn/50" />
                       </div>
                     </>
                   )}
@@ -532,7 +532,7 @@ export default function AuthDemoPage() {
                     <form onSubmit={handlePasswordReset} className="space-y-4">
                       <div>
                         <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Your Email Address</label>
-                        <input type="email" required value={resetEmail} onChange={e => setResetEmail(e.target.value)} placeholder="you@example.com" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+                        <input type="email" required value={resetEmail} onChange={e => setResetEmail(e.target.value)} placeholder="you@example.com" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-300" />
                       </div>
                       <button type="submit" disabled={sendingReset} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black disabled:opacity-40 transition-all flex items-center justify-center gap-2">
                         {sendingReset ? <i className="fas fa-spinner animate-spin"></i> : <><i className="fas fa-envelope mr-1"></i>Send Reset Link</>}
@@ -567,11 +567,11 @@ export default function AuthDemoPage() {
                       </div>
                       <div>
                         <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">New Password</label>
-                        <input type="password" required value={newPass} onChange={e => setNewPass(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-300 placeholder:text-slate-400" />
+                        <input type="password" required value={newPass} onChange={e => setNewPass(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-300 placeholder:text-slate-400" />
                       </div>
                       <div>
                         <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Confirm New Password</label>
-                        <input type="password" required value={newPassConfirm} onChange={e => setNewPassConfirm(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-300 placeholder:text-slate-400" />
+                        <input type="password" required value={newPassConfirm} onChange={e => setNewPassConfirm(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-300 placeholder:text-slate-400" />
                       </div>
                       {error && <p className="text-red-500 text-xs font-bold"><i className="fas fa-exclamation-circle mr-1"></i>{error}</p>}
                       <button type="submit" className="w-full py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl font-black shadow-lg transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2">
@@ -605,20 +605,20 @@ export default function AuthDemoPage() {
                     <form onSubmit={handleRegister} className="space-y-4">
                       <div>
                         <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Full Name</label>
-                        <input type="text" required value={regName} onChange={e => setRegName(e.target.value)} placeholder="Alex Rivera" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
+                        <input type="text" required value={regName} onChange={e => setRegName(e.target.value)} placeholder="Alex Rivera" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
                       </div>
                       <div>
                         <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Email Address</label>
-                        <input type="email" required value={regEmail} onChange={e => setRegEmail(e.target.value)} placeholder="you@example.com" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
+                        <input type="email" required value={regEmail} onChange={e => setRegEmail(e.target.value)} placeholder="you@example.com" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         <div>
                           <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Password</label>
-                          <input type="password" required value={regPassword} onChange={e => setRegPassword(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
+                          <input type="password" required value={regPassword} onChange={e => setRegPassword(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
                         </div>
                         <div>
                           <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Confirm</label>
-                          <input type="password" required value={regConfirm} onChange={e => setRegConfirm(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
+                          <input type="password" required value={regConfirm} onChange={e => setRegConfirm(e.target.value)} placeholder="••••••••" className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-300 placeholder:text-slate-400" />
                         </div>
                       </div>
                       {error && <p className="text-red-500 text-xs font-bold"><i className="fas fa-exclamation-circle mr-1"></i>{error}</p>}
@@ -667,11 +667,11 @@ export default function AuthDemoPage() {
                       <form onSubmit={handleLogin} className="space-y-4">
                         <div>
                           <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Email</label>
-                          <input type="email" required value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-300 placeholder:text-slate-400" placeholder="admin@sweetbytes.com" />
+                          <input type="email" required value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-300 placeholder:text-slate-400" placeholder="admin@sweetbytes.com" />
                         </div>
                         <div>
                           <label className="text-xxs font-black text-slate-300 uppercase tracking-widest block mb-2">Password</label>
-                          <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-300 placeholder:text-slate-400" placeholder="••••••••" />
+                          <input type="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-3 rounded-control border border-white/10 bg-black/30 text-white text-sm font-medium placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-300 placeholder:text-slate-400" placeholder="••••••••" />
                         </div>
                         {error && <p className="text-red-500 text-xs font-bold"><i className="fas fa-exclamation-circle mr-1"></i>{error}</p>}
                         <button type="submit" className={`w-full py-4 bg-gradient-to-r ${colorMap[meta.color]} text-white rounded-xl font-black shadow-lg transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2`}>
@@ -680,7 +680,7 @@ export default function AuthDemoPage() {
                       </form>
                       <div className="flex items-center justify-between">
                         <button onClick={() => { setView('forgot'); setResetEmail(email || users[role].email); }} className="text-indigo-500 text-xs font-bold hover:underline">Forgot password?</button>
-                        <button onClick={() => setView('register')} className="text-slate-400 text-xs font-bold hover:text-slate-600">Create account →</button>
+                        <button onClick={() => setView('register')} className="text-slate-400 text-xs font-bold hover:text-slate-600 dark:hover:text-slate-300">Create account →</button>
                       </div>
                     </>
                   )}
@@ -714,7 +714,7 @@ export default function AuthDemoPage() {
                 <div className="flex-1 bg-slate-800 rounded-lg px-3 py-1.5 text-xxs text-slate-400 font-mono truncate">
                   {showPreview ? '📧 mail.sweetbytesbakery.com — Incoming Email' : '📭 No email received yet'}
                 </div>
-                {showPreview && <button onClick={() => setShowPreview(false)} className="text-slate-500 hover:text-white text-xs"><i className="fas fa-times"></i></button>}
+                {showPreview && <button onClick={() => setShowPreview(false)} className="text-slate-500 dark:text-slate-400 hover:text-white text-xs"><i className="fas fa-times"></i></button>}
               </div>
               <div className="bg-slate-950 min-h-[300px] sm:min-h-[400px]">
                 {showPreview ? (
@@ -739,7 +739,7 @@ export default function AuthDemoPage() {
                 <div key={f.title} className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur-sm">
                   <i className={`fas ${f.icon} text-indigo-400 text-lg mb-2`}></i>
                   <h4 className="text-white font-black text-sm mb-1">{f.title}</h4>
-                  <p className="text-slate-500 text-xxs font-medium leading-relaxed">{f.desc}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-xxs font-medium leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>

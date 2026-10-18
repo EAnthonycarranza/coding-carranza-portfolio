@@ -123,7 +123,7 @@ export default function AdminDashboard() {
       ) : (
         <button
           onClick={handleNewProject}
-          className="mb-8 bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-2.5 rounded-lg transition-colors"
+          className="mb-8 bg-accent hover:bg-accent-dark text-white dark:text-emerald-950 font-semibold px-6 py-2.5 rounded-lg transition-colors"
         >
           + Add New Project
         </button>
@@ -132,7 +132,7 @@ export default function AdminDashboard() {
       {/* Projects Table */}
       <div className="bg-card-bg border border-card-border rounded-xl overflow-hidden">
         <table className="w-full text-left">
-          <thead className="bg-gray-100 border-b border-card-border">
+          <thead className="bg-gray-100 dark:bg-slate-800 border-b border-card-border">
             <tr>
               <th className="px-6 py-3 text-sm font-semibold">Title</th>
               <th className="px-6 py-3 text-sm font-semibold hidden md:table-cell">
@@ -155,7 +155,7 @@ export default function AdminDashboard() {
               </tr>
             ) : (
               projects.map((project) => (
-                <tr key={project.id} className="hover:bg-gray-50">
+                <tr key={project.id} className="hover:bg-gray-50 dark:hover:bg-slate-950">
                   <td className="px-6 py-4 font-medium">{project.title}</td>
                   <td className="px-6 py-4 text-muted hidden md:table-cell">
                     {project.client_name || "-"}
@@ -176,7 +176,7 @@ export default function AdminDashboard() {
                     </button>
                     <button
                       onClick={() => handleDelete(project.id)}
-                      className="text-sm text-red-500 hover:text-red-700 font-medium"
+                      className="text-sm text-red-500 hover:text-red-700 dark:hover:text-red-300 font-medium"
                     >
                       Delete
                     </button>

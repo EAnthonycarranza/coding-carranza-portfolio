@@ -57,7 +57,7 @@ export default function DonationButton() {
 
   return (
     <div className="mt-6 rounded-card-lg bg-gradient-to-br from-rose-500 via-pink-500 to-orange-400 p-[2px] shadow-xl">
-      <div className="bg-white rounded-card p-6">
+      <div className="bg-white dark:bg-slate-900 rounded-card p-6">
         {banner === 'success' && (
           <div className="mb-4">
             <StatusBanner tone="success">
@@ -78,8 +78,8 @@ export default function DonationButton() {
             ☕
           </div>
           <div>
-            <h3 className="text-lg font-bold text-slate-900 leading-tight">Support My Work</h3>
-            <p className="text-xs text-slate-500">Buy me a coffee — fuel the next side project.</p>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">Support My Work</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Buy me a coffee — fuel the next side project.</p>
           </div>
         </div>
 
@@ -96,7 +96,7 @@ export default function DonationButton() {
         ) : (
           <div className="mt-4 space-y-4">
             <fieldset>
-              <legend className="text-xxs font-black text-slate-600 uppercase tracking-widest mb-2">Choose Amount (USD)</legend>
+              <legend className="text-xxs font-black text-slate-600 dark:text-slate-300 uppercase tracking-widest mb-2">Choose Amount (USD)</legend>
               <div className="grid grid-cols-4 gap-2" role="radiogroup" aria-label="Preset donation amount">
                 {PRESET_AMOUNTS.map(v => {
                   const selected = !customAmount && amount === v;
@@ -107,7 +107,7 @@ export default function DonationButton() {
                       role="radio"
                       aria-checked={selected}
                       onClick={() => { setAmount(v); setCustomAmount(''); }}
-                      className={`py-3 rounded-control text-sm font-bold transition-[background-color,border-color,color] border ${selected ? 'bg-slate-900 text-white border-slate-900' : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-400'}`}
+                      className={`py-3 rounded-control text-sm font-bold transition-[background-color,border-color,color] border ${selected ? 'bg-slate-900 text-white border-slate-900' : 'bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-slate-400'}`}
                     >
                       ${v}
                     </button>
@@ -117,7 +117,7 @@ export default function DonationButton() {
             </fieldset>
 
             <div>
-              <label htmlFor="donate-custom" className="text-xxs font-black text-slate-600 uppercase tracking-widest block mb-2">Custom Amount</label>
+              <label htmlFor="donate-custom" className="text-xxs font-black text-slate-600 dark:text-slate-300 uppercase tracking-widest block mb-2">Custom Amount</label>
               <div className="relative">
                 <span aria-hidden="true" className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">$</span>
                 <input
@@ -129,7 +129,7 @@ export default function DonationButton() {
                   value={customAmount}
                   onChange={e => setCustomAmount(e.target.value)}
                   placeholder="Other amount"
-                  className="w-full pl-8 pr-4 py-3 rounded-control border border-slate-200 bg-slate-50 text-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-300 transition-[border-color,box-shadow]"
+                  className="w-full pl-8 pr-4 py-3 rounded-control border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-300 transition-[border-color,box-shadow]"
                 />
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function DonationButton() {
                 onChange={e => setName(e.target.value)}
                 placeholder="Your name (optional)"
                 autoComplete="name"
-                className="w-full px-4 py-3 rounded-control border border-slate-200 bg-slate-50 text-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-300 transition-[border-color,box-shadow]"
+                className="w-full px-4 py-3 rounded-control border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-300 transition-[border-color,box-shadow]"
               />
               <label htmlFor="donate-message" className="sr-only">Note (optional)</label>
               <textarea
@@ -152,7 +152,7 @@ export default function DonationButton() {
                 onChange={e => setMessage(e.target.value)}
                 placeholder="Leave a note (optional)"
                 rows={2}
-                className="w-full px-4 py-3 rounded-control border border-slate-200 bg-slate-50 text-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-300 transition-[border-color,box-shadow] resize-none"
+                className="w-full px-4 py-3 rounded-control border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-rose-300 transition-[border-color,box-shadow] resize-none"
               />
             </div>
 
@@ -165,7 +165,7 @@ export default function DonationButton() {
                 type="button"
                 onClick={() => { setOpen(false); setError(''); }}
                 disabled={submitting}
-                className="px-4 py-3 rounded-control bg-slate-100 text-slate-600 font-bold text-sm hover:bg-slate-200 transition-colors disabled:opacity-50"
+                className="px-4 py-3 rounded-control bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors disabled:opacity-50"
               >
                 Cancel
               </button>

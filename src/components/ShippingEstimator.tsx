@@ -111,25 +111,25 @@ export default function ShippingEstimator() {
 
   if (transaction) {
     return (
-      <div className="bg-slate-900/80 backdrop-blur-sm p-6 sm:p-12 rounded-card-lg border border-white/10 text-center space-y-6 sm:space-y-8 animate-in zoom-in-95 duration-500 shadow-2xl max-w-2xl mx-auto">
+      <div className="bg-white dark:bg-slate-900/80 backdrop-blur-sm p-6 sm:p-12 rounded-card-lg border border-slate-200 dark:border-white/10 text-center space-y-6 sm:space-y-8 animate-in zoom-in-95 duration-500 shadow-2xl max-w-2xl mx-auto">
         <div className="w-16 h-16 sm:w-24 sm:h-24 bg-accent/15 rounded-pill flex items-center justify-center mx-auto ring-1 ring-accent/30 shadow-inner shadow-accent/20" aria-hidden="true">
           <svg className="w-8 h-8 sm:w-12 sm:h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
           </svg>
         </div>
         <div>
-          <h2 className="text-2xl sm:text-4xl font-black mb-2 sm:mb-3 text-white">Fulfillment Ready!</h2>
-          <p className="text-slate-400 text-base sm:text-lg">Label has been generated for your order.</p>
+          <h2 className="text-2xl sm:text-4xl font-black mb-2 sm:mb-3 text-slate-900 dark:text-white">Fulfillment Ready!</h2>
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">Label has been generated for your order.</p>
         </div>
 
-        <div className="bg-black/40 p-5 sm:p-8 rounded-card border border-white/10 text-left space-y-4 sm:space-y-6">
+        <div className="bg-slate-100 dark:bg-black/40 p-5 sm:p-8 rounded-card border border-slate-200 dark:border-white/10 text-left space-y-4 sm:space-y-6">
           <div>
-            <div className="text-xxs uppercase tracking-[0.2em] text-slate-400 font-black">Tracking Number</div>
-            <div className="text-lg sm:text-2xl font-mono text-white mt-1 break-all sm:break-normal">{transaction.trackingNumber}</div>
+            <div className="text-xxs uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 font-black">Tracking Number</div>
+            <div className="text-lg sm:text-2xl font-mono text-slate-900 dark:text-white mt-1 break-all sm:break-normal">{transaction.trackingNumber}</div>
           </div>
           <div>
-            <div className="text-xxs uppercase tracking-[0.2em] text-slate-400 font-black">Status</div>
-            <div className="text-sm sm:text-base text-slate-200 flex items-center gap-2 mt-1 font-bold" role="status">
+            <div className="text-xxs uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 font-black">Status</div>
+            <div className="text-sm sm:text-base text-slate-800 dark:text-slate-200 flex items-center gap-2 mt-1 font-bold" role="status">
               <span aria-hidden="true" className="w-2 h-2 sm:w-3 sm:h-3 rounded-pill bg-accent animate-pulse"></span>
               {transaction.status}
             </div>
@@ -151,7 +151,7 @@ export default function ShippingEstimator() {
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="text-slate-400 hover:text-white font-bold text-xs sm:text-sm transition-colors py-2"
+            className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold text-xs sm:text-sm transition-colors py-2"
           >
             Start New Shipment
           </button>
@@ -161,9 +161,9 @@ export default function ShippingEstimator() {
   }
 
   return (
-    <div className="bg-slate-900/80 backdrop-blur-sm rounded-card-lg border border-white/10 shadow-2xl max-w-2xl w-full mx-auto overflow-hidden">
+    <div className="bg-white dark:bg-slate-900/80 backdrop-blur-sm rounded-card-lg border border-slate-200 dark:border-white/10 shadow-2xl max-w-2xl w-full mx-auto overflow-hidden">
       <div className="p-8">
-        <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+        <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center gap-3">
           <span className="p-2 bg-accent/15 rounded-control ring-1 ring-accent/20" aria-hidden="true">
             <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -175,7 +175,7 @@ export default function ShippingEstimator() {
 
         <form onSubmit={fetchRates} className="grid sm:grid-cols-3 gap-4 mb-8" aria-label="Shipping destination">
           <div>
-            <label htmlFor="ship-zip" className="block text-xxs font-bold text-slate-300 uppercase mb-2 tracking-wider">ZIP Code</label>
+            <label htmlFor="ship-zip" className="block text-xxs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2 tracking-wider">ZIP Code</label>
             <input
               id="ship-zip"
               type="text"
@@ -183,12 +183,12 @@ export default function ShippingEstimator() {
               onChange={(e) => setZip(e.target.value)}
               placeholder="90210"
               autoComplete="postal-code"
-              className="w-full bg-black/30 border border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+              className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
               required
             />
           </div>
           <div>
-            <label htmlFor="ship-city" className="block text-xxs font-bold text-slate-300 uppercase mb-2 tracking-wider">City</label>
+            <label htmlFor="ship-city" className="block text-xxs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2 tracking-wider">City</label>
             <input
               id="ship-city"
               type="text"
@@ -196,7 +196,7 @@ export default function ShippingEstimator() {
               onChange={(e) => setCity(e.target.value)}
               placeholder="Beverly Hills"
               autoComplete="address-level2"
-              className="w-full bg-black/30 border border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+              className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 rounded-control px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-[border-color,box-shadow] text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
             />
           </div>
           <div className="flex items-end">
@@ -225,7 +225,7 @@ export default function ShippingEstimator() {
         <div className="space-y-3">
           {rates.length > 0 ? (
             <>
-              <p className="text-xxs font-bold text-slate-300 uppercase mb-2 tracking-widest">Select a Shipping Method</p>
+              <p className="text-xxs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2 tracking-widest">Select a Shipping Method</p>
               <ul className="space-y-3" aria-label="Available shipping rates">
                 {rates.map((rate) => (
                   <li key={rate.objectId}>
@@ -236,7 +236,7 @@ export default function ShippingEstimator() {
                       className={`group w-full flex items-center justify-between p-5 border rounded-card cursor-pointer transition-[border-color,background-color,transform,box-shadow] duration-300 animate-in slide-in-from-bottom-2 ${
                         selectedRate?.objectId === rate.objectId
                           ? 'border-accent bg-accent/15 ring-2 ring-accent/30 shadow-lg shadow-accent/20'
-                          : 'bg-black/30 border-white/10 hover:border-accent/40 hover:bg-black/50 hover:-translate-y-0.5 hover:shadow-md'
+                          : 'bg-slate-100 dark:bg-black/30 border-slate-200 dark:border-white/10 hover:border-accent/40 hover:bg-slate-100 dark:hover:bg-black/50 hover:-translate-y-0.5 hover:shadow-md'
                       }`}
                     >
                       <div className="flex items-center gap-4">
@@ -245,21 +245,21 @@ export default function ShippingEstimator() {
                           <img
                             src={rate.providerImage75}
                             alt={rate.provider}
-                            className="w-12 h-12 object-contain bg-white dark:bg-slate-900 p-1 rounded-control border border-white/20 shadow-sm"
+                            className="w-12 h-12 object-contain bg-white dark:bg-slate-900 p-1 rounded-control border border-slate-200 dark:border-white/20 shadow-sm"
                           />
                         )}
                         <div className="text-left">
-                          <div className={`font-bold text-base transition-colors ${selectedRate?.objectId === rate.objectId ? 'text-accent' : 'text-white'}`}>
+                          <div className={`font-bold text-base transition-colors ${selectedRate?.objectId === rate.objectId ? 'text-accent' : 'text-slate-900 dark:text-white'}`}>
                             {rate.provider}
                           </div>
-                          <div className="text-xs text-slate-400 font-medium">
+                          <div className="text-xs text-slate-600 dark:text-slate-400 font-medium">
                             {rate.servicelevel.name} • {rate.estimatedDays ? `~${rate.estimatedDays} days` : rate.durationTerms}
                           </div>
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-xl font-black text-white">${rate.amount}</div>
-                        <div className="text-xxs text-slate-400 uppercase tracking-tighter font-bold">{rate.currency}</div>
+                        <div className="text-xl font-black text-slate-900 dark:text-white">${rate.amount}</div>
+                        <div className="text-xxs text-slate-600 dark:text-slate-400 uppercase tracking-tighter font-bold">{rate.currency}</div>
                       </div>
                     </button>
                   </li>
@@ -284,14 +284,14 @@ export default function ShippingEstimator() {
                   >
                     Purchase Label for ${selectedRate.amount}
                   </Button>
-                  <p className="text-xxs text-center text-slate-400 mt-4 italic font-medium">
+                  <p className="text-xxs text-center text-slate-600 dark:text-slate-400 mt-4 italic font-medium">
                     Note: In sandbox mode, no real money is charged and the label is simulated.
                   </p>
                 </div>
               )}
             </>
           ) : !loading && !error && (
-            <div className="text-center py-12 text-slate-400 bg-black/30 rounded-card border-2 border-dashed border-white/10">
+            <div className="text-center py-12 text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-black/30 rounded-card border-2 border-dashed border-slate-200 dark:border-white/10">
               <svg aria-hidden="true" className="w-12 h-12 text-slate-600 dark:text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
               </svg>
@@ -300,9 +300,9 @@ export default function ShippingEstimator() {
           )}
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/10 text-center">
-          <p className="text-xxs text-slate-400 uppercase tracking-[0.2em] font-bold">
-            Full-Stack Logistics Powered by <span className="text-white">Shippo</span>
+        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/10 text-center">
+          <p className="text-xxs text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em] font-bold">
+            Full-Stack Logistics Powered by <span className="text-slate-900 dark:text-white">Shippo</span>
           </p>
         </div>
       </div>

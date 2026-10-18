@@ -30,7 +30,7 @@ export default async function ContactPage({ searchParams }: {
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero & Background Elements */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-hero-bg text-white overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-hero-bg text-slate-900 dark:text-white overflow-hidden">
         {/* Ambient Glows */}
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -41,7 +41,7 @@ export default async function ContactPage({ searchParams }: {
               Let&apos;s Build Something <br />
               <span className="text-gradient">Extraordinary</span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed mx-auto lg:mx-0">
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-12 leading-relaxed mx-auto lg:mx-0">
               Whether you have a fully-formed idea or just a spark of inspiration, 
               I&apos;m here to help you bring it to life with high-performance code 
               and user-centric design.
@@ -57,7 +57,7 @@ export default async function ContactPage({ searchParams }: {
             
             {/* Left Column: Contact Info & Cards */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="glass p-8 rounded-pill border border-white/10 shadow-2xl">
+              <div className="glass p-8 rounded-pill border border-slate-200 dark:border-white/10 shadow-2xl">
                 <h2 className="text-2xl font-bold mb-8 text-slate-900 dark:text-slate-100">Contact Information</h2>
                 
                 <div className="space-y-6">
@@ -104,8 +104,8 @@ export default async function ContactPage({ searchParams }: {
                   </div>
                 </div>
 
-                <div className="mt-12 p-6 rounded-3xl bg-slate-900 text-white">
-                  <p className="text-sm font-medium text-slate-400 mb-4 italic">
+                <div className="mt-12 p-6 rounded-3xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-4 italic">
                     &ldquo;My goal is to translate your business requirements into 
                     a seamless digital experience that scales.&rdquo;
                   </p>
@@ -127,7 +127,7 @@ export default async function ContactPage({ searchParams }: {
 
             {/* Right Column: Contact Form */}
             <div id="project-inquiry" className="lg:col-span-7 scroll-mt-28">
-              <div className="glass p-8 sm:p-12 rounded-pill border border-white/10 shadow-2xl">
+              <div className="glass p-8 sm:p-12 rounded-pill border border-slate-200 dark:border-white/10 shadow-2xl">
                 <div className="text-center mb-8 px-4">
                   <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Send a Message</h2>
                   <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto">

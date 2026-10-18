@@ -7,30 +7,30 @@
   /* Surfaces */
   --background: #ffffff;
   --foreground: #0f172a;
-  --surface-deep: #0a0c10;
-  --surface-dark: #0f172a;
+  --surface-deep: #f8fafc;
+  --surface-dark: #ffffff;
   --card-bg: rgba(255, 255, 255, 0.8);
   --card-border: rgba(226, 232, 240, 0.8);
-  --hero-bg: #020617;
+  --hero-bg: #f5faf9;
   --muted: #64748b;
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.3);
 
   /* Brand accent (emerald) — identity, primary CTAs */
-  --accent: #10b981;
-  --accent-dark: #059669;
+  --accent: #047857;
+  --accent-dark: #065f46;
   --accent-soft: rgba(16, 185, 129, 0.08);
 
   /* Secondary accent (indigo) — fintech / demo surfaces */
-  --accent-secondary: #6366f1;
-  --accent-secondary-dark: #4f46e5;
+  --accent-secondary: #4f46e5;
+  --accent-secondary-dark: #4338ca;
   --accent-secondary-soft: rgba(99, 102, 241, 0.08);
 
   /* Semantic */
-  --danger: #ef4444;
+  --danger: #dc2626;
   --danger-soft: rgba(239, 68, 68, 0.08);
-  --warn: #f59e0b;
-  --positive: #10b981;
+  --warn: #b45309;
+  --positive: #047857;
 
   /* Radii */
   --radius-control: 0.75rem;
@@ -49,6 +49,9 @@
   color-scheme: dark;
   --background: #080f1c;
   --foreground: #e2e8f0;
+  --surface-deep: #0a0c10;
+  --surface-dark: #0f172a;
+  --hero-bg: #020617;
   --card-bg: rgba(15, 23, 42, 0.94);
   --card-border: rgba(71, 85, 105, 0.6);
   --muted: #94a3b8;
@@ -60,6 +63,9 @@
   --accent-secondary: #a5b4fc;
   --accent-secondary-dark: #818cf8;
   --accent-secondary-soft: rgba(165, 180, 252, 0.1);
+  --danger: #ef4444;
+  --warn: #f59e0b;
+  --positive: #10b981;
 }
 
 @theme inline {

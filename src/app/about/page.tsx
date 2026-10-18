@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-hero-bg text-white overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-hero-bg text-slate-900 dark:text-white overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px]" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[80px]" />
@@ -20,7 +20,7 @@ export default function AboutPage() {
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight">
             The Story Behind <span className="text-gradient">Coding Carranza</span>
           </h1>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
             I build digital bridges for small businesses, combining technical 
             excellence with a personal touch.
           </p>

@@ -81,7 +81,7 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
               fontSize: '16px',
             },
             '.input-container': {
-              borderColor: 'rgba(255,255,255,0.10)',
+              borderColor: 'rgb(203, 213, 225)',
               borderRadius: '12px',
             },
             '.input-container.is-focus': {
@@ -91,10 +91,10 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
               borderColor: 'rgb(239, 68, 68)',
             },
             '.message-text': {
-              color: 'rgb(148, 163, 184)',
+              color: 'rgb(71, 85, 105)',
             },
             '.message-icon': {
-              color: 'rgb(148, 163, 184)',
+              color: 'rgb(71, 85, 105)',
             },
             '.message-text.is-error': {
               color: 'rgb(239, 68, 68)',
@@ -173,7 +173,7 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
         }}
       />
       
-      <div className="bg-black/30 rounded-card-lg border border-white/10 shadow-2xl overflow-hidden max-w-md mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="bg-white dark:bg-black/30 rounded-card-lg border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden max-w-md mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
         <div className="p-10">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-2 bg-accent/15 ring-1 ring-accent/30 rounded-control" aria-hidden="true">
@@ -181,16 +181,16 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
               </svg>
             </div>
-            <h3 className="text-2xl font-black text-white">Secure Checkout</h3>
+            <h3 className="text-2xl font-black text-slate-900 dark:text-white">Secure Checkout</h3>
           </div>
 
           <form onSubmit={handlePayment} className="space-y-6" aria-label="Square payment form">
             <div className="space-y-2">
-              <label htmlFor="card-container" className="block text-xxs font-bold text-slate-300 uppercase tracking-widest ml-1">Card Details</label>
+              <label htmlFor="card-container" className="block text-xxs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest ml-1">Card Details</label>
               <div
                 id="card-container"
                 ref={cardContainerRef}
-                className="bg-black/40 border border-white/10 p-4 rounded-control focus-within:ring-2 focus-within:ring-accent/30 focus-within:border-accent transition-[border-color,box-shadow] min-h-12"
+                className="bg-white text-slate-900 border border-slate-200 p-4 rounded-control focus-within:ring-2 focus-within:ring-accent/30 focus-within:border-accent transition-[border-color,box-shadow] min-h-12"
               >
                 {loading && (
                   <div className="flex items-center justify-center h-full" aria-label="Loading payment form">
@@ -201,7 +201,7 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
             </div>
 
             {initializationError && (
-              <div role="alert" className="rounded-control border border-warn/30 bg-warn/10 p-4 text-sm text-slate-200 space-y-3">
+              <div role="alert" className="rounded-control border border-warn/30 bg-warn/10 p-4 text-sm text-slate-800 dark:text-slate-200 space-y-3">
                 <p>{initializationError}</p>
                 {localCheckoutUrl && (
                   <a href={localCheckoutUrl} className="inline-block font-semibold text-accent underline underline-offset-4">
@@ -224,8 +224,8 @@ export default function SquarePaymentForm({ amount, onSuccess, onError }: Square
               Pay ${amount}
             </Button>
 
-            <p className="mt-6 text-center text-xs text-slate-400">
-              Securely processed by <span className="font-semibold text-slate-200">Square Sandbox</span>
+            <p className="mt-6 text-center text-xs text-slate-600 dark:text-slate-400">
+              Securely processed by <span className="font-semibold text-slate-800 dark:text-slate-200">Square Sandbox</span>
             </p>
           </form>
         </div>

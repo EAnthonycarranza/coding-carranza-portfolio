@@ -33,27 +33,27 @@ function FeatureList({ features, className = "space-y-3" }: { features: string[]
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-hero-bg pb-20 pt-36 text-white sm:pb-24 sm:pt-44">
+      <section className="relative overflow-hidden bg-hero-bg pb-20 pt-36 text-slate-900 dark:text-white sm:pb-24 sm:pt-44">
         <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-32 h-[600px] w-[600px] rounded-full bg-accent/10 blur-[120px]" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-emerald-400">Coding Carranza LLC &middot; San Antonio, Texas</p>
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-400">Coding Carranza LLC &middot; San Antonio, Texas</p>
             <h1 className="text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl">Clear packages.<br /><span className="text-gradient">Room to grow.</span></h1>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-400">From your first landing page to a custom web platform, find a foundation that fits your business and build from there.</p>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-400">From your first landing page to a custom web platform, find a foundation that fits your business and build from there.</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href="#packages" className="rounded-control bg-accent px-6 py-3.5 text-sm font-bold text-white dark:text-emerald-950 hover:bg-accent-dark">Compare packages</a>
-              <Link href="/demo" className="rounded-control border border-white/20 px-6 py-3.5 text-sm font-bold text-white hover:bg-white/10">Try the live demos <span aria-hidden="true">&rarr;</span></Link>
+              <Link href="/demo" className="rounded-control border border-slate-200 dark:border-white/20 px-6 py-3.5 text-sm font-bold text-slate-900 dark:text-white hover:bg-slate-100/70 dark:hover:bg-white/10">Try the live demos <span aria-hidden="true">&rarr;</span></Link>
             </div>
           </div>
-          <div className="rounded-card-lg border border-white/10 bg-white/5 p-7 sm:p-8">
-            <h2 className="text-sm font-semibold text-white">Your project, clearly structured.</h2>
+          <div className="rounded-card-lg border border-slate-200 dark:border-white/10 bg-slate-100/70 dark:bg-white/5 p-7 sm:p-8">
+            <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Your project, clearly structured.</h2>
             <ol className="mt-7 space-y-6">
               {engagementSteps.map((step, index) => (
                 <li key={step.title} className="flex gap-4">
-                  <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-control bg-emerald-400/10 font-mono text-xs font-semibold text-emerald-400">0{index + 1}</span>
+                  <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-control bg-emerald-400/10 font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-400">0{index + 1}</span>
                   <div>
-                    <h3 className="text-sm font-bold text-white">{step.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-400">{step.description}</p>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">{step.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{step.description}</p>
                   </div>
                 </li>
               ))}
@@ -86,7 +86,7 @@ export default function ServicesPage() {
                   <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">Included for your first year</h4>
                   <FeatureList features={getPackageFirstYearFeatures(service)} />
                 </div>
-                <Link href={`/contact?package=${service.slug}#project-inquiry`} className={`mt-auto rounded-control px-5 py-3.5 text-center text-sm font-bold ${service.highlighted ? "bg-accent text-white dark:text-emerald-950 hover:bg-accent-dark" : "bg-slate-900 text-white hover:bg-slate-700"}`}>Discuss {service.name} <span aria-hidden="true">&rarr;</span></Link>
+                <Link href={`/contact?package=${service.slug}#project-inquiry`} className={`mt-auto rounded-control px-5 py-3.5 text-center text-sm font-bold ${service.highlighted ? "bg-accent text-white dark:text-emerald-950 hover:bg-accent-dark" : "bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"}`}>Discuss {service.name} <span aria-hidden="true">&rarr;</span></Link>
               </article>
             ))}
           </div>

@@ -262,13 +262,13 @@ export default function MessagingDemo() {
       
       {/* Phone Simulator Section */}
       <div className="flex flex-col items-center w-full">
-        <div className="flex bg-white/5 p-1 rounded-card border border-white/10 mb-8 w-fit shadow-inner" role="tablist" aria-label="Messaging channel">
+        <div className="flex bg-slate-100/70 dark:bg-white/5 p-1 rounded-card border border-slate-200 dark:border-white/10 mb-8 w-fit shadow-inner" role="tablist" aria-label="Messaging channel">
           <button
             type="button"
             role="tab"
             aria-selected={mode === 'sms'}
             onClick={() => setMode('sms')}
-            className={`px-8 py-2.5 rounded-control text-sm font-bold cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 ${mode === 'sms' ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-xl' : 'text-slate-400 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'}`}
+            className={`px-8 py-2.5 rounded-control text-sm font-bold cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 ${mode === 'sms' ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-xl' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/5 hover:-translate-y-0.5'}`}
           >
             SMS
           </button>
@@ -278,17 +278,17 @@ export default function MessagingDemo() {
             aria-selected={mode === 'whatsapp'}
             onClick={() => setMode('whatsapp')}
             style={mode === 'whatsapp' ? { backgroundColor: '#25D366' } : undefined}
-            className={`px-8 py-2.5 rounded-control text-sm font-bold cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 ${mode === 'whatsapp' ? 'text-white shadow-xl' : 'text-slate-400 hover:text-white hover:bg-white/5 hover:-translate-y-0.5'}`}
+            className={`px-8 py-2.5 rounded-control text-sm font-bold cursor-pointer transition-[background-color,color,box-shadow,transform] duration-300 ${mode === 'whatsapp' ? 'text-white shadow-xl' : 'text-slate-400 hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/5 hover:-translate-y-0.5'}`}
           >
             WhatsApp
           </button>
         </div>
 
-        <div className="relative bg-slate-900 rounded-[3.5rem] p-4 border-[10px] border-slate-800 shadow-2xl h-[650px] w-full max-w-[380px] flex flex-col overflow-hidden ring-1 ring-white/10">
+        <div className="relative bg-white dark:bg-slate-900 rounded-[3.5rem] p-4 border-[10px] border-slate-200 dark:border-slate-800 shadow-2xl h-[650px] w-full max-w-[380px] flex flex-col overflow-hidden ring-1 ring-slate-200 dark:ring-white/10">
           {/* Dynamic Island */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-800 rounded-b-3xl z-20"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-100 dark:bg-slate-800 rounded-b-3xl z-20"></div>
           
-          <div className="pt-10 pb-4 px-6 border-b border-white/5 bg-slate-900/90 backdrop-blur-md z-10">
+          <div className="pt-10 pb-4 px-6 border-b border-slate-200 dark:border-white/5 bg-white dark:bg-slate-900/90 backdrop-blur-md z-10">
             <div className="flex items-center gap-3">
               <div
                 aria-hidden="true"
@@ -298,7 +298,7 @@ export default function MessagingDemo() {
                 {mode === 'whatsapp' ? 'W' : 'A'}
               </div>
               <div>
-                <div className="text-sm font-black text-white">Twilio API Assistant</div>
+                <div className="text-sm font-black text-slate-900 dark:text-white">Twilio API Assistant</div>
                 <div className="text-xxs text-accent font-bold uppercase tracking-widest flex items-center gap-1" role="status">
                   <span aria-hidden="true" className="w-1.5 h-1.5 rounded-pill bg-accent animate-pulse"></span>
                   Online
@@ -324,8 +324,8 @@ export default function MessagingDemo() {
                     </div>
                   </div>
                 ) : msg.sender === 'template' ? (
-                  <div className="max-w-[85%] bg-slate-800 rounded-card rounded-tl-none overflow-hidden shadow-2xl border border-white/5">
-                    <div className="p-4 text-sm text-slate-200 border-b border-white/5 leading-relaxed">
+                  <div className="max-w-[85%] bg-slate-100 dark:bg-slate-800 rounded-card rounded-tl-none overflow-hidden shadow-2xl border border-slate-200 dark:border-white/5">
+                    <div className="p-4 text-sm text-slate-800 dark:text-slate-200 border-b border-slate-200 dark:border-white/5 leading-relaxed">
                       {msg.text}
                     </div>
                     {msg.buttons?.map((btn) => (
@@ -333,7 +333,7 @@ export default function MessagingDemo() {
                         type="button"
                         key={btn}
                         onClick={() => handleSend(undefined, btn)}
-                        className="w-full py-3.5 px-4 text-accent text-sm font-bold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors border-b border-white/5 last:border-0"
+                        className="w-full py-3.5 px-4 text-accent text-sm font-bold flex items-center justify-center gap-2 hover:bg-slate-100/70 dark:hover:bg-white/10 transition-colors border-b border-slate-200 dark:border-white/5 last:border-0"
                       >
                         <svg aria-hidden="true" className="w-4 h-4 opacity-50 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
@@ -348,14 +348,14 @@ export default function MessagingDemo() {
                     className={`max-w-[85%] p-4 rounded-card text-sm leading-relaxed shadow-xl ${
                       msg.sender === 'user'
                         ? (mode === 'whatsapp' ? 'text-white rounded-tr-none' : 'bg-accent text-white dark:text-emerald-950 rounded-tr-none')
-                        : 'bg-slate-800 text-slate-200 rounded-tl-none border border-white/5'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-200 rounded-tl-none border border-slate-200 dark:border-white/5'
                     }`}>
                     {msg.mediaUrl && (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={msg.mediaUrl} alt="Property listing attachment" className="w-full h-auto rounded-control mb-3 border border-white/10" />
+                      <img src={msg.mediaUrl} alt="Property listing attachment" className="w-full h-auto rounded-control mb-3 border border-slate-200 dark:border-white/10" />
                     )}
                     {msg.isLocation && (
-                      <div className="w-full h-32 rounded-control mb-3 border border-white/10 overflow-hidden relative bg-slate-700 flex items-center justify-center" role="img" aria-label="Map showing San Francisco">
+                      <div className="w-full h-32 rounded-control mb-3 border border-slate-200 dark:border-white/10 overflow-hidden relative bg-slate-200 dark:bg-slate-700 flex items-center justify-center" role="img" aria-label="Map showing San Francisco">
                         <div aria-hidden="true" className="absolute inset-0 opacity-50 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=37.7749,-122.4194&zoom=13&size=400x200&sensor=false')] bg-cover bg-center mix-blend-luminosity"></div>
                         <div aria-hidden="true" className="relative z-10 w-8 h-8 text-danger animate-bounce">
                           <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -364,7 +364,7 @@ export default function MessagingDemo() {
                     )}
                     {msg.text}
                     {msg.sid && (
-                      <div className="mt-2 pt-2 border-t border-white/10 text-[8px] font-mono text-white/40 truncate">
+                      <div className="mt-2 pt-2 border-t border-slate-200 dark:border-white/10 text-[8px] font-mono text-white/40 truncate">
                         SID: {msg.sid}
                       </div>
                     )}
@@ -373,7 +373,7 @@ export default function MessagingDemo() {
                 <div className="mt-1.5 flex items-center gap-1.5 text-xxs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-tighter px-1">
                   {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   {msg.sender === 'user' && msg.status && (
-                    <span aria-label={`Status: ${msg.status}`} className={msg.status === 'read' ? 'text-accent-secondary' : 'text-slate-400'}>
+                    <span aria-label={`Status: ${msg.status}`} className={msg.status === 'read' ? 'text-accent-secondary' : 'text-slate-600 dark:text-slate-400'}>
                       {msg.status === 'delivered' || msg.status === 'read' ? '✓✓' : '✓'}
                     </span>
                   )}
@@ -387,12 +387,12 @@ export default function MessagingDemo() {
             )}
           </div>
 
-          <div className="px-4 py-2 bg-slate-900/90 border-t border-white/5 flex gap-2 overflow-x-auto scrollbar-hide" role="toolbar" aria-label="Quick actions">
+          <div className="px-4 py-2 bg-white dark:bg-slate-900/90 border-t border-slate-200 dark:border-white/5 flex gap-2 overflow-x-auto scrollbar-hide" role="toolbar" aria-label="Quick actions">
             <button
               type="button"
               onClick={() => handleAction('image')}
               aria-label="Send image attachment"
-              className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xxs font-bold uppercase tracking-wider rounded-control cursor-pointer transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 border border-white/5 hover:border-white/20"
+              className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white text-xxs font-bold uppercase tracking-wider rounded-control cursor-pointer transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 border border-slate-200 dark:border-white/5 hover:border-slate-200 dark:hover:border-white/20"
             >
               <svg aria-hidden="true" className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
               Send Image
@@ -403,7 +403,7 @@ export default function MessagingDemo() {
                   type="button"
                   onClick={() => handleAction('location')}
                   aria-label="Share location"
-                  className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xxs font-bold uppercase tracking-wider rounded-control cursor-pointer transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 border border-white/5 hover:border-white/20"
+                  className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white text-xxs font-bold uppercase tracking-wider rounded-control cursor-pointer transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 border border-slate-200 dark:border-white/5 hover:border-slate-200 dark:hover:border-white/20"
                 >
                   <svg aria-hidden="true" className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                   Location
@@ -412,7 +412,7 @@ export default function MessagingDemo() {
                   type="button"
                   onClick={() => handleAction('template')}
                   aria-label="Send interactive template"
-                  className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xxs font-bold uppercase tracking-wider rounded-control cursor-pointer transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 border border-white/5 hover:border-white/20"
+                  className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white text-xxs font-bold uppercase tracking-wider rounded-control cursor-pointer transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 border border-slate-200 dark:border-white/5 hover:border-slate-200 dark:hover:border-white/20"
                 >
                   <svg aria-hidden="true" className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
                   Interactive
@@ -421,7 +421,7 @@ export default function MessagingDemo() {
             )}
           </div>
 
-          <div className="p-4 bg-slate-900/90 backdrop-blur-xl border-t border-white/5 pb-6">
+          <div className="p-4 bg-white dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 pb-6">
             <form onSubmit={handleSend} className="flex gap-2" aria-label="Send message">
               <label htmlFor="messaging-input" className="sr-only">Message</label>
               <input
@@ -430,7 +430,7 @@ export default function MessagingDemo() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Message..."
-                className="flex-grow bg-slate-800 border border-white/5 text-white rounded-card px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                className="flex-grow bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white rounded-card px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400"
               />
               <button
                 type="submit"
@@ -460,7 +460,7 @@ export default function MessagingDemo() {
             type="button"
             onClick={() => setLogs([])}
             aria-label="Clear API console"
-            className="text-xxs font-bold text-slate-400 hover:text-white uppercase transition-colors flex items-center gap-2"
+            className="text-xxs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white uppercase transition-colors flex items-center gap-2"
           >
             <svg aria-hidden="true" className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
@@ -470,9 +470,9 @@ export default function MessagingDemo() {
         </div>
 
         <div
-          className="bg-slate-900/90 border border-white/10 rounded-card-lg overflow-hidden shadow-2xl backdrop-blur-2xl ring-1 ring-white/5"
+          className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 rounded-card-lg overflow-hidden shadow-2xl backdrop-blur-2xl ring-1 ring-slate-200 dark:ring-white/5"
         >
-          <div className="px-6 py-4 bg-white/5 border-b border-white/5 flex items-center justify-between">
+          <div className="px-6 py-4 bg-slate-100/70 dark:bg-white/5 border-b border-slate-200 dark:border-white/5 flex items-center justify-between">
             <div className="flex gap-2" aria-hidden="true">
               <div className="w-3 h-3 rounded-pill bg-danger/50"></div>
               <div className="w-3 h-3 rounded-pill bg-warn/50"></div>
@@ -499,12 +499,12 @@ export default function MessagingDemo() {
                   <div key={log.id} className="animate-in fade-in slide-in-from-left-4 duration-500">
                     <div className="flex items-center gap-3 mb-4">
                       <span className="text-accent font-black">{log.method}</span>
-                      <span className="text-slate-300 font-bold">{log.endpoint}</span>
+                      <span className="text-slate-700 dark:text-slate-300 font-bold">{log.endpoint}</span>
                       <span className={`px-2 py-0.5 rounded-pill text-xxs font-black ${log.status >= 200 && log.status < 300 ? 'bg-accent/20 text-accent' : 'bg-danger/20 text-danger'}`}>
                         HTTP {log.status}
                       </span>
                     </div>
-                    <div className="bg-black/20 rounded-card p-6 border border-white/5">
+                    <div className="bg-slate-100 dark:bg-black/20 rounded-card p-6 border border-slate-200 dark:border-white/5">
                       <pre className="leading-relaxed whitespace-pre-wrap">
                         {renderHighlightedJson(log.response)}
                       </pre>
@@ -539,10 +539,10 @@ function renderHighlightedJson(json: any) {
           if (part.startsWith('"') && part.endsWith('"') && j === 0)
             return <span key={j} className="text-accent">{part}</span>;
           if (part.startsWith('"') && part.endsWith('"'))
-            return <span key={j} className="text-amber-200">{part}</span>;
+            return <span key={j} className="text-amber-700 dark:text-amber-200">{part}</span>;
           if (part.match(/^\d+$/) || part === 'null')
             return <span key={j} className="text-accent-secondary">{part}</span>;
-          return <span key={j} className="text-slate-400">{part}</span>;
+          return <span key={j} className="text-slate-600 dark:text-slate-400">{part}</span>;
         })}
       </div>
     );

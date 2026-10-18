@@ -65,7 +65,7 @@ export default function DemoIndexPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-hero-bg text-white selection:bg-accent/30 pt-32 pb-20">
+    <main className="min-h-screen bg-hero-bg text-slate-900 dark:text-white selection:bg-accent/30 pt-32 pb-20">
       {/* Background Glow */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/10 blur-[120px] rounded-full"></div>
@@ -77,7 +77,7 @@ export default function DemoIndexPage() {
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
             Demo <span className="text-gradient">Components</span>
           </h1>
-          <p className="text-xl text-slate-400">
+          <p className="text-xl text-slate-600 dark:text-slate-400">
             Interactive explorations and live feature demonstrations for high-performance web applications.
           </p>
         </div>
@@ -87,16 +87,16 @@ export default function DemoIndexPage() {
             <Link
               key={demo.href}
               href={demo.href}
-              className="group relative bg-slate-900/80 backdrop-blur-sm p-8 rounded-card-lg border border-white/10 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-1 cursor-pointer transition-[border-color,box-shadow,transform] duration-300 flex flex-col h-full overflow-hidden"
+              className="group relative bg-white dark:bg-slate-900/80 backdrop-blur-sm p-8 rounded-card-lg border border-slate-200 dark:border-white/10 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-1 cursor-pointer transition-[border-color,box-shadow,transform] duration-300 flex flex-col h-full overflow-hidden"
             >
               <div aria-hidden="true" className="absolute -top-20 -right-20 w-40 h-40 bg-accent/10 blur-3xl rounded-pill opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative mb-6 p-4 bg-accent/10 rounded-card w-fit ring-1 ring-accent/20 group-hover:scale-110 group-hover:bg-accent/20 group-hover:rotate-3 transition-[background-color,transform] duration-300">
                 {demo.icon}
               </div>
-              <h2 className="relative text-2xl font-black mb-3 text-white group-hover:text-accent transition-colors">
+              <h2 className="relative text-2xl font-black mb-3 text-slate-900 dark:text-white group-hover:text-accent transition-colors">
                 {demo.title}
               </h2>
-              <p className="relative text-slate-400 mb-8 flex-grow font-medium leading-relaxed">
+              <p className="relative text-slate-600 dark:text-slate-400 mb-8 flex-grow font-medium leading-relaxed">
                 {demo.description}
               </p>
               <div className="relative flex items-center gap-2 text-accent font-semibold text-sm">

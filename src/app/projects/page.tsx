@@ -44,7 +44,7 @@ export default async function ProjectsPage({
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-hero-bg text-white overflow-hidden text-center">
+      <section className="relative pt-32 pb-20 bg-hero-bg text-slate-900 dark:text-white overflow-hidden text-center">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -52,7 +52,7 @@ export default async function ProjectsPage({
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight">
             Case <span className="text-gradient">Studies</span>
           </h1>
-          <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
             A deep dive into the technical solutions and creative strategies 
             I&apos;ve implemented for my clients.
           </p>
@@ -63,7 +63,7 @@ export default async function ProjectsPage({
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {projects.length === 0 ? (
             <div className="text-center py-20 glass rounded-pill border border-slate-100 dark:border-slate-800">
-              <p className="text-slate-400 text-xl font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-xl font-medium">
                 Projects are currently being curated. Check back very soon!
               </p>
             </div>
@@ -132,7 +132,7 @@ export default async function ProjectsPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-block p-4 bg-white dark:bg-slate-900 rounded-3xl shadow-xl mb-8">
             <div className="flex -space-x-3 overflow-hidden">
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-slate-200 overflow-hidden">
                 <Image 
                   src="https://themilkandhoney.co/static/media/Logo.c6eabcf5c49deefa02f7.png"
                   alt="Milk & Honey Logo"
@@ -141,7 +141,7 @@ export default async function ProjectsPage({
                   className="object-cover"
                 />
               </div>
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-white overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-white overflow-hidden">
                 <Image 
                   src="https://storage.googleapis.com/carranzarestorationllc/Carranza%20Restoration.d619e97f6f8dee49a662.png"
                   alt="Carranza Restoration Logo"
@@ -150,7 +150,7 @@ export default async function ProjectsPage({
                   className="object-cover"
                 />
               </div>
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-slate-200 overflow-hidden">
                 <Image 
                   src="https://storage.googleapis.com/carranzawedding/logo192%202.png"
                   alt="Carranza Wedding Logo"
@@ -159,7 +159,7 @@ export default async function ProjectsPage({
                   className="object-cover"
                 />
               </div>
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-white overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-white overflow-hidden">
                 <Image
                   src="/images/bon-bons-sweets-logo.png"
                   alt="Bon Bon's Sweets & More logo"

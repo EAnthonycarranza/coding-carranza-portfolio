@@ -102,27 +102,27 @@ export default function EmailDemo() {
             className={`group w-full flex items-center gap-4 p-4 rounded-card border cursor-pointer transition-[background-color,border-color,transform,box-shadow] duration-300 text-left ${
               activeScenario === s.id
                 ? 'bg-accent-secondary/15 border-accent-secondary/40 ring-1 ring-accent-secondary/30 shadow-xl shadow-accent-secondary/20 scale-[1.02]'
-                : 'bg-white/5 border-white/5 text-slate-400 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:text-slate-200'
+                : 'bg-slate-100/70 dark:bg-white/5 border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:bg-slate-100/70 dark:hover:bg-white/10 hover:border-slate-200 dark:hover:border-white/20 hover:-translate-y-0.5 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
             <div aria-hidden="true" className={`w-10 h-10 rounded-control flex items-center justify-center text-lg transition-colors ${
-              activeScenario === s.id ? 'bg-accent-secondary text-white dark:text-indigo-950 shadow-lg shadow-accent-secondary/30' : 'bg-white/10 text-slate-300'
+              activeScenario === s.id ? 'bg-accent-secondary text-white dark:text-indigo-950 shadow-lg shadow-accent-secondary/30' : 'bg-slate-100/70 dark:bg-white/10 text-slate-700 dark:text-slate-300'
             }`}>
               <i className={`fas ${s.icon}`}></i>
             </div>
             <div>
-              <div className={`font-bold text-sm ${activeScenario === s.id ? 'text-white' : 'text-slate-300'}`}>{s.label}</div>
-              <div className={`text-xxs ${activeScenario === s.id ? 'text-accent-secondary/80' : 'text-slate-400/70'}`}>Real-time SMTP Dispatch</div>
+              <div className="font-bold text-sm">{s.label}</div>
+              <div className={`text-xxs ${activeScenario === s.id ? 'text-accent-secondary/80' : 'text-slate-600 dark:text-slate-400/70'}`}>Real-time SMTP Dispatch</div>
             </div>
           </button>
         ))}
 
         {/* Logs in sidebar on large screens, or below on small */}
-        <div className="hidden lg:flex flex-col h-[300px] mt-8 bg-slate-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-          <div className="px-4 py-2 bg-white/5 border-b border-white/5 text-xxs font-bold text-slate-500 dark:text-slate-400 tracking-widest uppercase">SMTP RELAY LOGS</div>
+        <div className="hidden lg:flex flex-col h-[300px] mt-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="px-4 py-2 bg-slate-100/70 dark:bg-white/5 border-b border-slate-200 dark:border-white/5 text-xxs font-bold text-slate-500 dark:text-slate-400 tracking-widest uppercase">SMTP RELAY LOGS</div>
           <div ref={logScrollRef} className="p-4 overflow-y-auto font-mono text-xxs space-y-2" role="log" aria-live="polite" aria-label="SMTP relay logs">
             {logs.map(log => (
-              <div key={log.id} className="text-slate-400">
+              <div key={log.id} className="text-slate-600 dark:text-slate-400">
                 <span className={log.type === 'success' ? 'text-accent' : log.type === 'error' ? 'text-danger' : 'text-accent-secondary'}>
                   {log.status === 'SUCCESS' ? '✓' : log.status === 'ERROR' ? '✗' : '•'}
                 </span> {log.message}
@@ -136,13 +136,13 @@ export default function EmailDemo() {
       {/* Main Action Area */}
       <div className="lg:col-span-9 grid lg:grid-cols-2 gap-8">
         
-        <div className="bg-slate-900/80 backdrop-blur-sm rounded-card-lg p-8 shadow-2xl border border-white/10 flex flex-col min-h-[500px]">
+        <div className="bg-white dark:bg-slate-900/80 backdrop-blur-sm rounded-card-lg p-8 shadow-2xl border border-slate-200 dark:border-white/10 flex flex-col min-h-[500px]">
           {status === 'idle' || status === 'submitting' ? (
             <>
               <div className="mb-8 flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-black text-white">Trigger Workflow</h2>
-                  <p className="text-sm text-slate-400">Configure your demonstration payload</p>
+                  <h2 className="text-2xl font-black text-slate-900 dark:text-white">Trigger Workflow</h2>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">Configure your demonstration payload</p>
                 </div>
                 <div className="w-12 h-12 bg-accent-secondary/15 ring-1 ring-accent-secondary/30 rounded-card flex items-center justify-center text-accent-secondary" aria-hidden="true">
                   <i className={`fas ${scenarios.find(s => s.id === activeScenario)?.icon} text-xl`}></i>
@@ -151,13 +151,13 @@ export default function EmailDemo() {
 
               <form onSubmit={handleSubmit} className="space-y-4" aria-label="Email demo trigger">
                 <div className="space-y-1.5">
-                  <label htmlFor="email-demo-recipient" className="text-xs font-black text-slate-300 uppercase tracking-wider">Recipient Inbox</label>
+                  <label htmlFor="email-demo-recipient" className="text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Recipient Inbox</label>
                   <div className="relative">
-                    <i aria-hidden="true" className="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <i aria-hidden="true" className="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 dark:text-slate-400 text-sm"></i>
                     <input
                       id="email-demo-recipient"
                       required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-black/30 border border-white/10 text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                      className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
                       placeholder="your-email@example.com"
                       autoComplete="email"
                     />
@@ -166,13 +166,13 @@ export default function EmailDemo() {
 
                 {(activeScenario === 'quote' || activeScenario === 'order' || activeScenario === 'password-reset') && (
                   <div className="space-y-1.5">
-                    <label htmlFor="email-demo-name" className="text-xs font-black text-slate-300 uppercase tracking-wider">Full Name</label>
+                    <label htmlFor="email-demo-name" className="text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Full Name</label>
                     <div className="relative">
-                      <i aria-hidden="true" className="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                      <i aria-hidden="true" className="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 dark:text-slate-400 text-sm"></i>
                       <input
                         id="email-demo-name"
                         required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})}
-                        className="w-full bg-black/30 border border-white/10 text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                        className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control pl-11 pr-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
                         placeholder="John Doe"
                         autoComplete="name"
                       />
@@ -183,14 +183,14 @@ export default function EmailDemo() {
                 {activeScenario === 'quote' && (
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label htmlFor="email-demo-occasion" className="text-xs font-black text-slate-300 uppercase tracking-wider">Occasion</label>
-                      <select id="email-demo-occasion" value={formData.occasion} onChange={e => setFormData({...formData, occasion: e.target.value})} className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary outline-none transition-[border-color,box-shadow]">
+                      <label htmlFor="email-demo-occasion" className="text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Occasion</label>
+                      <select id="email-demo-occasion" value={formData.occasion} onChange={e => setFormData({...formData, occasion: e.target.value})} className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary outline-none transition-[border-color,box-shadow]">
                         <option>Birthday</option><option>Wedding</option><option>Corporate</option>
                       </select>
                     </div>
                     <div className="space-y-1.5">
-                      <label htmlFor="email-demo-flavor" className="text-xs font-black text-slate-300 uppercase tracking-wider">Flavor</label>
-                      <select id="email-demo-flavor" value={formData.flavor} onChange={e => setFormData({...formData, flavor: e.target.value})} className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary outline-none transition-[border-color,box-shadow]">
+                      <label htmlFor="email-demo-flavor" className="text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">Flavor</label>
+                      <select id="email-demo-flavor" value={formData.flavor} onChange={e => setFormData({...formData, flavor: e.target.value})} className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary outline-none transition-[border-color,box-shadow]">
                         <option>Chocolate</option><option>Vanilla</option><option>Red Velvet</option>
                       </select>
                     </div>
@@ -215,17 +215,17 @@ export default function EmailDemo() {
                     <i className="fas fa-unlock-keyhole"></i>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Enter Security Code</h3>
-                    <p className="text-xs text-slate-400 mt-2">Check the HTML preview to find your code.</p>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">Enter Security Code</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">Check the HTML preview to find your code.</p>
                   </div>
                   <label htmlFor="email-demo-2fa" className="sr-only">Verification code</label>
                   <input
                     id="email-demo-2fa"
                     type="text" inputMode="numeric" maxLength={6} value={inputCode} onChange={e => setInputCode(e.target.value)}
-                    className="w-full bg-black/30 border-2 border-accent-secondary/30 text-accent-secondary text-center text-3xl font-black tracking-[10px] rounded-card py-4 focus:border-accent-secondary outline-none transition-[border-color]"
+                    className="w-full bg-slate-100 dark:bg-black/30 border-2 border-accent-secondary/30 text-accent-secondary text-center text-3xl font-black tracking-[10px] rounded-card py-4 focus:border-accent-secondary outline-none transition-[border-color]"
                     aria-label="Verification code"
                   />
-                  <button type="button" onClick={verify2FA} className="w-full bg-slate-900 text-white font-bold rounded-control py-4 hover:bg-slate-800 transition-colors">Verify Identity</button>
+                  <button type="button" onClick={verify2FA} className="w-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold rounded-control py-4 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Verify Identity</button>
                 </div>
               )}
 
@@ -234,8 +234,8 @@ export default function EmailDemo() {
                   <div className="w-20 h-20 bg-accent-soft text-accent rounded-pill flex items-center justify-center text-3xl mx-auto shadow-lg shadow-accent/10 animate-bounce" aria-hidden="true">
                     <i className="fas fa-check"></i>
                   </div>
-                  <h3 className="text-2xl font-black text-white">Identity Verified</h3>
-                  <p className="text-slate-400 max-w-[240px]">The automation loop is complete. This 2FA flow is ready for production.</p>
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white">Identity Verified</h3>
+                  <p className="text-slate-600 dark:text-slate-400 max-w-[240px]">The automation loop is complete. This 2FA flow is ready for production.</p>
                   <button type="button" onClick={() => setStatus('idle')} className="text-accent-secondary font-bold hover:underline">Restart Demo</button>
                 </div>
               )}
@@ -243,11 +243,11 @@ export default function EmailDemo() {
               {status === 'tracking' && (
                 <div className="w-full space-y-8 p-4">
                    <div className="flex items-center justify-between px-2">
-                      <h3 className="text-lg font-bold text-white">Real-time Logistics</h3>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">Real-time Logistics</h3>
                       <span className="bg-accent-secondary/20 text-accent-secondary text-xxs font-black px-2 py-1 rounded-pill uppercase">In Transit</span>
                    </div>
                    <div className="space-y-6 relative py-4">
-                      <div aria-hidden="true" className="absolute left-6 top-8 bottom-8 w-0.5 bg-white/10"></div>
+                      <div aria-hidden="true" className="absolute left-6 top-8 bottom-8 w-0.5 bg-slate-100/70 dark:bg-white/10"></div>
                       {[
                         { time: '10:45 AM', status: 'Out for Delivery', done: true, icon: 'fa-van-shuttle' },
                         { time: '08:12 AM', status: 'Arrived at Local Facility', done: true, icon: 'fa-warehouse' },
@@ -255,29 +255,29 @@ export default function EmailDemo() {
                       ].map((s, i) => (
                         <div key={i} className="flex items-center gap-6 relative z-10">
                           <div aria-hidden="true" className={`w-12 h-12 rounded-card flex items-center justify-center text-lg shadow-sm border ${
-                            i === 0 ? 'bg-accent-secondary text-white dark:text-indigo-950 border-accent-secondary scale-110' : 'bg-black/30 text-slate-400 border-white/10'
+                            i === 0 ? 'bg-accent-secondary text-white dark:text-indigo-950 border-accent-secondary scale-110' : 'bg-slate-100 dark:bg-black/30 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-white/10'
                           }`}>
                             <i className={`fas ${s.icon}`}></i>
                           </div>
                           <div className="text-left">
-                             <div className={`font-bold text-sm ${i === 0 ? 'text-white' : 'text-slate-400'}`}>{s.status}</div>
+                             <div className={`font-bold text-sm ${i === 0 ? 'text-white dark:text-indigo-950' : 'text-slate-600 dark:text-slate-400'}`}>{s.status}</div>
                              <div className="text-xxs text-slate-500 dark:text-slate-400">{s.time}</div>
                           </div>
                         </div>
                       ))}
                    </div>
-                   <button type="button" onClick={() => setStatus('idle')} className="w-full border border-white/10 text-slate-400 font-bold py-3 rounded-control hover:bg-white/5 hover:text-white transition-[background-color,color]">Close Tracker</button>
+                   <button type="button" onClick={() => setStatus('idle')} className="w-full border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 font-bold py-3 rounded-control hover:bg-slate-100/70 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-[background-color,color]">Close Tracker</button>
                 </div>
               )}
 
               {status === 'resetting' && (
                 <div className="w-full max-w-[280px] space-y-6">
-                  <h3 className="text-xl font-bold text-white">Update Password</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Update Password</h3>
                   <div className="space-y-3">
                     <label htmlFor="email-demo-pw-1" className="sr-only">New password</label>
-                    <input id="email-demo-pw-1" type="password" placeholder="New Password" autoComplete="new-password" className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                    <input id="email-demo-pw-1" type="password" placeholder="New Password" autoComplete="new-password" className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                     <label htmlFor="email-demo-pw-2" className="sr-only">Confirm password</label>
-                    <input id="email-demo-pw-2" type="password" placeholder="Confirm Password" autoComplete="new-password" className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                    <input id="email-demo-pw-2" type="password" placeholder="Confirm Password" autoComplete="new-password" className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control px-4 py-3 outline-none focus:ring-2 focus:ring-accent-secondary/40 focus:border-accent-secondary transition-[border-color,box-shadow] placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                   </div>
                   <button type="button" onClick={() => setStatus('verified')} className="w-full bg-accent-secondary hover:bg-accent-secondary-dark text-white dark:text-indigo-950 font-bold py-4 rounded-control shadow-lg transition-colors">Save New Password</button>
                 </div>
@@ -288,8 +288,8 @@ export default function EmailDemo() {
                    <div aria-hidden="true" className="w-16 h-16 bg-accent-secondary/15 text-accent-secondary ring-1 ring-accent-secondary/30 rounded-card flex items-center justify-center text-2xl mx-auto">
                     <i className="fas fa-paper-plane"></i>
                   </div>
-                  <h3 className="text-xl font-bold text-white">Email Dispatched</h3>
-                  <p className="text-sm text-slate-400 max-w-[200px]">Interact with the <b>Live HTML Preview</b> to continue the workflow.</p>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Email Dispatched</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 max-w-[200px]">Interact with the <b>Live HTML Preview</b> to continue the workflow.</p>
                 </div>
               )}
             </div>
@@ -306,28 +306,28 @@ export default function EmailDemo() {
             {htmlPreview && <span className="text-xxs text-accent font-bold flex items-center gap-1"><i aria-hidden="true" className="fas fa-circle text-[6px]"></i> Rendered from SMTP Payload</span>}
           </div>
 
-          <div className="bg-slate-900/80 backdrop-blur-sm rounded-card-lg border border-white/10 overflow-hidden shadow-2xl flex-grow min-h-[500px] flex flex-col relative">
+          <div className="bg-white dark:bg-slate-900/80 backdrop-blur-sm rounded-card-lg border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl flex-grow min-h-[500px] flex flex-col relative">
             {!htmlPreview ? (
               <div className="flex-grow flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-8 text-center">
                 <div aria-hidden="true" className="w-20 h-20 rounded-pill bg-accent-secondary/10 ring-1 ring-accent-secondary/20 flex items-center justify-center mb-4">
                   <i className="fas fa-envelope-open-text text-3xl text-accent-secondary/60"></i>
                 </div>
-                <p className="text-sm italic text-slate-400">Complete the form to generate and view the raw HTML email template.</p>
+                <p className="text-sm italic text-slate-600 dark:text-slate-400">Complete the form to generate and view the raw HTML email template.</p>
               </div>
             ) : (
               <div className="flex-grow flex flex-col h-full">
-                <div className="bg-black/40 border-b border-white/10 px-6 py-3 flex items-center gap-4">
+                <div className="bg-slate-100 dark:bg-black/40 border-b border-slate-200 dark:border-white/10 px-6 py-3 flex items-center gap-4">
                   <div className="flex gap-1.5" aria-hidden="true">
                     <div className="w-2.5 h-2.5 rounded-pill bg-danger/60"></div>
                     <div className="w-2.5 h-2.5 rounded-pill bg-warn/60"></div>
                     <div className="w-2.5 h-2.5 rounded-pill bg-positive/60"></div>
                   </div>
-                  <div className="bg-black/40 border border-white/10 rounded-control px-3 py-1 text-xxs text-slate-400 flex-grow truncate">
+                  <div className="bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-control px-3 py-1 text-xxs text-slate-600 dark:text-slate-400 flex-grow truncate">
                     Subject: {activeScenario === '2fa' ? 'Verification Code' : activeScenario === 'order' ? 'Order Confirmation' : activeScenario === 'password-reset' ? 'Password Reset' : 'Quote Request'}
                   </div>
                 </div>
 
-                <div className="flex-grow relative overflow-auto bg-black/30 p-4">
+                <div className="flex-grow relative overflow-auto bg-slate-100 dark:bg-black/30 p-4">
                    <div className="bg-white dark:bg-slate-900 shadow-2xl rounded-control overflow-hidden transform scale-90 origin-top">
                       {/* We use an iframe or dangerouslySetInnerHTML. For demo purposes, we'll use a div and intercept clicks. */}
                       <div 
@@ -345,7 +345,7 @@ export default function EmailDemo() {
                       />
                    </div>
                    
-                   <div className="absolute bottom-4 left-4 right-4 bg-accent-secondary-dark/90 backdrop-blur-md p-3 rounded-control border border-white/10 flex items-center justify-between text-white">
+                   <div className="absolute bottom-4 left-4 right-4 bg-indigo-50 dark:bg-accent-secondary-dark/90 backdrop-blur-md p-3 rounded-control border border-indigo-200 dark:border-white/10 flex items-center justify-between text-indigo-900 dark:text-white">
                       <div className="flex items-center gap-3">
                         <i aria-hidden="true" className="fas fa-mouse-pointer animate-pulse text-accent-secondary"></i>
                         <span className="text-xxs font-medium italic opacity-80 underline decoration-accent-secondary underline-offset-4">Interactive Preview: Click the buttons inside the email!</span>

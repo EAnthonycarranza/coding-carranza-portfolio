@@ -1,13 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import { getServerThemeSnapshot, getThemeSnapshot, setThemePreference, subscribeToTheme, type ThemePreference } from "@/lib/theme";
-
-function useTheme() {
-  const snapshot = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, getServerThemeSnapshot);
-  const [preference, resolved] = snapshot.split(":");
-  return { preference: preference as ThemePreference, dark: resolved === "dark" };
-}
+import { setThemePreference, type ThemePreference } from "@/lib/theme";
+import { useTheme } from "@/lib/use-theme";
 
 export default function ThemeToggle() {
   const { dark } = useTheme();

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center bg-hero-bg text-white overflow-hidden pt-32 lg:pt-20">
+      <section className="relative min-h-[90vh] flex items-center bg-hero-bg text-slate-900 dark:text-white overflow-hidden pt-32 lg:pt-20">
         {/* Ambient Glows */}
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -34,7 +34,7 @@ export default function Home() {
                 Premium Web <br />
                 <span className="text-gradient">Experiences</span> for Small Biz
               </h1>
-              <p className="text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed">
+              <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-12 leading-relaxed">
                 I bridge the gap between complex technology and your business goals, 
                 specializing in Next.js and MERN web app development to craft 
                 high-performance websites that convert visitors into customers.
@@ -48,7 +48,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center glass border-slate-700 hover:border-accent text-white font-bold px-8 py-4 rounded-2xl transition-all hover:-translate-y-1"
+                  className="inline-flex items-center justify-center glass border-slate-200 dark:border-slate-700 hover:border-accent text-slate-900 dark:text-white font-bold px-8 py-4 rounded-2xl transition-all hover:-translate-y-1"
                 >
                   Let&apos;s Talk
                 </Link>
@@ -59,9 +59,9 @@ export default function Home() {
               <div className="relative w-72 h-72 lg:w-96 lg:h-96">
                 {/* Decorative rings */}
                 <div className="absolute inset-0 rounded-full border border-accent/20 animate-[spin_10s_linear_infinite]" />
-                <div className="absolute -inset-4 rounded-full border border-slate-800 animate-[spin_15s_linear_infinite_reverse]" />
+                <div className="absolute -inset-4 rounded-full border border-slate-200 dark:border-slate-800 animate-[spin_15s_linear_infinite_reverse]" />
                 
-                <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-slate-900 shadow-2xl z-10">
+                <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-slate-200 dark:border-slate-900 shadow-2xl z-10">
                   <Image
                     src="/images/anthony.png"
                     alt="Anthony Carranza"
@@ -77,22 +77,22 @@ export default function Home() {
                   <span className="text-accent font-bold">Next.js</span>
                 </div>
                 <div className="absolute -left-4 top-10 glass px-4 py-2 rounded-xl border border-blue-400/30 z-20 shadow-xl animate-pulse">
-                  <span className="text-blue-400 font-bold">React</span>
+                  <span className="text-blue-700 dark:text-blue-400 font-bold">React</span>
                 </div>
                 <div className="absolute -left-12 top-1/2 -translate-y-1/2 glass px-4 py-2 rounded-xl border border-blue-500/30 z-20 shadow-xl animate-[bounce_2s_infinite]">
-                  <span className="text-blue-500 font-bold">TypeScript</span>
+                  <span className="text-blue-700 dark:text-blue-500 font-bold">TypeScript</span>
                 </div>
                 <div className="absolute -right-12 top-1/2 -translate-y-1/2 glass px-4 py-2 rounded-xl border border-indigo-400/30 z-20 shadow-xl animate-pulse">
-                  <span className="text-indigo-400 font-bold">SEO</span>
+                  <span className="text-indigo-700 dark:text-indigo-400 font-bold">SEO</span>
                 </div>
                 <div className="absolute -left-4 bottom-10 glass px-4 py-2 rounded-xl border border-green-500/30 z-20 shadow-xl animate-bounce">
-                  <span className="text-green-500 font-bold">Mongo DB</span>
+                  <span className="text-green-700 dark:text-green-500 font-bold">Mongo DB</span>
                 </div>
                 <div className="absolute -right-4 bottom-10 glass px-4 py-2 rounded-xl border border-green-600/30 z-20 shadow-xl animate-pulse">
-                  <span className="text-green-600 font-bold">Node.js</span>
+                  <span className="text-green-700 dark:text-green-600 font-bold">Node.js</span>
                 </div>
                 <div className="absolute left-1/2 -bottom-6 -translate-x-1/2 glass px-4 py-2 rounded-xl border border-slate-400/30 z-20 shadow-xl animate-bounce">
-                  <span className="text-slate-400 font-bold">Express.js</span>
+                  <span className="text-slate-600 dark:text-slate-400 font-bold">Express.js</span>
                 </div>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-block p-4 bg-white dark:bg-slate-900 rounded-3xl shadow-xl mb-8">
             <div className="flex -space-x-3 overflow-hidden">
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-slate-200 overflow-hidden">
                 <Image 
                   src="https://themilkandhoney.co/static/media/Logo.c6eabcf5c49deefa02f7.png"
                   alt="Milk & Honey Logo"
@@ -204,7 +204,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-white overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-white overflow-hidden">
                 <Image 
                   src="https://storage.googleapis.com/carranzarestorationllc/Carranza%20Restoration.d619e97f6f8dee49a662.png"
                   alt="Carranza Restoration Logo"
@@ -213,7 +213,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-slate-200 overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-slate-200 overflow-hidden">
                 <Image 
                   src="https://storage.googleapis.com/carranzawedding/logo192%202.png"
                   alt="Carranza Wedding Logo"
@@ -222,7 +222,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-white bg-white overflow-hidden">
+              <div className="relative inline-block h-12 w-12 rounded-full ring-4 ring-slate-200 dark:ring-white bg-white overflow-hidden">
                 <Image
                   src="/images/bon-bons-sweets-logo.png"
                   alt="Bon Bon's Sweets & More logo"

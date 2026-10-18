@@ -78,13 +78,13 @@ export default async function ProjectDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-hero-bg text-white overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-hero-bg text-slate-900 dark:text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 text-slate-400 hover:text-accent font-bold mb-8 transition-colors"
+            className="group inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-accent font-bold mb-8 transition-colors"
           >
             <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -96,24 +96,24 @@ export default async function ProjectDetailPage({
             {project.title}
           </h1>
           
-          <div className="flex flex-wrap items-center gap-6 text-slate-400">
+          <div className="flex flex-wrap items-center gap-6 text-slate-600 dark:text-slate-400">
             {project.client_name && (
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-widest text-accent">Client</span>
-                <span className="font-bold text-white">{project.client_name}</span>
+                <span className="font-bold text-slate-900 dark:text-white">{project.client_name}</span>
               </div>
             )}
-            <div className="w-1.5 h-1.5 rounded-full bg-slate-700 hidden sm:block" />
+            <div className="w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 hidden sm:block" />
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-widest text-accent">Role</span>
-              <span className="font-bold text-white">Full Stack Dev</span>
+              <span className="font-bold text-slate-900 dark:text-white">Full Stack Dev</span>
             </div>
             {project.service_package ? (
               <>
-                <div className="w-1.5 h-1.5 rounded-full bg-slate-700 hidden sm:block" />
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 hidden sm:block" />
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold uppercase tracking-widest text-accent">Package</span>
-                  <span className="font-bold text-white">{project.service_package}</span>
+                  <span className="font-bold text-slate-900 dark:text-white">{project.service_package}</span>
                 </div>
               </>
             ) : null}
@@ -222,7 +222,7 @@ export default async function ProjectDetailPage({
             <div className="space-y-12">
               {techs.length > 0 && (
                 <div className="glass p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">Tech Stack</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400 mb-6">Tech Stack</h3>
                   <div className="flex flex-wrap gap-3">
                     {techs.map((tech) => (
                       <span
@@ -237,9 +237,9 @@ export default async function ProjectDetailPage({
               )}
 
               {project.project_url && (
-                <div className="p-8 rounded-3xl bg-slate-900 text-white shadow-2xl shadow-slate-200">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">Live Project</h3>
-                  <p className="text-slate-300 text-sm mb-8 leading-relaxed">
+                <div className="p-8 rounded-3xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-2xl shadow-slate-200">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400 mb-6">Live Project</h3>
+                  <p className="text-slate-700 dark:text-slate-300 text-sm mb-8 leading-relaxed">
                     Experience the final product live in your browser to see the 
                     performance and interactions firsthand.
                   </p>

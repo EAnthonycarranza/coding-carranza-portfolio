@@ -98,29 +98,29 @@ export default function PdfDemo() {
   return (
     <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 pb-20">
 
-      <div className="bg-slate-950 rounded-card-lg p-8 shadow-2xl border border-white/10">
+      <div className="bg-slate-50 dark:bg-slate-950 rounded-card-lg p-8 shadow-2xl border border-slate-200 dark:border-white/10">
         <div className="mb-8">
-          <h2 className="text-2xl font-black text-white mb-2 underline decoration-accent-secondary underline-offset-4">Catering Menu</h2>
-          <p className="text-sm text-slate-400">Select items to build your custom catering quote</p>
+          <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2 underline decoration-accent-secondary underline-offset-4">Catering Menu</h2>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Select items to build your custom catering quote</p>
         </div>
 
         <ul className="space-y-4" aria-label="Menu items">
           {menuItems.map(item => (
-            <li key={item.id} className="group flex items-center justify-between p-4 rounded-card border border-white/5 hover:border-accent-secondary/30 hover:bg-white/5 transition-[border-color,background-color]">
+            <li key={item.id} className="group flex items-center justify-between p-4 rounded-card border border-slate-200 dark:border-white/5 hover:border-accent-secondary/30 hover:bg-slate-100/70 dark:hover:bg-white/5 transition-[border-color,background-color]">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white/10 rounded-control flex items-center justify-center text-xl group-hover:bg-accent-secondary/20 group-hover:scale-110 transition-[background-color,transform]" aria-hidden="true">
+                <div className="w-12 h-12 bg-slate-100/70 dark:bg-white/10 rounded-control flex items-center justify-center text-xl group-hover:bg-accent-secondary/20 group-hover:scale-110 transition-[background-color,transform]" aria-hidden="true">
                   {itemEmoji(item.id)}
                 </div>
                 <div>
-                  <div className="font-bold text-slate-200">{item.name}</div>
-                  <div className="text-sm text-slate-400">${item.price.toFixed(2)}</div>
+                  <div className="font-bold text-slate-800 dark:text-slate-200">{item.name}</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">${item.price.toFixed(2)}</div>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => addToCart(item)}
                 aria-label={`Add ${item.name} to cart`}
-                className="bg-white/10 text-white dark:text-indigo-950 w-10 h-10 rounded-control flex items-center justify-center hover:bg-accent-secondary transition-colors shadow-md"
+                className="bg-slate-100 dark:bg-white/10 text-accent-secondary w-10 h-10 rounded-control flex items-center justify-center hover:bg-accent-secondary hover:text-white dark:hover:text-indigo-950 transition-colors shadow-md"
               >
                 <i aria-hidden="true" className="fas fa-plus"></i>
               </button>
@@ -128,8 +128,8 @@ export default function PdfDemo() {
           ))}
         </ul>
 
-        <div className="mt-12 p-6 bg-white/5 rounded-card border border-white/10 space-y-4">
-          <h3 className="text-sm font-black text-white uppercase tracking-widest flex items-center gap-2">
+        <div className="mt-12 p-6 bg-slate-100/70 dark:bg-white/5 rounded-card border border-slate-200 dark:border-white/10 space-y-4">
+          <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
             <i aria-hidden="true" className="fas fa-user-tag text-accent-secondary"></i>
             Client Details
           </h3>
@@ -143,7 +143,7 @@ export default function PdfDemo() {
                 onChange={e => setCustomerName(e.target.value)}
                 placeholder="Customer Name"
                 autoComplete="name"
-                className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -155,14 +155,14 @@ export default function PdfDemo() {
                 onChange={e => setCustomerEmail(e.target.value)}
                 placeholder="Email Address"
                 autoComplete="email"
-                className="w-full bg-black/30 border border-white/10 text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                className="w-full bg-slate-100 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-control px-4 py-3 text-sm focus:ring-2 focus:ring-accent-secondary/20 focus:border-accent-secondary transition-[border-color,box-shadow] outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-surface-deep rounded-card-lg p-8 shadow-2xl border border-white/10 flex flex-col min-h-[500px] relative overflow-hidden text-white">
+      <div className="bg-surface-deep rounded-card-lg p-8 shadow-2xl border border-slate-200 dark:border-white/10 flex flex-col min-h-[500px] relative overflow-hidden text-slate-900 dark:text-white">
         <div aria-hidden="true" className="absolute top-0 right-0 w-64 h-64 bg-accent-secondary/10 blur-[100px] rounded-pill -mr-32 -mt-32"></div>
         <div aria-hidden="true" className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 blur-[100px] rounded-pill -ml-32 -mb-32"></div>
 
@@ -176,14 +176,14 @@ export default function PdfDemo() {
 
           <div className="flex-grow space-y-4 mb-8">
             {cart.length === 0 ? (
-              <div className="h-full flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 italic p-12 text-center border-2 border-dashed border-white/5 rounded-card-lg">
+              <div className="h-full flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 italic p-12 text-center border-2 border-dashed border-slate-200 dark:border-white/5 rounded-card-lg">
                 <i aria-hidden="true" className="fas fa-cart-shopping text-4xl mb-4 opacity-20"></i>
                 <p>Add items from the menu to build your professional invoice</p>
               </div>
             ) : (
               <ul className="space-y-3 max-h-[300px] overflow-y-auto pr-2 scrollbar-hide" aria-label="Cart contents">
                 {cart.map(item => (
-                  <li key={item.id} className="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-card animate-in slide-in-from-right-4">
+                  <li key={item.id} className="flex items-center justify-between p-4 bg-slate-100/70 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-card animate-in slide-in-from-right-4">
                     <div className="flex items-center gap-4">
                       <div className="w-8 h-8 rounded-control bg-accent-secondary/20 text-accent-secondary flex items-center justify-center font-bold text-xs" aria-label={`Quantity ${item.quantity}`}>
                         {item.quantity}x
@@ -196,7 +196,7 @@ export default function PdfDemo() {
                         type="button"
                         onClick={() => removeFromCart(item.id)}
                         aria-label={`Remove ${item.name} from cart`}
-                        className="text-white/20 hover:text-danger transition-colors"
+                        className="text-slate-600 dark:text-white/20 hover:text-danger transition-colors"
                       >
                         <i aria-hidden="true" className="fas fa-times"></i>
                       </button>
@@ -207,11 +207,11 @@ export default function PdfDemo() {
             )}
           </div>
 
-          <div className="mt-auto space-y-6 pt-6 border-t border-white/10">
+          <div className="mt-auto space-y-6 pt-6 border-t border-slate-200 dark:border-white/10">
             <div className="flex justify-between items-end">
               <div>
                 <p className="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Total Amount Due</p>
-                <p className="text-4xl font-black text-white">${total.toFixed(2)}</p>
+                <p className="text-4xl font-black text-slate-900 dark:text-white">${total.toFixed(2)}</p>
               </div>
               <div className="text-right">
                 <p className="text-xxs text-accent font-bold mb-1 flex items-center justify-end gap-1">
@@ -244,7 +244,7 @@ export default function PdfDemo() {
                 loading={sendingEmail}
                 loadingLabel="Emailing Invoice..."
                 leadingIcon={<i className="fas fa-envelope text-lg" />}
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/10"
+                className="bg-slate-100/70 dark:bg-white/10 hover:bg-slate-200/60 dark:hover:bg-white/20 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10"
               >
                 Send PDF Invoice Email
               </Button>
